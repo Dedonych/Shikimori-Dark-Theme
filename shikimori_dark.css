@@ -1,4 +1,4 @@
-@media screen {
+
   html,
   body {
     color-scheme: dark;
@@ -738,7 +738,6 @@
     margin:0;
   }
 
-}
 @media screen and (max-width: 1023px) {
   .p-dashboards-show .v2 .fc-user-sections .f-sections{
   display: grid;
