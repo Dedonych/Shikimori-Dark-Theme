@@ -1,17 +1,10 @@
-
+@media screen and (prefers-color-scheme: dark) {
   html,
   body {
-    color-scheme: dark;
-    background: var(--bckg-primary);
+    color-scheme: light dark;
+    background: var(--bckg-primary) !important;
   }
 
-  /* selection style*/
-  ::selection {
-    z-index: 2;
-    color: white;
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  
   html[data-color-mode="light"] {
     --bckg-primary: #212121;
     --bckg-dark: #1a1a1a;
@@ -175,7 +168,9 @@
     color: var(--link-primary);
   }
   /* #tooltip (hover title) */
-  .tooltip-inner {
+  .tooltip-inner,
+  :is(.p-animes-franchise, .p-mangas-franchise, .p-ranobe-franchise)
+    .sticky-tooltip {
     background-color: var(--bckg-light);
     color: var(--txt-primary);
     border-color: var(--bckg-light);
@@ -196,7 +191,7 @@
   }
 
   /* remove close #button */
-  .tooltip-inner .close {
+  :is(.sticky-tooltip, .tooltip-inner) .close {
     display: none;
   }
 
@@ -263,7 +258,10 @@
     background: var(--bar-s3-hvr);
   }
   /* #input style */
-
+  .subheadline-input[type="submit"],
+  .subheadline-input[type="text"],
+  .subheadline-input[type="password"],
+  .subheadline-input[type="email"],
   .b-form input,
   .b-input input,
   .b-form input[type="submit"],
@@ -286,7 +284,27 @@
   .b-input input[disabled] {
     background-color: var(--bckg-light);
   }
-
+  /* #input data  */
+  .pika-single,
+  .pika-label{
+    color:var(--txt-primary);
+    background:var(--bckg-light);
+  }
+  .pika-button,
+  .is-today .pika-button{
+    background-color: var(--bckg-lighter);
+    color:var(--txt-secondary) !important;
+  }
+  .pika-button:hover{
+    background-color: var(--clr-main-dark);
+  }
+  .is-selected .pika-button{
+    background-color: var(--clr-main-primary);
+    box-shadow:none;
+  }
+  :is(.is-disabled,.pika-day) .pika-button{
+    background-color: var(--bckg-dark);
+  }
   /* style for #list  */
 
   .p-user_rates-index .list-lines tr td .rewatches {
@@ -314,10 +332,30 @@
   }
 
   /* #list checkboxes*/
+  .b-block_list li {
+    height: 24px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+  }
   .b-block_list li:hover,
   .b-block_list li.selected {
     background-color: var(--bckg-primary);
     color: var(--txt-primary);
+  }
+  /* #list checkmark  */
+  .b-collection-filters .block > .filter {
+    margin: 0;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  /* #list plus/minus  */
+  .item-add:first-child {
+    right: 0;
+    display: grid;
+    place-content: center;
   }
   input[type="checkbox"] {
     visibility: hidden;
@@ -333,13 +371,16 @@
     align-items: center;
     border: 1px solid grey;
     border-radius: 2px;
-    width: 14px;
-    height: 14px;
+    width: 13px;
+    height: 13px;
     line-height: 13px;
     background-color: var(--bckg-lighter);
   }
   input[type="checkbox"]:checked::before {
-    content: "\2714";
+    background: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/main/checkmark.svg)
+      no-repeat;
+    background-size: contain;
+    width: 13px;
     border: 1px solid transparent;
     background-color: var(--clr-main-dark);
   }
@@ -415,15 +456,34 @@
   .magenta {
     color: magenta;
   }
-
+  .purple {
+    color: fuchsia;
+  }
+  .gray {
+    color: lightgrey;
+  }
+  .powderblue {
+    color: powderblue;
+  }
+  .yellow {
+    color: gold;
+  }
+  .yellow,
   .red,
   .blue,
   .green,
   .orange,
   .magenta,
+  .purple,
+  .gray,
+  .powderblue,
   .skyblue {
     background: var(--bckg-dark);
     border-color: currentColor;
+  }
+  /* #graph */
+  rect {
+    fill: var(--bckg-dark);
   }
 
   /* #offtop  */
@@ -463,19 +523,66 @@
     border-radius: 4px;
   }
 
-  /* #title style  */
+  /* #catalog status */
+  .b-catalog_entry:is(
+      .on_hold,
+      .planned,
+      .dropped,
+      .watching,
+      .rewatching,
+      .completed
+    )
+    .image-decor:before {
+    display: none;
+  }
+  .b-catalog_entry:is(
+      .on_hold,
+      .planned,
+      .dropped,
+      .watching,
+      .rewatching,
+      .completed
+    )
+    .image-decor:after {
+    background-color: transparent;
+    background-color: rgb(33, 33, 33);
+    border: 2px solid currentColor;
+    border-color: 0;
+    top: 0;
+    right: 0;
+    border-bottom-left-radius: 14px;
+  }
+  .b-catalog_entry.on_hold .image-decor:after {
+    color: grey;
+  }
+  .b-catalog_entry.planned .image-decor:after {
+    color: lightgrey;
+  }
+  .b-catalog_entry.dropped .image-decor:after {
+    color: lightcoral;
+  }
+  .b-catalog_entry.watching .image-decor:after {
+    color: skyblue;
+  }
+  .b-catalog_entry.rewatching .image-decor:after {
+    color: #71c5f9;
+  }
+  .b-catalog_entry.completed .image-decor:after {
+    color: rgb(60, 204, 137);
+  }
 
   /* #title three dots and #comments loader   */
   :is(.p-animes-show, .p-mangas-show, .p-ranobe-show) .other-names,
   .b-comments :is(.comments-loader, .comments-hider, .comments-expander),
-  .b-comments .faye-loader {
+  .b-comments .faye-loader,
+  .b-forum .faye-loader {
     background-color: var(--bckg-dark);
     border-color: var(--txt-secondary-dark);
     border-radius: 4px;
     color: var(--txt-secondary);
   }
   :is(.p-animes-show, .p-mangas-show, .p-ranobe-show) .other-names:hover,
-  .b-comments
+  :is(.b-comments, .b-forum)
     :is(
       .comments-loader,
       .faye-loader,
@@ -616,28 +723,36 @@
   }
 
   /* b-ajax style  */
+
+  /* remove prev loader */
+
   .b-ajax::before,
+  .b-ajax::after,
   .ajax-loading {
-    background: rgba(0, 0, 0, 0.347);
+    background: none;
   }
 
   .b-ajax::after,
   .ajax-loading::before {
+    display: grid;
+    place-content: center;
+    height: 24px;
+    width: 24px;
+  }
+  .b-ajax::after,
+  .ajax-loading::before {
     content: "";
     inset: 0;
+    position: absolute;
     margin: auto;
-    width: 40px;
-    height: 40px;
+
     border: 5px solid var(--txt-primary);
-    background: none !important;
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;
     box-sizing: border-box;
-    position: absolute;
     animation: rotation 1s linear infinite;
   }
-
   @keyframes rotation {
     0% {
       transform: rotate(0deg);
@@ -664,13 +779,13 @@
     background: var(--bckg-light);
     color: var(--txt-secondary);
     text-align: center;
-    margin: 0;
+    margin: 0 !important;
     padding: 2px 0;
   }
 
   /* #forum header  */
   header.head {
-    border-bottom: 4px solid var(--bckg-primary);
+    border-bottom: 2px solid var(--bckg-primary);
   }
   header.head h1 a.back:before,
   header.head h2 a.back:before {
@@ -713,13 +828,13 @@
   }
 
   /* #mobile toggler  */
-  .l-page .menu-toggler{
+  .l-page .menu-toggler {
     width: 40px;
-    height:80px;
+    height: 80px;
     position: fixed;
-    top:calc(var(--top-menu-height)*1.25);
+    top: calc(var(--top-menu-height) * 1.25);
   }
-  .l-page .menu-toggler .toggler{
+  .l-page .menu-toggler .toggler {
     position: absolute;
     display: grid;
     padding: 6px 8px;
@@ -730,25 +845,28 @@
   .l-page .menu-toggler .toggler::after {
     background-color: var(--bckg-light);
     color: var(--txt-primary);
-    
   }
-  .l-page .menu-toggler .toggler::before{
+  .l-page .menu-toggler .toggler::before {
     transform: none;
     writing-mode: vertical-lr;
-    margin:0;
+    margin: 0;
   }
-
+}
 @media screen and (max-width: 1023px) {
-  .p-dashboards-show .v2 .fc-user-sections .f-sections{
-  display: grid;
+  .p-dashboards-show .v2 .fc-user-sections .f-sections {
+    display: grid;
   }
-  .p-dashboards-show .v2 .fc-user-sections .f-sections :is(.f-headline,.f-tags){
-    width:100%;
+  .p-dashboards-show
+    .v2
+    .fc-user-sections
+    .f-sections
+    :is(.f-headline, .f-tags) {
+    width: 100%;
   }
-  .p-dashboards-show .v2 .fc-user-sections .f-sections .fc-tags{
+  .p-dashboards-show .v2 .fc-user-sections .f-sections .fc-tags {
     position: relative;
     display: flex;
   }
-
 }
+
 
