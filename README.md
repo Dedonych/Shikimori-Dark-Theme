@@ -5,7 +5,6 @@
 
 ```css 
 html[data-color-mode="light"] {
- ...
     --clr-main-primary: /* Основной цвет*/;
     --clr-main-dark:/* Темнее цвет*/;
     --clr-main-light:/* Светлее цвет*/;
