@@ -1,0 +1,710 @@
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    color-scheme: dark;
+    background: var(--bckg-primary);
+  }
+
+  html[data-color-mode="light"] {
+    --bckg-primary: #212121;
+    --bckg-dark: #1a1a1a;
+    --bckg-light: #333333;
+    --bckg-lighter: #454545;
+
+    --txt-primary: #fff;
+    --txt-secondary: #ccc;
+    --txt-secondary-dark: #afafaf;
+
+    --clr-main-primary: #4e9f3d;
+    --clr-main-dark: #3b7a2f;
+    --clr-main-light: #64b950;
+
+    --txt-accent: var(--clr-main-primary);
+
+    --clr-secondary: #29b6f6;
+
+    --link-primary: var(--clr-main-primary);
+    --link-hover: color-mix(in srgb, var(--clr-main-primary) 60%, white);
+    --link-active: color-mix(in srgb, var(--clr-main-dark) 70%, white);
+
+    --bar-s0: color-mix(in srgb, var(--clr-main-primary) 80%, black);
+    --bar-s0-hvr: color-mix(in srgb, var(--clr-main-primary) 70%, black);
+
+    --bar-s1: color-mix(in srgb, var(--clr-main-dark) 90%, black);
+    --bar-s1-hvr: color-mix(in srgb, var(--clr-main-dark) 80%, black);
+
+    --bar-s2: color-mix(in srgb, var(--clr-main-light) 90%, white);
+    --bar-s2-hvr: color-mix(in srgb, var(--clr-main-light) 80%, white);
+
+    --bar-s3: color-mix(in srgb, var(--clr-main-light) 60%, white);
+    --bar-s3-hvr: color-mix(in srgb, var(--clr-main-light) 60%, white);
+
+    --selection-bckg: #ffffff1a;
+    --selection-clr: #ffffff01;
+    --selection-search: #00ff0839;
+  }
+
+  html[data-color-mode="light"] {
+    --link-color: var(--link-primary);
+    --link-hover-color: var(--link-hover);
+    --link-active-color: var(--link-active);
+    --headline-color: transparent;
+    --headline-background-color: var(--bckg-primary);
+    --headline-border-color: var(--clr-main-primary);
+  }
+
+  .l-page {
+    background-color: var(--bckg-light);
+  }
+  /* #login  */
+  .p-dashboards-show .v2 .devise{
+    background:var(--bckg-dark) ;
+    border-color:var(--bckg-lighter)
+  }
+
+  /* #arrow to up  */
+  .b-to-top.active .arrow{
+    color:var(--txt-primary)
+  }
+  .b-to-top .slide:before{
+    background-color: var(--bckg-lighter);
+  }
+  /* #global search */
+  .l-top_menu-v2 .global-search .search-results,
+  .l-top_menu-v2 .global-search .search-results .nothing_found,
+  .l-top_menu-v2 .global-search .search-results .search-mode {
+    background: var(--bckg-light);
+    color: var(--txt-primary);
+    border-color: var(--clr-main-dark);
+  }
+  /* remove shadow #search  */
+  .l-top_menu-v2 .global-search .search-results:after,
+  .l-top_menu-v2 .global-search .search-results:before {
+    display: none;
+  }
+  /* #search left border */
+
+  .l-top_menu-v2
+    .global-search
+    .search-results
+    :is(
+      .nothing_found.active,
+      .nothing_found:focus,
+      .b-db_entry-variant-list_item.active,
+      .b-db_entry-variant-list_item:focus,
+      .search-mode.active,
+      .search-mode:focus
+    ):before {
+    background: var(--clr-main-primary);
+  }
+  .l-top_menu-v2 .global-search .search-results .active {
+    background: none !important;
+    border-top-color: var(--clr-main-light) !important;
+  }
+  .l-top_menu-v2 .global-search .search-results .active + .search-mode {
+    border-top-color: var(--clr-main-light) !important;
+  }
+  .l-top_menu-v2 .global-search .search-results .search-mode:hover:before {
+    background: var(--clr-main-dark);
+  }
+  /* Set different #elements to text secondary  */
+  .b-tag,
+  header.head .notice,
+  .b-stats_bar .title,
+  :is(.b-user_rate, .b-catalog_entry-tooltip) .inner .rating .text,
+  :is(.b-user_rate, .b-catalog_entry-tooltip) .inner .rating,
+  .b-catalog_entry .cover .misc span,
+  .p-profiles-show .profile-content .activity .title,
+  .p-profiles-show .lifetime .times .time.checked,
+  .p-profiles-show .achievements .header .title,
+  .b-news_line-topic .status-line,
+  .p-profiles .profile-head .c-info .c-additionals b,
+  .p-user_rates-index .list-groups .summary.lines,
+  .bar.vertical .line .x_label,
+  .bar.horizontal .line .x_label,
+  .b-entry-info .line .value,
+  .b-rate .score-notice,
+  .b-animes-menu .total-rates,
+  .b-review-topic.is-review_review_author_details
+    > .inner
+    .review-details
+    .b-status-line,
+  .b-review-topic.is-review_review_author_details
+    > .inner
+    .review-info
+    .user-rate-label,
+  .b-comment > .inner .name-date .time,
+  .b-db_entry-variant-list_item > .info .line .key,
+  .profile-actions :is(.mail, .settings, .ban),
+  .b-comment > .inner .name-date a.name .normal,
+  .b-catalog_entry-tooltip .inner .additional-images .link .title,
+  .l-top_menu-v2.is-search-focus .global-search .search-marker {
+    color: var(--txt-secondary);
+  }
+  .p-user_rates-index .list-lines tr td .episodes_total,
+  .b-subposter-action,
+  .l-top_menu-v2 .global-search .clear,
+  .l-top_menu-v2 .global-search {
+    color: var(--txt-secondary-dark);
+  }
+
+  .p-topics header h1 a.reload {
+    color: var(--txt-accent);
+  }
+  /* Set different #elements to text primary  */
+
+  :is(.b-user_rate, .b-catalog_entry-tooltip) .inner .line .key,
+  .p-user_rates-index .l-content .order-control,
+  .b-block_list li,
+  .b-rate .text-score,
+  h2,
+  h3,
+  h4,
+  header.head h1,
+  header.head h2,
+  .headline,
+  .midheadline,
+  .subheadline {
+    color: var(--link-primary);
+  }
+  /* #tooltip (hover title) */
+  .tooltip-inner {
+    background-color: var(--bckg-light);
+    color: var(--txt-primary);
+    border-color: var(--bckg-light);
+    box-shadow: 0 0 2px var(--txt-primary);
+  }
+  /* remove default #arrow on left side and set custom  */
+  .tooltip-arrow {
+    visibility: hidden;
+  }
+  .tooltip-arrow::before {
+    content: "";
+    display: block;
+    visibility: visible;
+    border: 24px solid transparent;
+    border-right-color: var(--bckg-primary);
+    position: absolute;
+    left: -26px;
+  }
+
+  /* remove close #button */
+  .tooltip-inner .close {
+    display: none;
+  }
+
+  /* #form action list and list title */
+  :is(.b-user_rate, .b-catalog_entry-tooltip)
+    .b-add_to_list
+    :is(.trigger, .option),
+  .b-add_to_list :is(.trigger, .option) {
+    color: var(--txt-secondary) !important;
+    background: var(--bckg-primary) !important;
+    border-color: var(--bckg-dark) !important;
+  }
+  :is(.b-user_rate, .b-catalog_entry-tooltip)
+    .b-add_to_list
+    :is(.trigger, .edit) {
+    color: var(--clr-main-primary);
+  }
+
+  /* #profile */
+  .b-stats_bar .stat_names .stat_name a {
+    color: var(--txt-secondary);
+  }
+
+  /* #hover faq */
+  .tipsy-inner {
+    box-shadow: none;
+    background-color: var(--bckg-dark);
+  }
+  .tipsy.tipsy-normal.tipsy-s {
+    opacity: 1 !important;
+  }
+
+  /* style #bars for profile  */
+
+  .bar.simple .bar.s0,
+  .b-stats_bar:is(.anime, .lifetime) .bar .first {
+    background: var(--bar-s0);
+  }
+  .bar.simple .bar.s1 {
+    background: var(--bar-s1);
+  }
+  .bar.simple .bar.s2,
+  .b-stats_bar:is(.anime, .lifetime) .bar .second {
+    background: var(--bar-s2);
+  }
+  .bar.simple .bar.s3,
+  .b-stats_bar:is(.anime, .lifetime) .bar .third {
+    background: var(--bar-s3);
+  }
+
+  .bar.simple .bar.s0:hover,
+  .b-stats_bar:is(.anime, .lifetime) .bar .first:hover {
+    background: var(--bar-s0-hvr);
+  }
+  .bar.simple .bar.s1:hover {
+    background: var(--bar-s1-hvr);
+  }
+  .bar.simple .bar.s2:hover,
+  .b-stats_bar:is(.anime, .lifetime) .bar .second:hover {
+    background: var(--bar-s2-hvr);
+  }
+  .bar.simple .bar.s3:hover,
+  .b-stats_bar:is(.anime, .lifetime) .bar .third:hover {
+    background: var(--bar-s3-hvr);
+  }
+  /* #input style */
+
+  .b-form input,
+  .b-input input,
+  .b-form input[type="submit"],
+  .l-top_menu-v2 .global-search input,
+  .b-link_button.dark,
+  .b-form textarea {
+    background: var(--bckg-lighter);
+    color: var(--txt-primary);
+    border-color: grey;
+  }
+  input:focus {
+    border-color: grey !important;
+  }
+  .b-form input[type="submit"]:hover,
+  .b-link_button.dark:hover {
+    border-color: grey;
+    background-color: var(--bckg-primary);
+  }
+
+  .b-input input[disabled] {
+    background-color: var(--bckg-light);
+  }
+
+  /* style for #list  */
+
+  .p-user_rates-index .list-lines tr td .rewatches {
+    color: var(--clr-secondary);
+  }
+  .p-user_rates-index .list-lines tr .name a,
+  .p-user_rates-index .list-lines tr .index {
+    color: var(--txt-secondary);
+  }
+
+  .p-user_rates-index .list-lines .selectable:hover {
+    background-color: var(--bckg-primary);
+  }
+  .p-user_rates-index .list-lines tr.edit-form form {
+    background-color: var(--bckg-primary);
+  }
+  .collapsed {
+    background-color: var(--bckg-primary);
+    color: var(--txt-secondary);
+    border: 0;
+  }
+  .collapsed:hover {
+    background-color: var(--bckg-dark);
+    color: var(--txt-secondary);
+  }
+
+  /* #list checkboxes*/
+  .b-block_list li:hover,
+  .b-block_list li.selected {
+    background-color: var(--bckg-primary);
+    color: var(--txt-primary);
+  }
+  input[type="checkbox"] {
+    visibility: hidden;
+  }
+  input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    font-size: 12px;
+    text-align: center;
+    visibility: visible;
+    display: inline-flex !important;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+    border-radius: 2px;
+    width: 14px;
+    height: 14px;
+    line-height: 13px;
+    background-color: var(--bckg-lighter);
+  }
+  input[type="checkbox"]:checked::before {
+    content: "\2714";
+    border: 1px solid transparent;
+    background-color: var(--clr-main-dark);
+  }
+
+  /* #avatar style  */
+  .avatar img[alt] {
+    border-radius: 50% !important;
+  }
+
+  /* #main a>div */
+  .b-news_wall-topic .title {
+    color: var(--link-primary);
+  }
+
+  /* #main my-list dashboard  */
+  .p-dashboards-show .v2 .my-list {
+    background: var(--bckg-primary);
+    border: 0;
+  }
+  .p-dashboards-show .v2 .my-list .label span {
+    color: var(--txt-primary);
+  }
+
+  .b-user_rate-history .status-counter,
+  .b-user_rate-history .score-time time,
+  .b-animes-menu .menu-topics-block .entry .time {
+    color: var(--txt-secondary);
+  }
+
+  /* #main colors */
+
+  .red,
+  .p-dashboards-show .v2 .fc-user-sections .tag-link.anime-tag {
+    background-color: darkred;
+    color: lightcoral;
+    border-color: lightcoral;
+  }
+
+  .p-dashboards-show .v2 .fc-user-sections .tag-link.anime-tag:hover {
+    background-color: #3b0707;
+  }
+  .blue,
+  .p-dashboards-show .v2 .fc-user-sections .tag-link.manga-tag {
+    background-color: darkblue;
+    color: dodgerblue;
+    border-color: dodgerblue;
+  }
+  .p-dashboards-show .v2 .fc-user-sections .tag-link.manga-tag:hover {
+    background-color: #052642;
+  }
+  .green,
+  .p-dashboards-show .v2 .fc-user-sections .tag-link.ranobe-tag {
+    background-color: darkgreen;
+    color: springgreen;
+    border-color: springgreen;
+  }
+  .p-dashboards-show .v2 .fc-user-sections .tag-link.ranobe-tag:hover {
+    background-color: #094d0b;
+  }
+
+  .p-dashboards-show
+    .v2
+    .fc-user-sections
+    .tag-link:is(.anime-tag, .ranobe-tag, .manga-tag) {
+    border: 0;
+  }
+  .orange {
+    color: orange;
+  }
+  .skyblue {
+    color: skyblue;
+  }
+  .magenta {
+    color: magenta;
+  }
+
+  .red,
+  .blue,
+  .green,
+  .orange,
+  .magenta,
+  .skyblue {
+    background: var(--bckg-dark);
+    border-color: currentColor;
+  }
+
+  /* #offtop  */
+  .b-offtopic_marker.active:before,
+  .b-offtopic_marker.off:before,
+  .b-offtopic_marker.active:hover:before {
+    background-color: #5c2940 !important;
+    border: 0 !important;
+  }
+  /* #hover link colors  */
+  .linkheadline.midheadline > a:hover,
+  .linkheadline.midheadline > a:hover::before {
+    color: currentColor;
+  }
+
+  /* #main status  */
+  .b-anime_status_tag.critique {
+    background-color: #641e3c;
+  }
+  .b-anime_status_tag.contest {
+    background-color: #6f30a0;
+  }
+  .b-anime_status_tag.news {
+    background-color: #724120;
+  }
+  .b-anime_status_tag.collection {
+    background-color: #0e5013;
+  }
+  .b-anime_status_tag:is(.studio, .other) {
+    background-color: var(--bckg-primary);
+    color: var(--txt-primary);
+  }
+  .b-anime_status_tag {
+    background-color: var(--bckg-primary);
+    border: 0 !important;
+    padding: 1px 6px !important;
+    border-radius: 4px;
+  }
+
+  /* #title style  */
+
+  /* #title three dots and #comments loader   */
+  :is(.p-animes-show, .p-mangas-show, .p-ranobe-show) .other-names,
+  .b-comments :is(.comments-loader, .comments-hider, .comments-expander),
+  .b-comments .faye-loader {
+    background-color: var(--bckg-dark);
+    border-color: var(--txt-secondary-dark);
+    border-radius: 4px;
+    color: var(--txt-secondary);
+  }
+  :is(.p-animes-show, .p-mangas-show, .p-ranobe-show) .other-names:hover,
+  .b-comments
+    :is(
+      .comments-loader,
+      .faye-loader,
+      .comments-hider,
+      .comments-expander
+    ):hover {
+    background-color: var(--bckg-primary);
+    border-color: var(--txt-secondary-dark);
+    border-radius: 4px;
+    color: var(--txt-secondary);
+  }
+
+  /* #comments navigation  */
+  .b-reviews_navigation .navigation-node {
+    background-color: var(--bckg-primary);
+    color: var(--txt-primary);
+    border-color: currentColor;
+  }
+
+  .b-reviews_navigation .navigation-node-all {
+    color: var(--txt-secondary);
+  }
+  .b-reviews_navigation .navigation-node-positive {
+    color: greenyellow;
+  }
+  .b-reviews_navigation .navigation-node-negative {
+    color: crimson;
+  }
+  .b-reviews_navigation .navigation-node-neutral {
+    color: skyblue;
+  }
+
+  .b-reviews_navigation .navigation-node.is-empty:not(.is-active) .label,
+  .b-reviews_navigation .navigation-node.is-empty:not(.is-active) .count {
+    color: currentColor;
+    opacity: 0.4;
+  }
+  .b-reviews_navigation .navigation-node:not(.is-active):not(.is-empty):hover {
+    background-color: var(--bckg-primary);
+  }
+
+  /* #comments rate review  */
+  .b-review-topic.is-review_review_author_details
+    > .inner
+    .review-info
+    .opinion:is(.negative, .neutral, .positive) {
+    background-color: transparent;
+  }
+  /* #forum comments style  */
+  .b-comment {
+    border: 0;
+    border-bottom: 1px solid var(--txt-secondary);
+    margin: 12px 0;
+    padding: 8px 0;
+  }
+
+  /* #comments replies  */
+  .b-replies {
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+  }
+  /* #title comments style  */
+  .b-topic {
+    border: 0;
+    border-bottom: 1px solid var(--txt-secondary);
+    margin: 16px 0;
+    padding-top: 4px;
+  }
+  /* #spoiler block  */
+  .b-spoiler_inline:not(.is-opened) {
+    background-color: var(--txt-secondary-dark);
+  }
+
+  /* #comments shade off  */
+  .b-height_shortener .shade {
+    filter: invert(0.7);
+  }
+
+  /* #comments buttons  */
+  .main-controls
+    :is(
+      .item-moderation,
+      .item-quote,
+      .item-reply,
+      .item-edit,
+      .item-delete,
+      .item-cancel,
+      .item-ignore
+    ) {
+    color: var(--txt-secondary-dark);
+  }
+
+  /* #comments editor  */
+  .vue-node .menubar {
+    background-color: var(--bckg-dark);
+  }
+  .vue-node .icons :is(button, label).icon {
+    color: var(--txt-secondary);
+  }
+  .ProseMirror,
+  code.b-code_inline {
+    background-color: var(--bckg-primary);
+    border-color: grey;
+    color: var(--txt-primary);
+  }
+  .b-spoiler_inline.is-opened {
+    background-color: rgb(82, 82, 82);
+  }
+  code.b-code_inline {
+    color: #c7254c;
+  }
+
+  .popup-content {
+    background-color: var(--bckg-light) !important;
+  }
+  .b-quote-v2,
+  .b-spoiler_block > div {
+    background-color: var(--bckg-dark);
+    color: var(--txt-primary);
+  }
+  .b-spoiler_block > span {
+    background-color: var(--bckg-dark);
+  }
+  .b-spoiler_block > span:hover {
+    background-color: var(--bckg-primary);
+  }
+
+  .b-quote {
+    background-color: var(--bckg-dark);
+    color: var(--txt-primary);
+    border: 2px solid grey;
+  }
+
+  /* feedback remove  */
+  .b-feedback {
+    display: none;
+  }
+
+  /* b-ajax style  */
+  .b-ajax::before,
+  .ajax-loading {
+    background: rgba(0, 0, 0, 0.347);
+  }
+
+  .b-ajax::after,
+  .ajax-loading::before {
+    content: "";
+    inset: 0;
+    margin: auto;
+    width: 40px;
+    height: 40px;
+    border: 5px solid var(--txt-primary);
+    background: none !important;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    position: absolute;
+    animation: rotation 1s linear infinite;
+  }
+
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* top main menu  */
+  .l-top_menu-v2 {
+    background: var(--bckg-dark);
+  }
+
+  /* main submenu   */
+  .l-top_menu-v2 .submenu {
+    border: 0;
+  }
+  .l-top_menu-v2 .submenu > a {
+    background-color: var(--bckg-primary);
+  }
+  .l-top_menu-v2 .submenu > a:hover {
+    background-color: var(--bckg-lighter);
+    color: var(--txt-primary);
+  }
+  .l-top_menu-v2 .submenu > .legend {
+    background: var(--bckg-light);
+    color: var(--txt-secondary);
+    text-align: center;
+    margin: 0;
+    padding: 2px 0;
+  }
+
+  /* #forum header  */
+  header.head {
+    border-bottom: 4px solid var(--bckg-primary);
+  }
+  header.head h1 a.back:before,
+  header.head h2 a.back:before {
+    color: var(--txt-secondary);
+  }
+  /* #footer */
+  .b-footer_vote {
+    background: var(--bckg-dark);
+    color: var(--txt-secondary);
+    border-color: var(--bckg-lighter);
+  }
+
+  /* #topic hot-topic  */
+  .b-hot_topics-v2 {
+    background: var(--bckg-primary);
+  }
+  .b-hot_topics-v2 .subject {
+    color: var(--txt-secondary);
+  }
+
+  /* profile css editor  */
+  .b-edit_styles .edit_style .style_css .CodeMirror,
+  .b-edit_styles .new_style .style_css .CodeMirror,
+  .cm-s-solarized.cm-s-light {
+    background-color: var(--bckg-primary);
+    text-shadow: none;
+    border-color: var(--bckg-light);
+    border-right: none;
+  }
+  .CodeMirror-gutter,
+  .cm-s-solarized.cm-s-light .CodeMirror-linenumber {
+    color: var(--txt-primary);
+    background-color: var(--bckg-dark);
+  }
+  .cm-s-solarized.cm-s-light div.CodeMirror-selected {
+    background: var(--selection-bckg);
+  }
+  .cm-searching {
+    background-color: var(--selection-search);
+  }
+}
