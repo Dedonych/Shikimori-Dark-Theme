@@ -17,4 +17,4 @@ html[data-color-mode="light"] {
 
 ![title](./posters/profile.png)
 
-![title](./posters/title.png)
+
