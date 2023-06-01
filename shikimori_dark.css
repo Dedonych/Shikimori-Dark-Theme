@@ -322,8 +322,8 @@
   
 /*   #message  */
   .yellow-fade{
-        outline-color:var(--bckg-dark);
-        background-color: var(--bckg-dark);
+        outline:10px solid var(--bckg-dark);
+        background: var(--bckg-dark);
   }
   /* style for #list  */
 
