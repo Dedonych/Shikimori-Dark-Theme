@@ -108,8 +108,7 @@
   .b-tag,
   header.head .notice,
   .b-stats_bar .title,
-  :is(.b-user_rate, .b-catalog_entry-tooltip) .inner .rating .text,
-  :is(.b-user_rate, .b-catalog_entry-tooltip) .inner .rating,
+  :is(.b-user_rate, .b-catalog_entry-tooltip) .inner :is(.rating .text,.rating),
   .b-catalog_entry .cover .misc span,
   .p-profiles-show .profile-content .activity .title,
   .p-profiles-show .lifetime .times .time.checked,
@@ -132,10 +131,22 @@
     .user-rate-label,
   .b-comment > .inner .name-date .time,
   .b-db_entry-variant-list_item > .info .line .key,
-  .profile-actions :is(.mail, .settings, .ban),
+  .profile-actions
+    :is(
+      .mail,
+      .settings,
+      .ban,
+      .talk,
+      .fav-add,
+      .ignore-add,
+      .fav-remove,
+      .ignore-remove
+    ),
   .b-comment > .inner .name-date a.name .normal,
   .b-catalog_entry-tooltip .inner .additional-images .link .title,
-  .l-top_menu-v2.is-search-focus .global-search .search-marker {
+  .l-top_menu-v2.is-search-focus .global-search .search-marker,
+  .b-user.detailed .history .line .event,
+  .b-user.moderation .history .line .event {
     color: var(--txt-secondary);
   }
   .p-user_rates-index .list-lines tr td .episodes_total,
@@ -734,9 +745,9 @@
 
   /* #spoiler block  */
   .b-spoiler .content .before,
-   .b-spoiler .content .after{
-    color:var(--txt-accent);
-   }
+  .b-spoiler .content .after {
+    color: var(--txt-accent);
+  }
   /* b-ajax style  */
 
   /* remove prev loader */
