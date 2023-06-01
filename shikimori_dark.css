@@ -400,7 +400,11 @@
   }
 
   /* #avatar style  */
-  .avatar img[alt] {
+  .avatar img[alt],
+  .icon-avatar img,
+  .profile img,
+  .image-name .image
+  {
     border-radius: 50% !important;
   }
 
@@ -910,4 +914,11 @@
     position: relative;
     display: flex;
   }
+}
+
+.l-top_menu-v2 {
+  position: sticky;
+  inset: 0;
+  margin: auto;
+  max-width: 1200px;
 }
