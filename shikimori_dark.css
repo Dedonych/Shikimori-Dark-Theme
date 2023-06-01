@@ -732,6 +732,11 @@
     display: none;
   }
 
+  /* #spoiler block  */
+  .b-spoiler .content .before,
+   .b-spoiler .content .after{
+    color:var(--txt-accent);
+   }
   /* b-ajax style  */
 
   /* remove prev loader */
