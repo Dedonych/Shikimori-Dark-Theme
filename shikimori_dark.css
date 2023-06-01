@@ -418,7 +418,7 @@ input[type="checkbox"]:checked::before {
 /* #avatar style  */
 .avatar img[alt],
 .icon-avatar img,
-.profile img,
+.profile a img[alt],
 .image-name .image {
   border-radius: 50% !important;
 }
@@ -712,6 +712,9 @@ rect {
 /* #comments editor  */
 .vue-node .menubar {
   background-color: var(--bckg-dark);
+}
+.vue-node .unsaved-content {
+    background: var(--bckg-lighter);
 }
 .vue-node .icons :is(button, label).icon,
 .buttons .b-tooltipped {
