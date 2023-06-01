@@ -41,7 +41,7 @@ html[data-color-mode="light"] {
   --selection-bckg: #ffffff1a;
   --selection-search: #00ff0839;
 
-  --is-colored: black;
+  --is-colored: var(--bckg-dark);
   --dropdown: #3e3e3e;
   --dropdown-hvr: #4e5257;
   --dropdown-active: #5c6167;
