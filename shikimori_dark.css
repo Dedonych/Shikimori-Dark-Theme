@@ -1,7 +1,7 @@
-@media screen and (prefers-color-scheme: dark) {
+@media screen {
   html,
   body {
-    color-scheme: light dark;
+    color-scheme: dark;
     background: var(--bckg-primary) !important;
   }
 
@@ -14,17 +14,14 @@
     --txt-primary: #fff;
     --txt-secondary: #ccc;
     --txt-secondary-dark: #afafaf;
+    --txt-accent: var(--clr-main-light);
 
     --clr-main-primary: #4e9f3d;
     --clr-main-dark: #3b7a2f;
     --clr-main-light: #64b950;
 
-    --txt-accent: var(--clr-main-primary);
-
-    --clr-secondary: #29b6f6;
-
-    --link-primary: var(--clr-main-primary);
-    --link-hover: color-mix(in srgb, var(--clr-main-primary) 60%, white);
+    --link-primary: var(--clr-main-light);
+    --link-hover: color-mix(in srgb, var(--clr-main-light) 60%, white);
     --link-active: color-mix(in srgb, var(--clr-main-dark) 70%, white);
 
     --bar-s0: color-mix(in srgb, var(--clr-main-primary) 80%, black);
@@ -33,11 +30,11 @@
     --bar-s1: color-mix(in srgb, var(--clr-main-dark) 90%, black);
     --bar-s1-hvr: color-mix(in srgb, var(--clr-main-dark) 80%, black);
 
-    --bar-s2: color-mix(in srgb, var(--clr-main-light) 90%, white);
-    --bar-s2-hvr: color-mix(in srgb, var(--clr-main-light) 80%, white);
+    --bar-s2: color-mix(in srgb, var(--clr-main-light) 100%, white);
+    --bar-s2-hvr: color-mix(in srgb, var(--clr-main-light) 90%, white);
 
-    --bar-s3: color-mix(in srgb, var(--clr-main-light) 60%, white);
-    --bar-s3-hvr: color-mix(in srgb, var(--clr-main-light) 60%, white);
+    --bar-s3: color-mix(in srgb, var(--clr-main-light) 80%, white);
+    --bar-s3-hvr: color-mix(in srgb, var(--clr-main-light) 70%, white);
 
     --selection-bckg: #ffffff1a;
     --selection-clr: #ffffff01;
@@ -263,11 +260,16 @@
   .subheadline-input[type="password"],
   .subheadline-input[type="email"],
   .b-form input,
+  .b-button,
   .b-input input,
   .b-form input[type="submit"],
   .l-top_menu-v2 .global-search input,
   .b-link_button.dark,
-  .b-form textarea {
+  .b-form textarea,
+  .b-shiki_editor .links .link-value,
+  .b-shiki_editor .images .link-value,
+  .b-shiki_editor .quotes .link-value,
+  .b-shiki_editor .upload .link-value {
     background: var(--bckg-lighter);
     color: var(--txt-primary);
     border-color: grey;
@@ -276,6 +278,7 @@
     border-color: grey !important;
   }
   .b-form input[type="submit"]:hover,
+  .b-button:hover,
   .b-link_button.dark:hover {
     border-color: grey;
     background-color: var(--bckg-primary);
@@ -286,29 +289,29 @@
   }
   /* #input data  */
   .pika-single,
-  .pika-label{
-    color:var(--txt-primary);
-    background:var(--bckg-light);
+  .pika-label {
+    color: var(--txt-primary);
+    background: var(--bckg-light);
   }
   .pika-button,
-  .is-today .pika-button{
+  .is-today .pika-button {
     background-color: var(--bckg-lighter);
-    color:var(--txt-secondary) !important;
+    color: var(--txt-secondary) !important;
   }
-  .pika-button:hover{
+  .pika-button:hover {
     background-color: var(--clr-main-dark);
   }
-  .is-selected .pika-button{
+  .is-selected .pika-button {
     background-color: var(--clr-main-primary);
-    box-shadow:none;
+    box-shadow: none;
   }
-  :is(.is-disabled,.pika-day) .pika-button{
+  :is(.is-disabled, .pika-day) .pika-button {
     background-color: var(--bckg-dark);
   }
   /* style for #list  */
 
   .p-user_rates-index .list-lines tr td .rewatches {
-    color: var(--clr-secondary);
+    color: skyblue;
   }
   .p-user_rates-index .list-lines tr .name a,
   .p-user_rates-index .list-lines tr .index {
@@ -523,7 +526,7 @@
     border-radius: 4px;
   }
 
-  /* #catalog status */
+  /* #catalog #title status */
   .b-catalog_entry:is(
       .on_hold,
       .planned,
@@ -550,7 +553,7 @@
     border-color: 0;
     top: 0;
     right: 0;
-    border-bottom-left-radius: 14px;
+    border-bottom-left-radius: 10px;
   }
   .b-catalog_entry.on_hold .image-decor:after {
     color: grey;
@@ -680,11 +683,13 @@
   .vue-node .menubar {
     background-color: var(--bckg-dark);
   }
-  .vue-node .icons :is(button, label).icon {
+  .vue-node .icons :is(button, label).icon,
+  .buttons .b-tooltipped {
     color: var(--txt-secondary);
   }
   .ProseMirror,
-  code.b-code_inline {
+  code.b-code_inline,
+  .b-shiki_editor .body .editor textarea:not([rows]) {
     background-color: var(--bckg-primary);
     border-color: grey;
     color: var(--txt-primary);
@@ -693,14 +698,19 @@
     background-color: rgb(82, 82, 82);
   }
   code.b-code_inline {
-    color: #c7254c;
+    color: #ba3453;
   }
-
+  .b-shiki_editor .controls {
+    margin: 0;
+    padding: 14px 4px;
+    background-color: var(--bckg-dark);
+  }
   .popup-content {
     background-color: var(--bckg-light) !important;
   }
   .b-quote-v2,
-  .b-spoiler_block > div {
+  .b-spoiler_block > div,
+  .b-quote .quoteable:before {
     background-color: var(--bckg-dark);
     color: var(--txt-primary);
   }
@@ -851,6 +861,23 @@
     writing-mode: vertical-lr;
     margin: 0;
   }
+  .p-dashboards-show .v2 .fc-user-sections .f-user {
+    max-width: 320px;
+    width: auto;
+  }
+  .p-user_rates-index .list-groups .summary.posters,
+  .p-user_rates-index .list-groups .summary.lines.list {
+    background: transparent;
+    border: 0;
+  }
+  .p-user_rates-index .list-lines.b-table,
+  .list-posters.cc-5 {
+    border-bottom: 1px solid grey;
+  }
+
+  .b-modal > .inner {
+    background: var(--bckg-light);
+  }
 }
 @media screen and (max-width: 1023px) {
   .p-dashboards-show .v2 .fc-user-sections .f-sections {
@@ -868,5 +895,3 @@
     display: flex;
   }
 }
-
-
