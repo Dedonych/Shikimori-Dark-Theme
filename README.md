@@ -1,5 +1,11 @@
 В разработке!
 # Темная тема для сайта shikimori.me
+![image](./posters/main.png)
+
+![image](./posters/profile.png)
+
+![image](./posters/title.png)
+
 ## Установка
 ```css
 @import url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/shikimori_dark.css);
@@ -13,8 +19,21 @@ html[data-color-mode="light"] {
     --clr-main-light:/* Светлее цвет*/;
 }
 ```
-![title](./posters/main.png)
 
-![title](./posters/profile.png)
+### Для изменение верхней менюшки в под основные цвета, добавте эти строчки:
 
-![title](./posters/title.png)
+```css 
+html[data-color-mode="light"] {
+    --is-colored:var(--clr-main-dark);
+    --dropdown: inherit;
+    --dropdown-hvr: inherit;
+    --dropdown-active: inherit;
+}
+``` 
+До:
+
+![image](./posters/not-colored.png)
+
+После:
+
+![image](./posters/colored.png)
