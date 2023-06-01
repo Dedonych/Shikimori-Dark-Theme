@@ -30,10 +30,6 @@ html[data-color-mode="light"] {
     --dropdown-active: inherit;
 }
 ``` 
-До:
-
-![image](./posters/not-colored.png)
-
-После:
+Выглядит так:
 
 ![image](./posters/colored.png)
