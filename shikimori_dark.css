@@ -916,7 +916,8 @@
   }
 }
 
-.l-top_menu-v2 {
+.l-top_menu-v2,
+.x1000 .l-top_menu-v2 {
   position: sticky;
   inset: 0;
   margin: auto;
