@@ -22,12 +22,14 @@ html[data-color-mode="light"] {
 
 ### Для изменение верхней менюшки под основные цвета, добавте эти строчки:
 
-```css 
-html[data-color-mode="light"] {
-    --is-colored:var(--clr-main-dark);
-    --dropdown: inherit;
-    --dropdown-hvr: inherit;
-    --dropdown-active: inherit;
+```css  
+@media all {
+    html[data-color-mode="light"] {
+        --is-colored:var(--clr-main-dark);
+        --dropdown: inherit;
+        --dropdown-hvr: inherit;
+        --dropdown-active: inherit;
+    }
 }
 ``` 
 Выглядит так:
