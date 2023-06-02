@@ -3,7 +3,6 @@ body {
   color-scheme: dark;
   background: var(--bckg-primary) !important;
 }
-
 html:has() {
   color-scheme: light !important;
 }
@@ -56,6 +55,12 @@ html[data-color-mode="light"] {
   --headline-border-color: var(--clr-main-primary);
 }
 
+/* #select text  */
+::selection {
+  z-index: 2;
+  color: var(--txt-primary);
+  background-color:var(--selection-bckg)
+}
 .l-page {
   background-color: var(--bckg-light);
 }
@@ -272,7 +277,7 @@ header.head h2,
 .b-stats_bar:is(.anime, .lifetime) .bar .third:hover {
   background: var(--bar-s3-hvr);
 }
-/* #input style */
+/* #input style #button */
 .subheadline-input[type="submit"],
 .subheadline-input[type="text"],
 .subheadline-input[type="password"],
@@ -284,23 +289,32 @@ header.head h2,
 .l-top_menu-v2 .global-search input,
 .b-link_button.dark,
 .b-form textarea,
+.b-input textarea,
 .b-shiki_editor .links .link-value,
 .b-shiki_editor .images .link-value,
 .b-shiki_editor .quotes .link-value,
-.b-shiki_editor .upload .link-value {
+.b-shiki_editor .upload .link-value,
+.b-link_button,
+.b-poll .poll-actions .vote,
+ .b-poll .poll-actions .abstain {
   background: var(--bckg-lighter);
   color: var(--txt-primary);
   border-color: grey;
+  outline: 0 !important;
 }
 input:focus {
   border-color: grey !important;
 }
 .b-form input[type="submit"]:hover,
 .b-button:hover,
-.b-link_button.dark:hover {
+.b-link_button.dark:hover,
+.b-link_button:hover,
+.b-poll .poll-actions .vote:hover,
+ .b-poll .poll-actions .abstain:hover {
   border-color: grey;
   background-color: var(--bckg-primary);
 }
+
 
 .b-input input[disabled] {
   background-color: var(--bckg-light);
@@ -381,7 +395,10 @@ input:focus {
   height: 30px;
   line-height: 30px;
 }
-
+/* #check radio #input  */
+.b-radio input[type=radio]:checked+.radio-label:before{
+  border-color: var(--txt-accent);
+}
 /* #list plus/minus  */
 .item-add:first-child {
   right: 0;
@@ -502,6 +519,14 @@ input[type="checkbox"]:checked::before {
 .yellow {
   color: gold;
 }
+.pink{
+color:hotpink;
+}
+.brown{
+  color:chocolate;
+}
+.brown,
+.pink,
 .yellow,
 .red,
 .blue,
@@ -556,7 +581,11 @@ rect {
   padding: 1px 6px !important;
   border-radius: 4px;
 }
-
+/* #status #bar  */
+.b-achievement .c-about .progress .bar,
+ .b-achievement .about .progress .bar{
+  background: var(--clr-main-light);
+ }
 /* #catalog #title status */
 .b-catalog_entry:is(
     .on_hold,
@@ -711,6 +740,20 @@ rect {
 }
 
 /* #comments editor  */
+
+/* #image  */
+.ProseMirror :is(
+  [data-image],
+  [data-div],
+  [data-link],
+  [data-span],
+  [data-video],
+):hover:before{
+  background-color: var(--bckg-lighter);
+  color:var(--txt-accent);
+  box-shadow: none;
+}
+
 .vue-node .menubar {
   background-color: var(--bckg-dark);
 }
@@ -777,7 +820,8 @@ code.b-code_inline {
 
 .b-ajax::before,
 .b-ajax::after,
-.ajax-loading {
+.ajax-loading,
+.ajax-loading.vk-like{
   background: none;
 }
 
@@ -845,8 +889,6 @@ code.b-code_inline {
     color-mix(in srgb, var(--clr-main-dark) 60%, black)
   );
 }
-
-/* #main #submenu   */
 
 .l-top_menu-v2 .submenu > a {
   background-color: var(--bckg-primary);
@@ -949,6 +991,11 @@ header.head h2 a.back:before {
   background: var(--bckg-light);
 }
 
+/* #achievement  */
+.b-achievements_notifier .achievement:is(.gained,.lost){
+  background: var(--bckg-dark);
+  border-radius: 4px;
+}
 @media screen and (max-width: 1023px) {
   .p-dashboards-show .v2 .fc-user-sections .f-sections {
     display: grid;
