@@ -1,3 +1,4 @@
+@media all{
 html,
 body {
   color-scheme: dark;
@@ -1013,3 +1014,4 @@ header.head h2 a.back:before {
     position: relative;
     display: flex;
   }
+}
