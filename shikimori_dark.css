@@ -530,7 +530,8 @@ input[type="checkbox"]:checked::before {
 .purple,
 .gray,
 .powderblue,
-.skyblue {
+.skyblue,
+.b-errors .subheadline{
   background: var(--bckg-dark);
   border-color: currentColor;
 }
