@@ -152,7 +152,8 @@ header.head .notice,
 .b-catalog_entry-tooltip .inner .additional-images .link .title,
 .l-top_menu-v2.is-search-focus .global-search .search-marker,
 .b-user.detailed .history .line .event,
-.b-user.moderation .history .line .event {
+.b-user.moderation .history .line .event,
+.item-add{
   color: var(--txt-secondary);
 }
 .p-user_rates-index .list-lines tr td .episodes_total,
