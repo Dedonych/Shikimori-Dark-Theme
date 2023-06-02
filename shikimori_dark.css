@@ -1,11 +1,7 @@
-@media all{
 html,
 body {
   color-scheme: dark;
   background: var(--bckg-primary) !important;
-}
-html:has() {
-  color-scheme: light !important;
 }
 html[data-color-mode="light"] {
   --bckg-primary: #212121;
@@ -40,7 +36,8 @@ html[data-color-mode="light"] {
 
   --selection-bckg: #ffffff1a;
   --selection-search: #00ff0839;
-
+}
+:root{
   --is-colored: var(--bckg-dark);
   --dropdown: #3e3e3e;
   --dropdown-hvr: #4e5257;
@@ -51,7 +48,6 @@ html[data-color-mode="light"] {
   --link-color: var(--link-primary);
   --link-hover-color: var(--link-hover);
   --link-active-color: var(--link-active);
-  --headline-color: transparent;
   --headline-background-color: var(--bckg-primary);
   --headline-border-color: var(--clr-main-primary);
 }
@@ -60,11 +56,9 @@ html[data-color-mode="light"] {
 ::selection {
   z-index: 2;
   color: var(--txt-primary);
-  background-color:var(--selection-bckg)
+  background-color: var(--selection-bckg);
 }
-.l-page {
-  background-color: var(--bckg-light);
-}
+
 /* #login  */
 .p-dashboards-show .v2 .devise {
   background: var(--bckg-dark);
@@ -159,7 +153,7 @@ header.head .notice,
 .l-top_menu-v2.is-search-focus .global-search .search-marker,
 .b-user.detailed .history .line .event,
 .b-user.moderation .history .line .event,
-.item-add{
+.item-add {
   color: var(--txt-secondary);
 }
 .p-user_rates-index .list-lines tr td .episodes_total,
@@ -297,7 +291,7 @@ header.head h2,
 .b-shiki_editor .upload .link-value,
 .b-link_button,
 .b-poll .poll-actions .vote,
- .b-poll .poll-actions .abstain {
+.b-poll .poll-actions .abstain {
   background: var(--bckg-lighter);
   color: var(--txt-primary);
   border-color: grey;
@@ -311,11 +305,10 @@ input:focus {
 .b-link_button.dark:hover,
 .b-link_button:hover,
 .b-poll .poll-actions .vote:hover,
- .b-poll .poll-actions .abstain:hover {
+.b-poll .poll-actions .abstain:hover {
   border-color: grey;
   background-color: var(--bckg-primary);
 }
-
 
 .b-input input[disabled] {
   background-color: var(--bckg-light);
@@ -397,7 +390,7 @@ input:focus {
   line-height: 30px;
 }
 /* #check radio #input  */
-.b-radio input[type=radio]:checked+.radio-label:before{
+.b-radio input[type="radio"]:checked + .radio-label:before {
   border-color: var(--txt-accent);
 }
 /* #list plus/minus  */
@@ -520,11 +513,11 @@ input[type="checkbox"]:checked::before {
 .yellow {
   color: gold;
 }
-.pink{
-color:hotpink;
+.pink {
+  color: hotpink;
 }
-.brown{
-  color:chocolate;
+.brown {
+  color: chocolate;
 }
 .brown,
 .pink,
@@ -584,9 +577,9 @@ rect {
 }
 /* #status #bar  */
 .b-achievement .c-about .progress .bar,
- .b-achievement .about .progress .bar{
+.b-achievement .about .progress .bar {
   background: var(--clr-main-light);
- }
+}
 /* #catalog #title status */
 .b-catalog_entry:is(
     .on_hold,
@@ -743,15 +736,17 @@ rect {
 /* #comments editor  */
 
 /* #image  */
-.ProseMirror :is(
-  [data-image],
-  [data-div],
-  [data-link],
-  [data-span],
-  [data-video],
-):hover:before{
+.ProseMirror
+  :is(
+    [data-image],
+    [data-div],
+    [data-link],
+    [data-span],
+    [data-video],
+
+  ):hover:before {
   background-color: var(--bckg-lighter);
-  color:var(--txt-accent);
+  color: var(--txt-accent);
   box-shadow: none;
 }
 
@@ -759,7 +754,7 @@ rect {
   background-color: var(--bckg-dark);
 }
 .vue-node .unsaved-content {
-    background: var(--bckg-lighter);
+  background: var(--bckg-lighter);
 }
 .vue-node .icons :is(button, label).icon,
 .buttons .b-tooltipped {
@@ -822,7 +817,7 @@ code.b-code_inline {
 .b-ajax::before,
 .b-ajax::after,
 .ajax-loading,
-.ajax-loading.vk-like{
+.ajax-loading.vk-like {
   background: none;
 }
 
@@ -949,7 +944,10 @@ header.head h2 a.back:before {
 .cm-searching {
   background-color: var(--selection-search);
 }
-
+/* #main */
+.l-page {
+  background-color: var(--bckg-light);
+}
 /* #mobile toggler  */
 .l-page .menu-toggler {
   width: 40px;
@@ -993,25 +991,18 @@ header.head h2 a.back:before {
 }
 
 /* #achievement  */
-.b-achievements_notifier .achievement:is(.gained,.lost){
+.b-achievements_notifier .achievement:is(.gained, .lost) {
   background: var(--bckg-dark);
   border-radius: 4px;
 }
 
-
-
-  .p-dashboards-show .v2 .fc-user-sections .f-sections {
-    display: grid;
-  }
-  .p-dashboards-show
-    .v2
-    .fc-user-sections
-    .f-sections
-    :is(.f-headline, .f-tags) {
-    width: 100%;
-  }
-  .p-dashboards-show .v2 .fc-user-sections .f-sections .fc-tags {
-    position: relative;
-    display: flex;
-  }
+.p-dashboards-show .v2 .fc-user-sections .f-sections {
+  display: grid;
+}
+.p-dashboards-show .v2 .fc-user-sections .f-sections :is(.f-headline, .f-tags) {
+  width: 100%;
+}
+.p-dashboards-show .v2 .fc-user-sections .f-sections .fc-tags {
+  position: relative;
+  display: flex;
 }
