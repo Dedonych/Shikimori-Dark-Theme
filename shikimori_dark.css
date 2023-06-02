@@ -996,7 +996,9 @@ header.head h2 a.back:before {
   background: var(--bckg-dark);
   border-radius: 4px;
 }
-@media screen and (max-width: 1023px) {
+
+
+
   .p-dashboards-show .v2 .fc-user-sections .f-sections {
     display: grid;
   }
@@ -1011,4 +1013,3 @@ header.head h2 a.back:before {
     position: relative;
     display: flex;
   }
-}
