@@ -735,6 +735,9 @@ rect {
 }
 
 /* #comments shade off  */
+.body.b-text_with_paragraphs{
+  position:relative;
+}
 .b-height_shortener .shade {
   filter: invert(0.7);
 }
