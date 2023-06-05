@@ -204,7 +204,11 @@ header.head h2,
   position: absolute;
   left: -26px;
 }
-
+.tooltip-left .tooltip-arrow::before{
+  left:0;
+  border-right-color:transparent;
+  border-left-color: var(--bckg-primary);
+}
 /* remove close #button */
 :is(.sticky-tooltip, .tooltip-inner) .close {
   display: none;
@@ -539,7 +543,22 @@ input[type="checkbox"]:checked::before {
 rect {
   fill: var(--bckg-dark);
 }
-
+:is(.brown,
+.pink,
+.yellow,
+.red,
+.blue,
+.green,
+.orange,
+.magenta,
+.purple,
+.gray,
+.powderblue,
+.skyblue,
+.b-errors .subheadline)>a:hover{
+  text-decoration: underline;
+  color:currentColor !important;
+}
 /* #offtop  */
 .b-offtopic_marker.active:before,
 .b-offtopic_marker.off:before,
