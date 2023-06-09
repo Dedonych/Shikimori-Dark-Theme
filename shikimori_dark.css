@@ -692,7 +692,8 @@ rect {
 .b-reviews_navigation .navigation-node-negative {
   color: crimson;
 }
-.b-reviews_navigation .navigation-node-neutral {
+.b-reviews_navigation .navigation-node-neutral,
+.b-review-topic.is-review_review_author_details>.inner .review-info .neutral{
   color: skyblue;
 }
 
