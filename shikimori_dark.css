@@ -313,6 +313,10 @@ input:focus {
   border-color: grey;
   background-color: var(--bckg-primary);
 }
+.b-form.green-form{
+	background:var(--bckg-dark);
+	border-color:grey;
+}
 
 .b-input input[disabled] {
   background-color: var(--bckg-light);
