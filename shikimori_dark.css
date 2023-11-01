@@ -37,7 +37,7 @@ html[data-color-mode="light"] {
   --selection-bckg: #ffffff1a;
   --selection-search: #00ff0839;
 }
-:root{
+:root {
   --is-colored: var(--bckg-dark);
   --dropdown: #3e3e3e;
   --dropdown-hvr: #4e5257;
@@ -204,9 +204,9 @@ header.head h2,
   position: absolute;
   left: -26px;
 }
-.tooltip-left .tooltip-arrow::before{
-  left:0;
-  border-right-color:transparent;
+.tooltip-left .tooltip-arrow::before {
+  left: 0;
+  border-right-color: transparent;
   border-left-color: var(--bckg-primary);
 }
 /* remove close #button */
@@ -244,7 +244,9 @@ header.head h2,
 }
 
 /* style #bars for profile  */
-
+.b-stats_bar.manga .bar .second {
+  background: #923976;
+}
 .bar.simple .bar.s0,
 .b-stats_bar:is(.anime, .lifetime) .bar .first {
   background: var(--bar-s0);
@@ -313,9 +315,9 @@ input:focus {
   border-color: grey;
   background-color: var(--bckg-primary);
 }
-.b-form.green-form{
-	background:var(--bckg-dark);
-	border-color:grey;
+.b-form.green-form {
+  background: var(--bckg-dark);
+  border-color: grey;
 }
 
 .b-input input[disabled] {
@@ -425,6 +427,9 @@ input[type="checkbox"]::before {
   height: 13px;
   line-height: 13px;
   background-color: var(--bckg-lighter);
+}
+input[type="checkbox"]:disabled::before {
+  background: #9f4646;
 }
 input[type="checkbox"]:checked::before {
   background: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/main/checkmark.svg)
@@ -539,7 +544,7 @@ input[type="checkbox"]:checked::before {
 .gray,
 .powderblue,
 .skyblue,
-.b-errors .subheadline{
+.b-errors .subheadline {
   background: var(--bckg-dark);
   border-color: currentColor;
 }
@@ -547,21 +552,24 @@ input[type="checkbox"]:checked::before {
 rect {
   fill: var(--bckg-dark);
 }
-:is(.brown,
-.pink,
-.yellow,
-.red,
-.blue,
-.green,
-.orange,
-.magenta,
-.purple,
-.gray,
-.powderblue,
-.skyblue,
-.b-errors .subheadline)>a:hover{
+:is(
+    .brown,
+    .pink,
+    .yellow,
+    .red,
+    .blue,
+    .green,
+    .orange,
+    .magenta,
+    .purple,
+    .gray,
+    .powderblue,
+    .skyblue,
+    .b-errors .subheadline
+  )
+  > a:hover {
   text-decoration: underline;
-  color:currentColor !important;
+  color: currentColor !important;
 }
 /* #offtop  */
 .b-offtopic_marker.active:before,
@@ -592,6 +600,9 @@ rect {
 .b-anime_status_tag:is(.studio, .other) {
   background-color: var(--bckg-primary);
   color: var(--txt-primary);
+}
+.b-anime_status_tag.studio:hover {
+  background-color: #484848 !important;
 }
 .b-anime_status_tag {
   background-color: var(--bckg-primary);
@@ -693,7 +704,7 @@ rect {
   color: crimson;
 }
 .b-reviews_navigation .navigation-node-neutral,
-.b-review-topic.is-review_review_author_details>.inner .review-info .neutral{
+.b-review-topic.is-review_review_author_details > .inner .review-info .neutral {
   color: skyblue;
 }
 
@@ -740,8 +751,8 @@ rect {
 }
 
 /* #comments shade off  */
-.body.b-text_with_paragraphs{
-  position:relative;
+.body.b-text_with_paragraphs {
+  position: relative;
 }
 .b-height_shortener .shade {
   filter: invert(0.7);
@@ -776,6 +787,7 @@ rect {
   background-color: var(--bckg-lighter);
   color: var(--txt-accent);
   box-shadow: none;
+  text-shadow: none;
 }
 
 .vue-node .menubar {
@@ -1033,4 +1045,19 @@ header.head h2 a.back:before {
 .p-dashboards-show .v2 .fc-user-sections .f-sections .fc-tags {
   position: relative;
   display: flex;
+}
+
+.b-show_more,
+.b-show_more-more .hide-more {
+  color: #cecece;
+}
+/* halloween */
+html:has(body:is([data-server_time*="11-01T"], [data-server_time*="10-31T"])) {
+  --is-colored: #ba7900;
+  --clr-main-primary: #d18904;
+  --clr-main-dark: #9e6700;
+  --clr-main-light: #d19017;
+  --dropdown: inherit;
+  --dropdown-hvr: inherit;
+  --dropdown-active: inherit;
 }
