@@ -1066,4 +1066,9 @@ html:has(body:is([data-server_time*="11-01T"], [data-server_time*="10-31T"])) {
   --dropdown: inherit;
   --dropdown-hvr: inherit;
   --dropdown-active: inherit;
+
+& .l-top_menu-v2 .logo-container .glyph{
+background-image:url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/pumpkin.png);
+filter:invert(1);
+}
 }
