@@ -1,7 +1,7 @@
 html,
 body {
   color-scheme: dark;
-  background: var(--bckg-primary) !important;
+  background: var(--bckg-primary)
 }
 html[data-color-mode="light"] {
   --bckg-primary: #212121;
