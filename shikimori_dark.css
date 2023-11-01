@@ -244,8 +244,14 @@ header.head h2,
 }
 
 /* style #bars for profile  */
+.b-stats_bar.manga .bar .first{
+  background:#78215d;
+}
 .b-stats_bar.manga .bar .second {
   background: #923976;
+}
+.b-stats_bar.manga .bar .third {
+  background: #cc69ad;
 }
 .bar.simple .bar.s0,
 .b-stats_bar:is(.anime, .lifetime) .bar .first {
