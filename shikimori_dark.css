@@ -1072,3 +1072,18 @@ background-image:url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-T
 filter:invert(1);
 }
 }
+/*  x-mas*/
+html:has(body:is([data-server_time*="12-31T"],[data-server_time*="01-01T"])){
+  --is-colored: #a42c2c;
+  --is-colored: #ba0000;
+  --clr-main-primary: #ad1010;
+  --clr-main-dark: #8c1616;
+  --clr-main-light: #cc6666;
+  --dropdown: inherit;
+  --dropdown-hvr: inherit;
+  --dropdown-active: inherit;
+  & .l-top_menu-v2 .logo-container .glyph {
+    background-image: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/gift.png);
+    filter: invert(1);
+  }
+}
