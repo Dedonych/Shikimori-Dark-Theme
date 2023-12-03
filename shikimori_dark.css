@@ -1073,7 +1073,7 @@ filter:invert(1);
 }
 }
 /*  x-mas*/
-html:has(body:is([data-server_time*="12-31T"],[data-server_time*="01-01T"])){
+html:has(body:is([data-server_time*="-12-"],[data-server_time*="-01-"])){
   --is-colored: #a42c2c;
   --is-colored: #ba0000;
   --clr-main-primary: #ad1010;
