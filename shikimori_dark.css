@@ -1059,9 +1059,9 @@ header.head h2 a.back:before {
 
 /* news  */
 .edit-page.styles .cc-2::before {
-  content: "Shikimori-theme: создайте в \":root\" --my-clr как основной цвет. Например: --my-clr:#00ff00\AДобавляйте в ':root' строчки, чтобы:\A--news:none - отключить это окно:    |   --dropdown:inherit - верхнее меню изменить на основной цвет\A--link-primary:var(--my-clr) - сделать основной текст основным цветом (или каким хотите)\A--themes:var(--my-clr) - отключить все темы (xmas, halloween и т.д.)    |   --icon:var(--def-icon); - установить дефолт лого \A--xmas:var(--my-clr) - отключить тему рождества   |   --halloween:var(--my-clr) - отключить тему хэллоуин";
+  content: "Shikimori-theme: создайте в \":root\" --my-clr как основной цвет. Например: --my-clr:#00ff00 \A Добавляйте в ':root' строчки, чтобы:\A--news:none - отключить это окно:    |   --dropdown:inherit - верхнее меню изменить на основной цвет\A--link-primary:var(--my-clr) - сделать основной текст основным цветом (или каким хотите)\A--themes:var(--my-clr) - отключить все темы (xmas, halloween и т.д.)    |   --icon:var(--def-icon); - установить дефолт лого \A--xmas:var(--my-clr) - отключить тему рождества   |   --halloween:var(--my-clr) - отключить тему хэллоуин";
   white-space:pre;
-  display: var(--news, flex);
+  display: var(--news, block);
   font-size: 12px;
   float: left;
   position: relative;
@@ -1070,21 +1070,7 @@ header.head h2 a.back:before {
   z-index: 2;
   padding: 8px;
 }
-.edit-page.styles .cc-2::after {
-  content: "";
-  text-indent: 12rem;
-  white-space: pre;
-  display: var(--news, block);
-  font-size: 12px;
-  float: left;
-  position: relative;
-  color: red;
-  background: transparent;
-  z-index: 6;
-  padding: 8px;
-  position: absolute;
-  top: 0;
-}
+
 
 /* themes */
 
