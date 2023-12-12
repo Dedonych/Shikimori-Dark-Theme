@@ -1093,7 +1093,7 @@ html:has(body:is([data-server_time*="11-01T"], [data-server_time*="10-31T"])) {
   --is-colored: var(--themes, var(--halloween, #ba0000));
   --dropdown: var(--is-colored);
   & .l-top_menu-v2 .logo-container .glyph {
-    background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/pumpkin.png));
+    background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/pumpkin.png));
   }
 }
 /* x-mas */
@@ -1101,6 +1101,6 @@ html:has(body:is([data-server_time*="-12-"], [data-server_time*="-01-"])) {
   --is-colored: var(--themes, var(--xmas, #ba0000));
   --dropdown: var(--is-colored);
   & .l-top_menu-v2 .logo-container .glyph {
-    background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/gift.png));
+    background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/gift.png));
   }
 }
