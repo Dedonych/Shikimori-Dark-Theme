@@ -14,7 +14,7 @@ body {
   --txt-accent: var(--clr-main-light);
   --clr-main-primary: #4e9f3d;
   --clr-main-dark: #3b7a2f;
-  --clr-main-light: #64b950; */
+  --clr-main-light: #64b950;
   --clr-main-primary: var(--is-colored);
   --clr-main-dark: color-mix(in srgb, var(--clr-main-primary),black 30%);
   --clr-main-light: color-mix(in srgb, var(--clr-main-primary),white 15%);
