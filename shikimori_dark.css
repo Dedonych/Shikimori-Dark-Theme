@@ -8,50 +8,40 @@ body {
   --bckg-dark: #1a1a1a;
   --bckg-light: #333333;
   --bckg-lighter: #454545;
-
   --txt-primary: #fff;
   --txt-secondary: #ccc;
   --txt-secondary-dark: #afafaf;
   --txt-accent: var(--clr-main-light);
-
-  /* --clr-main-primary: #4e9f3d;
+  --clr-main-primary: #4e9f3d;
   --clr-main-dark: #3b7a2f;
-  --clr-main-light: #64b950;
-  */
-  --clr-main-primary: var(--is-colored, var(--bckg-dark));
-  --clr-main-dark: color-mix(in srgb, var(--clr-main-primary), black 30%);
-  --clr-main-light: color-mix(in srgb, var(--clr-main-primary), white 15%);
+  --clr-main-light: #64b950; */
+  --clr-main-primary: var(--is-colored);
+  --clr-main-dark: color-mix(in srgb, var(--clr-main-primary),black 30%);
+  --clr-main-light: color-mix(in srgb, var(--clr-main-primary),white 15%);
 
   --link-primary: var(--clr-main-light);
-  --link-hover: color-mix(in srgb, var(--link-primary) 60%, white);
-  --link-active: color-mix(in srgb, var(--link-primary) 70%, white);
+  --link-hover: color-mix(in srgb, var(--clr-main-light) 60%, white);
+  --link-active: color-mix(in srgb, var(--clr-main-dark) 70%, white);
 
   --bar-s0: color-mix(in srgb, var(--clr-main-primary) 80%, black);
   --bar-s0-hvr: color-mix(in srgb, var(--clr-main-primary) 70%, black);
-
   --bar-s1: color-mix(in srgb, var(--clr-main-dark) 90%, black);
   --bar-s1-hvr: color-mix(in srgb, var(--clr-main-dark) 80%, black);
-
   --bar-s2: color-mix(in srgb, var(--clr-main-light) 100%, white);
   --bar-s2-hvr: color-mix(in srgb, var(--clr-main-light) 90%, white);
-
   --bar-s3: color-mix(in srgb, var(--clr-main-light) 80%, white);
   --bar-s3-hvr: color-mix(in srgb, var(--clr-main-light) 70%, white);
-
   --selection-bckg: #ffffff1a;
   --selection-search: #00ff0839;
-
-  --def-icon: url("//shikimori.one/assets/layouts/l-top_menu-v2/glyph.svg");
-
-  --my-clr: var(--bckg-dark);
-  --is-colored: var(--my-clr);
-
-  --xmas: initial;
-  --halloween: initial;
-  --icon: initial;
-  --themes: initial;
 }
+:root {
+  --is-colored: var(--bckg-dark);
+  --xmas:initial;
+  --xmas-icon:initial;
 
+  --halloween:initial;
+  --halloween-icon:initial
+}
 html[data-color-mode="light"] {
   --link-color: var(--link-primary);
   --link-hover-color: var(--link-hover);
@@ -59,20 +49,17 @@ html[data-color-mode="light"] {
   --headline-background-color: var(--bckg-primary);
   --headline-border-color: var(--clr-main-primary);
 }
-
 /* #select text  */
 ::selection {
   z-index: 2;
   color: var(--txt-primary);
   background-color: var(--selection-bckg);
 }
-
 /* #login  */
 .p-dashboards-show .v2 .devise {
   background: var(--bckg-dark);
   border-color: var(--bckg-lighter);
 }
-
 /* #arrow to up  */
 .b-to-top.active .arrow {
   color: var(--txt-primary);
@@ -94,7 +81,6 @@ html[data-color-mode="light"] {
   display: none;
 }
 /* #search left border */
-
 .l-top_menu-v2
   .global-search
   .search-results
@@ -170,12 +156,10 @@ header.head .notice,
 .l-top_menu-v2 .global-search {
   color: var(--txt-secondary-dark);
 }
-
 .p-topics header h1 a.reload {
   color: var(--txt-accent);
 }
 /* Set different #elements to text primary  */
-
 :is(.b-user_rate, .b-catalog_entry-tooltip) .inner .line .key,
 .p-user_rates-index .l-content .order-control,
 .b-block_list li,
@@ -221,7 +205,6 @@ header.head h2,
 :is(.sticky-tooltip, .tooltip-inner) .close {
   display: none;
 }
-
 /* #form action list and list title */
 :is(.b-user_rate, .b-catalog_entry-tooltip)
   .b-add_to_list
@@ -236,12 +219,10 @@ header.head h2,
   :is(.trigger, .edit) {
   color: var(--clr-main-primary);
 }
-
 /* #profile */
 .b-stats_bar .stat_names .stat_name a {
   color: var(--txt-secondary);
 }
-
 /* #hover faq */
 .tipsy-inner {
   box-shadow: none;
@@ -250,7 +231,6 @@ header.head h2,
 .tipsy.tipsy-normal.tipsy-s {
   opacity: 1 !important;
 }
-
 /* style #bars for profile  */
 .b-stats_bar.manga .bar .first {
   background: #78215d;
@@ -276,7 +256,6 @@ header.head h2,
 .b-stats_bar:is(.anime, .lifetime) .bar .third {
   background: var(--bar-s3);
 }
-
 .bar.simple .bar.s0:hover,
 .b-stats_bar:is(.anime, .lifetime) .bar .first:hover {
   background: var(--bar-s0-hvr);
@@ -333,7 +312,6 @@ input:focus {
   background: var(--bckg-dark);
   border-color: grey;
 }
-
 .b-input input[disabled] {
   background-color: var(--bckg-light);
 }
@@ -362,14 +340,12 @@ input:focus {
 :is(.is-disabled, .pika-day) .pika-button {
   background-color: var(--bckg-dark);
 }
-
 /*   #message  */
 .yellow-fade {
   outline: 10px solid var(--bckg-dark);
   background: var(--bckg-dark);
 }
 /* style for #list  */
-
 .p-user_rates-index .list-lines tr td .rewatches {
   color: skyblue;
 }
@@ -377,7 +353,6 @@ input:focus {
 .p-user_rates-index .list-lines tr .index {
   color: var(--txt-secondary);
 }
-
 .p-user_rates-index .list-lines .selectable:hover {
   background-color: var(--bckg-primary);
 }
@@ -393,7 +368,6 @@ input:focus {
   background-color: var(--bckg-dark);
   color: var(--txt-secondary);
 }
-
 /* #list checkboxes*/
 .b-block_list li {
   height: 24px;
@@ -453,7 +427,6 @@ input[type="checkbox"]:checked::before {
   border: 1px solid transparent;
   background-color: var(--clr-main-dark);
 }
-
 /* #avatar style  */
 .avatar img[alt],
 .icon-avatar img,
@@ -461,12 +434,10 @@ input[type="checkbox"]:checked::before {
 .image-name .image {
   border-radius: 50% !important;
 }
-
 /* #main a>div */
 .b-news_wall-topic .title {
   color: var(--link-primary);
 }
-
 /* #main my-list dashboard  */
 .p-dashboards-show .v2 .my-list {
   background: var(--bckg-primary);
@@ -475,22 +446,18 @@ input[type="checkbox"]:checked::before {
 .p-dashboards-show .v2 .my-list .label span {
   color: var(--txt-primary);
 }
-
 .b-user_rate-history .status-counter,
 .b-user_rate-history .score-time time,
 .b-animes-menu .menu-topics-block .entry .time {
   color: var(--txt-secondary);
 }
-
 /* #main colors */
-
 .red,
 .p-dashboards-show .v2 .fc-user-sections .tag-link.anime-tag {
   background-color: darkred;
   color: lightcoral;
   border-color: lightcoral;
 }
-
 .p-dashboards-show .v2 .fc-user-sections .tag-link.anime-tag:hover {
   background-color: #3b0707;
 }
@@ -512,7 +479,6 @@ input[type="checkbox"]:checked::before {
 .p-dashboards-show .v2 .fc-user-sections .tag-link.ranobe-tag:hover {
   background-color: #094d0b;
 }
-
 .p-dashboards-show
   .v2
   .fc-user-sections
@@ -597,7 +563,6 @@ rect {
 .linkheadline.midheadline > a:hover::before {
   color: currentColor;
 }
-
 /* #main status  */
 .b-anime_status_tag.critique {
   background-color: #641e3c;
@@ -676,7 +641,6 @@ rect {
 .b-catalog_entry.completed .image-decor:after {
   color: rgb(60, 204, 137);
 }
-
 /* #title three dots and #comments loader   */
 :is(.p-animes-show, .p-mangas-show, .p-ranobe-show) .other-names,
 .b-comments :is(.comments-loader, .comments-hider, .comments-expander),
@@ -700,14 +664,12 @@ rect {
   border-radius: 4px;
   color: var(--txt-secondary);
 }
-
 /* #comments navigation  */
 .b-reviews_navigation .navigation-node {
   background-color: var(--bckg-primary);
   color: var(--txt-primary);
   border-color: currentColor;
 }
-
 .b-reviews_navigation .navigation-node-all {
   color: var(--txt-secondary);
 }
@@ -721,7 +683,6 @@ rect {
 .b-review-topic.is-review_review_author_details > .inner .review-info .neutral {
   color: skyblue;
 }
-
 .b-reviews_navigation .navigation-node.is-empty:not(.is-active) .label,
 .b-reviews_navigation .navigation-node.is-empty:not(.is-active) .count {
   color: currentColor;
@@ -730,7 +691,6 @@ rect {
 .b-reviews_navigation .navigation-node:not(.is-active):not(.is-empty):hover {
   background-color: var(--bckg-primary);
 }
-
 /* #comments rate review  */
 .b-review-topic.is-review_review_author_details
   > .inner
@@ -745,7 +705,6 @@ rect {
   margin: 12px 0;
   padding: 8px 0;
 }
-
 /* #comments replies  */
 .b-replies {
   position: absolute;
@@ -763,7 +722,6 @@ rect {
 .b-spoiler_inline:not(.is-opened) {
   background-color: var(--txt-secondary-dark);
 }
-
 /* #comments shade off  */
 .body.b-text_with_paragraphs {
   position: relative;
@@ -771,7 +729,6 @@ rect {
 .b-height_shortener .shade {
   filter: invert(0.7);
 }
-
 /* #comments buttons  */
 .main-controls
   :is(
@@ -785,9 +742,7 @@ rect {
   ) {
   color: var(--txt-secondary-dark);
 }
-
 /* #comments editor  */
-
 /* #image  */
 .ProseMirror
   :is(
@@ -796,14 +751,12 @@ rect {
     [data-link],
     [data-span],
     [data-video],
-
   ):hover:before {
   background-color: var(--bckg-lighter);
   color: var(--txt-accent);
   box-shadow: none;
   text-shadow: none;
 }
-
 .vue-node .menubar {
   background-color: var(--bckg-dark);
 }
@@ -847,34 +800,28 @@ code.b-code_inline {
 .b-spoiler_block > span:hover {
   background-color: var(--bckg-primary);
 }
-
 .b-quote {
   background-color: var(--bckg-dark);
   color: var(--txt-primary);
   border: 2px solid grey;
 }
-
 /* feedback remove  */
 .b-feedback {
   display: none;
 }
-
 /* #spoiler block  */
 .b-spoiler .content .before,
 .b-spoiler .content .after {
   color: var(--txt-accent);
 }
 /* b-ajax style  */
-
 /* remove prev loader */
-
 .b-ajax::before,
 .b-ajax::after,
 .ajax-loading,
 .ajax-loading.vk-like {
   background: none;
 }
-
 .b-ajax::after,
 .ajax-loading::before {
   display: grid;
@@ -888,7 +835,6 @@ code.b-code_inline {
   inset: 0;
   position: absolute;
   margin: auto;
-
   border: 5px solid var(--txt-primary);
   border-bottom-color: transparent;
   border-radius: 50%;
@@ -904,7 +850,6 @@ code.b-code_inline {
     transform: rotate(360deg);
   }
 }
-
 /* #top #main menu  */
 .l-top_menu-v2,
 .x1000 .l-top_menu-v2 {
@@ -914,23 +859,21 @@ code.b-code_inline {
   margin: auto;
   max-width: 1200px;
 }
-
 .l-top_menu-v2 .menu-dropdown > span[tabindex] {
   /* background: rgba(0, 0, 0, 0.2); */
-  background: color-mix(in srgb, var(--clr-main-dark) 80%, black);
+  background:color-mix(in srgb, var(--clr-main-dark) 80%, black)
 }
 .l-top_menu-v2 .menu-icon:is(:active, :focus),
 .l-top_menu-v2 .menu-dropdown.active > span[tabindex] {
-  /* background: rgba(0, 0, 0, 0.4); */
-  background: color-mix(in srgb, var(--clr-main-dark) 70%, black);
+  /* background: rgba(0, 0, 0, 0.3); */
+  background:color-mix(in srgb, var(--clr-main-dark) 70%, black)
 }
 .l-top_menu-v2 .menu-icon:hover,
 .l-top_menu-v2 .menu-dropdown.active > span[tabindex]:hover,
 .l-top_menu-v2 .menu-dropdown > span a:is(:hover, :active, :focus) {
-  /* background: rgba(0, 0, 0, 0.3); */
-  background: color-mix(in srgb, var(--clr-main-dark) 60%, black);
+  /* background: rgba(0, 0, 0, 0.4); */
+  background:color-mix(in srgb, var(--clr-main-dark) 60%, black)
 }
-
 .l-top_menu-v2 .submenu > a {
   background-color: var(--bckg-primary);
 }
@@ -945,7 +888,6 @@ code.b-code_inline {
   margin: 0 !important;
   padding: 2px 0;
 }
-
 /* #forum header  */
 header.head {
   border-bottom: 2px solid var(--bckg-primary);
@@ -960,7 +902,6 @@ header.head h2 a.back:before {
   color: var(--txt-secondary);
   border-color: var(--bckg-lighter);
 }
-
 /* #topic hot-topic  */
 .b-hot_topics-v2 {
   background: var(--bckg-primary);
@@ -968,7 +909,6 @@ header.head h2 a.back:before {
 .b-hot_topics-v2 .subject {
   color: var(--txt-secondary);
 }
-
 /* profile css editor  */
 .b-edit_styles .edit_style .style_css .CodeMirror,
 .b-edit_styles .new_style .style_css .CodeMirror,
@@ -1030,17 +970,14 @@ header.head h2 a.back:before {
 .list-posters.cc-5 {
   border-bottom: 1px solid grey;
 }
-
 .b-modal > .inner {
   background: var(--bckg-light);
 }
-
 /* #achievement  */
 .b-achievements_notifier .achievement:is(.gained, .lost) {
   background: var(--bckg-dark);
   border-radius: 4px;
 }
-
 .p-dashboards-show .v2 .fc-user-sections .f-sections {
   display: grid;
 }
@@ -1051,56 +988,25 @@ header.head h2 a.back:before {
   position: relative;
   display: flex;
 }
-
 .b-show_more,
 .b-show_more-more .hide-more {
   color: #cecece;
 }
-
-/* news  */
-.edit-page.styles .cc-2::before {
-  content: "Shikimori-theme: создайте в \":root\" --my-clr как основной цвет. Например: --my-clr:#00ff00\AДобавляйте в ':root' строчки, чтобы:\A--news:none - отключить это окно:    |   --dropdown:inherit - верхнее меню изменить на основной цвет\A--link-primary:var(--my-clr) - сделать основной текст основным цветом (или каким хотите)\A--themes:var(--my-clr) - отключить все темы (xmas, halloween и т.д.)    |   --icon:var(--def-icon); - установить дефолт лого \A--xmas:var(--my-clr) - отключить тему рождества   |   --halloween:var(--my-clr) - отключить тему хэллоуин";
-  white-space:pre;
-  display: var(--news, flex);
-  font-size: 12px;
-  float: left;
-  position: relative;
-  color: #cecece;
-  background: var(--bckg-primary);
-  z-index: 2;
-  padding: 8px;
-}
-.edit-page.styles .cc-2::after {
-  content: "";
-  text-indent: 12rem;
-  white-space: pre;
-  display: var(--news, block);
-  font-size: 12px;
-  float: left;
-  position: relative;
-  color: red;
-  background: transparent;
-  z-index: 6;
-  padding: 8px;
-  position: absolute;
-  top: 0;
-}
-
-/* themes */
-
 /* halloween */
 html:has(body:is([data-server_time*="11-01T"], [data-server_time*="10-31T"])) {
-  --is-colored: var(--themes, var(--halloween, #ba0000));
-  --dropdown: var(--is-colored);
-  & .l-top_menu-v2 .logo-container .glyph {
-    background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/pumpkin.png));
-  }
+  --is-colored: var(--halloween,#ba0000);
+
+& .l-top_menu-v2 .logo-container .glyph{
+background-image:var(--halloween-icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/pumpkin.png));
+filter:invert(1);
 }
-/* x-mas */
-html:has(body:is([data-server_time*="-12-"], [data-server_time*="-01-"])) {
-  --is-colored: var(--themes, var(--xmas, #ba0000));
-  --dropdown: var(--is-colored);
+}
+/*  x-mas*/
+html:has(body:is([data-server_time*="-12-"],[data-server_time*="-01-"])){
+
+  --is-colored: var(--xmas,#ba0000);
   & .l-top_menu-v2 .logo-container .glyph {
-    background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/gift.png));
+    background-image: var(--xmas-icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/gift.png));
+    filter: invert(1);
   }
 }
