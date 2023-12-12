@@ -1,9 +1,9 @@
 html,
 body {
   color-scheme: dark;
-  background: var(--bckg-primary)
+  background: var(--bckg-primary);
 }
-html[data-color-mode="light"] {
+:root {
   --bckg-primary: #212121;
   --bckg-dark: #1a1a1a;
   --bckg-light: #333333;
@@ -16,14 +16,15 @@ html[data-color-mode="light"] {
 
   /* --clr-main-primary: #4e9f3d;
   --clr-main-dark: #3b7a2f;
-  --clr-main-light: #64b950; */
-  --clr-main-primary: var(--is-colored);
-  --clr-main-dark: color-mix(in srgb, var(--clr-main-primary),black 30%);
-  --clr-main-light: color-mix(in srgb, var(--clr-main-primary),white 15%);
+  --clr-main-light: #64b950;
+  */
+  --clr-main-primary: var(--is-colored, var(--bckg-dark));
+  --clr-main-dark: color-mix(in srgb, var(--clr-main-primary), black 30%);
+  --clr-main-light: color-mix(in srgb, var(--clr-main-primary), white 15%);
 
   --link-primary: var(--clr-main-light);
-  --link-hover: color-mix(in srgb, var(--clr-main-light) 60%, white);
-  --link-active: color-mix(in srgb, var(--clr-main-dark) 70%, white);
+  --link-hover: color-mix(in srgb, var(--link-primary) 60%, white);
+  --link-active: color-mix(in srgb, var(--link-primary) 70%, white);
 
   --bar-s0: color-mix(in srgb, var(--clr-main-primary) 80%, black);
   --bar-s0-hvr: color-mix(in srgb, var(--clr-main-primary) 70%, black);
@@ -39,14 +40,16 @@ html[data-color-mode="light"] {
 
   --selection-bckg: #ffffff1a;
   --selection-search: #00ff0839;
-}
-:root {
-  --is-colored: var(--bckg-dark);
-  --xmas:initial;
-  --xmas-icon:initial;
 
-  --halloween:initial;
-  --halloween-icon:initial
+  --def-icon: url("//shikimori.one/assets/layouts/l-top_menu-v2/glyph.svg");
+
+  --my-clr: var(--bckg-dark);
+  --is-colored: var(--my-clr);
+
+  --xmas: initial;
+  --halloween: initial;
+  --icon: initial;
+  --themes: initial;
 }
 
 html[data-color-mode="light"] {
@@ -249,8 +252,8 @@ header.head h2,
 }
 
 /* style #bars for profile  */
-.b-stats_bar.manga .bar .first{
-  background:#78215d;
+.b-stats_bar.manga .bar .first {
+  background: #78215d;
 }
 .b-stats_bar.manga .bar .second {
   background: #923976;
@@ -905,7 +908,7 @@ code.b-code_inline {
 /* #top #main menu  */
 .l-top_menu-v2,
 .x1000 .l-top_menu-v2 {
-  background: var(--is-colored, black);
+  background: var(--dropdown, var(--bckg-dark));
   position: sticky;
   inset: 0;
   margin: auto;
@@ -914,18 +917,18 @@ code.b-code_inline {
 
 .l-top_menu-v2 .menu-dropdown > span[tabindex] {
   /* background: rgba(0, 0, 0, 0.2); */
-  background:color-mix(in srgb, var(--clr-main-dark) 80%, black)
+  background: color-mix(in srgb, var(--clr-main-dark) 80%, black);
 }
 .l-top_menu-v2 .menu-icon:is(:active, :focus),
 .l-top_menu-v2 .menu-dropdown.active > span[tabindex] {
-  /* background: rgba(0, 0, 0, 0.3); */
-  background:color-mix(in srgb, var(--clr-main-dark) 70%, black)
+  /* background: rgba(0, 0, 0, 0.4); */
+  background: color-mix(in srgb, var(--clr-main-dark) 70%, black);
 }
 .l-top_menu-v2 .menu-icon:hover,
 .l-top_menu-v2 .menu-dropdown.active > span[tabindex]:hover,
 .l-top_menu-v2 .menu-dropdown > span a:is(:hover, :active, :focus) {
-  /* background: rgba(0, 0, 0, 0.4); */
-  background:color-mix(in srgb, var(--clr-main-dark) 60%, black)
+  /* background: rgba(0, 0, 0, 0.3); */
+  background: color-mix(in srgb, var(--clr-main-dark) 60%, black);
 }
 
 .l-top_menu-v2 .submenu > a {
@@ -1053,21 +1056,51 @@ header.head h2 a.back:before {
 .b-show_more-more .hide-more {
   color: #cecece;
 }
+
+/* news  */
+.edit-page.styles .cc-2::before {
+  content: "Shikimori-theme: создайте в \":root\" --my-clr как основной цвет. Например: --my-clr:#00ff00\AДобавляйте в ':root' строчки, чтобы:\A--news:none - отключить это окно:    |   --dropdown:inherit - верхнее меню изменить на основной цвет\A--link-primary:var(--my-clr) - сделать основной текст основным цветом (или каким хотите)\A--themes:var(--my-clr) - отключить все темы (xmas, halloween и т.д.)    |   --icon:var(--def-icon); - установить дефолт лого \A--xmas:var(--my-clr) - отключить тему рождества   |   --halloween:var(--my-clr) - отключить тему хэллоуин";
+  white-space:pre;
+  display: var(--news, flex);
+  font-size: 12px;
+  float: left;
+  position: relative;
+  color: #cecece;
+  background: var(--bckg-primary);
+  z-index: 2;
+  padding: 8px;
+}
+.edit-page.styles .cc-2::after {
+  content: "";
+  text-indent: 12rem;
+  white-space: pre;
+  display: var(--news, block);
+  font-size: 12px;
+  float: left;
+  position: relative;
+  color: red;
+  background: transparent;
+  z-index: 6;
+  padding: 8px;
+  position: absolute;
+  top: 0;
+}
+
+/* themes */
+
 /* halloween */
 html:has(body:is([data-server_time*="11-01T"], [data-server_time*="10-31T"])) {
-  --is-colored: var(--halloween,#ba0000);
-
-& .l-top_menu-v2 .logo-container .glyph{
-background-image:var(--halloween-icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/pumpkin.png));
-filter:invert(1);
-}
-}
-/*  x-mas*/
-html:has(body:is([data-server_time*="-12-"],[data-server_time*="-01-"])){
-
-  --is-colored: var(--xmas,#ba0000);
+  --is-colored: var(--themes, var(--halloween, #ba0000));
+  --dropdown: var(--is-colored);
   & .l-top_menu-v2 .logo-container .glyph {
-    background-image: var(--xmas-icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/gift.png));
-    filter: invert(1);
+    background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/pumpkin.png));
+  }
+}
+/* x-mas */
+html:has(body:is([data-server_time*="-12-"], [data-server_time*="-01-"])) {
+  --is-colored: var(--themes, var(--xmas, #ba0000));
+  --dropdown: var(--is-colored);
+  & .l-top_menu-v2 .logo-container .glyph {
+    background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/gift.png));
   }
 }
