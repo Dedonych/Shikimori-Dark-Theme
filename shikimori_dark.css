@@ -678,7 +678,7 @@ rect {
   .user_rates-minified
   .image-decor:after {
   top: 0;
-  left: 0;
+  right: 0;
 }
 /* #status #bar  */
 .b-achievement .c-about .progress .bar,
