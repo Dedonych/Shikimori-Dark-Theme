@@ -118,7 +118,7 @@ html[data-color-mode="light"] {
 .l-top_menu-v2 .global-search .search-results .search-mode:hover:before {
   background: var(--clr-main-dark);
 }
-/* Set different #elements to text secondary  */
+/* Set different #elements to text #secondary  */
 .b-tag,
 header.head .notice,
 .b-stats_bar .title,
@@ -161,13 +161,19 @@ header.head .notice,
 .l-top_menu-v2.is-search-focus .global-search .search-marker,
 .b-user.detailed .history .line .event,
 .b-user.moderation .history .line .event,
-.item-add {
+.item-add,
+.p-contests .match-day .match-link.voted-none > .c-column a,
+.p-contests .match-day .match-link.voted-left > .c-column:last-child a,
+.p-contests .match-day .match-link.voted-right > .c-column:first-child a {
   color: var(--txt-secondary);
 }
+
 .p-user_rates-index .list-lines tr td .episodes_total,
 .b-subposter-action,
 .l-top_menu-v2 .global-search .clear,
-.l-top_menu-v2 .global-search {
+.l-top_menu-v2 .global-search,
+.p-contests .match-day .match-link .c-column.loser a,
+.p-contests .match-day .match-link .c-column.created a {
   color: var(--txt-secondary-dark);
 }
 
@@ -251,6 +257,13 @@ header.head h2,
   opacity: 1 !important;
 }
 
+/* #hover #tournaments  */
+.p-contests .match-day .match-link.active{
+  background-color: var(--bckg-light);
+}
+.p-contests .match-day .match-link:hover{
+  background-color: var(--bckg-dark);
+}
 /* style #bars for profile  */
 .b-stats_bar.manga .bar .first {
   background: #78215d;
@@ -423,6 +436,7 @@ input:focus {
   display: grid;
   place-content: center;
 }
+/* #checkbox */
 input[type="checkbox"] {
   visibility: hidden;
 }
@@ -453,7 +467,10 @@ input[type="checkbox"]:checked::before {
   border: 1px solid transparent;
   background-color: var(--clr-main-dark);
 }
-
+/* mini #checkbox */
+.p-contests .match-day .match-link.voted-abstain .started:before {
+  color: var(--clr-main-dark);
+}
 /* #avatar style  */
 .avatar img[alt],
 .icon-avatar img,
@@ -624,6 +641,45 @@ rect {
   padding: 1px 6px !important;
   border-radius: 4px;
 }
+.b-catalog_entry.planned .user_rates-minified .image-decor::before,
+.b-catalog_entry.planned .user_rates-minified .image-decor::after,
+.b-catalog_entry.watching .user_rates-minified .image-decor::before,
+.b-catalog_entry.watching .user_rates-minified .image-decor::after,
+.b-catalog_entry.completed .user_rates-minified .image-decor::before,
+.b-catalog_entry.completed .user_rates-minified .image-decor::after,
+.b-catalog_entry.rewatching .user_rates-minified .image-decor::before,
+.b-catalog_entry.rewatching .user_rates-minified .image-decor::after,
+.b-catalog_entry.on_hold .user_rates-minified .image-decor::before,
+.b-catalog_entry.on_hold .user_rates-minified .image-decor::after,
+.b-catalog_entry.dropped .user_rates-minified .image-decor::before,
+.b-catalog_entry.dropped .user_rates-minified .image-decor::after {
+  top: 0;
+  left: 0;
+}
+/* #status minified (#tournaments) */
+.b-catalog_entry:is(
+    .on_hold,
+    .planned,
+    .dropped,
+    .watching,
+    .rewatching,
+    .completed
+  )
+  .user_rates-minified
+  .image-decor:before,
+.b-catalog_entry:is(
+    .on_hold,
+    .planned,
+    .dropped,
+    .watching,
+    .rewatching,
+    .completed
+  )
+  .user_rates-minified
+  .image-decor:after {
+  top: 0;
+  left: 0;
+}
 /* #status #bar  */
 .b-achievement .c-about .progress .bar,
 .b-achievement .about .progress .bar {
@@ -640,6 +696,8 @@ rect {
   )
   .image-decor:before {
   display: none;
+  top: 0;
+  right: 0;
 }
 .b-catalog_entry:is(
     .on_hold,
@@ -1060,7 +1118,7 @@ header.head h2 a.back:before {
 /* news  */
 .edit-page.styles .cc-2::before {
   content: "Shikimori-theme: создайте в ':root' --my-clr как основной цвет. Например: --my-clr:#00ff00 \A Добавляйте в ':root' строчки, чтобы:\A--news:none - отключить это окно:    |   --dropdown:inherit - верхнее меню изменить на основной цвет\A--link-primary:var(--my-clr) - сделать основной текст основным цветом (или каким хотите)\A--themes:var(--my-clr) - отключить все темы (xmas, halloween и т.д.)    |   --icon:var(--def-icon); - установить дефолт лого \A--xmas:var(--my-clr) - отключить тему рождества   |   --halloween:var(--my-clr) - отключить тему хэллоуин";
-  white-space:pre-wrap;
+  white-space: pre-wrap;
   display: var(--news, block);
   font-size: 12px;
   float: left;
@@ -1070,7 +1128,6 @@ header.head h2 a.back:before {
   z-index: 2;
   padding: 8px;
 }
-
 
 /* themes */
 
