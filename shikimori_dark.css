@@ -679,6 +679,7 @@ rect {
   .image-decor:after {
   top: 0;
   right: 0;
+  left:auto;
 }
 /* #status #bar  */
 .b-achievement .c-about .progress .bar,
