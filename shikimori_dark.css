@@ -43,13 +43,14 @@ body {
 
   --def-icon: url("//shikimori.one/assets/layouts/l-top_menu-v2/glyph.svg");
 
-  --my-clr: var(--bckg-dark);
+  --my-clr: #5292d2;
   --is-colored: var(--my-clr);
 
   --xmas: initial;
   --halloween: initial;
   --icon: initial;
   --themes: initial;
+  --dropdown: var(--bckg-dark);
 }
 
 html[data-color-mode="light"] {
@@ -967,7 +968,7 @@ code.b-code_inline {
 /* #top #main menu  */
 .l-top_menu-v2,
 .x1000 .l-top_menu-v2 {
-  background: var(--dropdown, var(--bckg-dark));
+  background: var(--dropdown);
   position: sticky;
   inset: 0;
   margin: auto;
@@ -975,19 +976,19 @@ code.b-code_inline {
 }
 
 .l-top_menu-v2 .menu-dropdown > span[tabindex] {
-  /* background: rgba(0, 0, 0, 0.2); */
-  background: color-mix(in srgb, var(--clr-main-dark) 80%, black);
+  background: #fff2;
+  /* background: color-mix(in srgb, var(--dropdown) 80%, grey); */
 }
 .l-top_menu-v2 .menu-icon:is(:active, :focus),
 .l-top_menu-v2 .menu-dropdown.active > span[tabindex] {
-  /* background: rgba(0, 0, 0, 0.4); */
-  background: color-mix(in srgb, var(--clr-main-dark) 70%, black);
+  /* background: #fff4; */
+  background: color-mix(in srgb, var(--dropdown) 70%, grey);
 }
 .l-top_menu-v2 .menu-icon:hover,
 .l-top_menu-v2 .menu-dropdown.active > span[tabindex]:hover,
 .l-top_menu-v2 .menu-dropdown > span a:is(:hover, :active, :focus) {
-  /* background: rgba(0, 0, 0, 0.3); */
-  background: color-mix(in srgb, var(--clr-main-dark) 60%, black);
+  /* background: #fff6; */
+  background: color-mix(in srgb, var(--dropdown) 60%, grey);
 }
 
 .l-top_menu-v2 .submenu > a {
