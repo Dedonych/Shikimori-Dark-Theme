@@ -165,8 +165,25 @@ header.head .notice,
 .item-add,
 .p-contests .match-day .match-link.voted-none > .c-column a,
 .p-contests .match-day .match-link.voted-left > .c-column:last-child a,
-.p-contests .match-day .match-link.voted-right > .c-column:first-child a {
+.p-contests .match-day .match-link.voted-right > .c-column:first-child a,
+.b-status-line :is(.section.main .comments,.section.created_at time):before,   /* Иконки в топиках(перо звезда) */
+.b-status-line .section.main .collection-size,
+.b-critique_votes:before,
+.b-news_wall-topic .status-line .comments, /* НОвости коменти*/
+.buttons .item-quote.is-active, /* Цитировать */
+:is(.p-userlist_comparer-show,.p-recommendations-index,.p-mangas_collection-index,.p-animes_collection-index) .pagination,   /* Список тайтлов  */
+.b-table th, /* Совместимость имя */
+.b-header_filters .filter-line :is(a.current,.title), /* персонализированые */
+.b-contest_match .current-match .match-members .vs,  /* tournaments VS */
+.tooltip-details .b-nothing_here.centered, /* коментарий был удален... */
+.b-achievement .c-about .percent, /* /user/achievements текст */
+.b-achievement .about .percent
+{
   color: var(--txt-secondary);
+}
+
+.b-critique-topic .critique-stars .title {
+  color: var(--txt-primary);
 }
 
 .p-user_rates-index .list-lines tr td .episodes_total,
@@ -259,10 +276,10 @@ header.head h2,
 }
 
 /* #hover #tournaments  */
-.p-contests .match-day .match-link.active{
+.p-contests .match-day .match-link.active {
   background-color: var(--bckg-light);
 }
-.p-contests .match-day .match-link:hover{
+.p-contests .match-day .match-link:hover {
   background-color: var(--bckg-dark);
 }
 /* style #bars for profile  */
@@ -439,35 +456,9 @@ input:focus {
 }
 /* #checkbox */
 input[type="checkbox"] {
-  visibility: hidden;
+  accent-color: var(--clr-main-dark);
 }
-input[type="checkbox"]::before {
-  content: "";
-  position: absolute;
-  font-size: 12px;
-  text-align: center;
-  visibility: visible;
-  display: inline-flex !important;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid grey;
-  border-radius: 2px;
-  width: 13px;
-  height: 13px;
-  line-height: 13px;
-  background-color: var(--bckg-lighter);
-}
-input[type="checkbox"]:disabled::before {
-  background: #9f4646;
-}
-input[type="checkbox"]:checked::before {
-  background: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/main/checkmark.svg)
-    no-repeat;
-  background-size: contain;
-  width: 13px;
-  border: 1px solid transparent;
-  background-color: var(--clr-main-dark);
-}
+
 /* mini #checkbox */
 .p-contests .match-day .match-link.voted-abstain .started:before {
   color: var(--clr-main-dark);
@@ -680,7 +671,7 @@ rect {
   .image-decor:after {
   top: 0;
   right: 0;
-  left:auto;
+  left: auto;
 }
 /* #status #bar  */
 .b-achievement .c-about .progress .bar,
@@ -907,6 +898,12 @@ code.b-code_inline {
 .b-spoiler_block > span:hover {
   background-color: var(--bckg-primary);
 }
+/* Text editor заголовок */
+.b-spoiler_block
+  > span
+  > i:is(.edit, .expand, .center, .remove, .drag-handle):hover {
+  background: var(--bckg-light);
+}
 
 .b-quote {
   background-color: var(--bckg-dark);
@@ -1026,6 +1023,14 @@ header.head h2 a.back:before {
   background: var(--bckg-primary);
 }
 .b-hot_topics-v2 .subject {
+  color: var(--txt-secondary);
+}
+
+.b-input[data-v-3d684595] .ti-new-tag-input-wrapper .ti-new-tag-input,
+.b-input[data-v-3d684595] .ti-input,
+.vue-tags-input[data-v-13abcd46],
+.ti-autocomplete[data-v-13abcd46] {
+  background: var(--bckg-light);
   color: var(--txt-secondary);
 }
 
