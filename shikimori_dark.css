@@ -1147,7 +1147,12 @@ html:has(body:is([data-server_time*="11-01T"], [data-server_time*="10-31T"])) {
   }
 }
 /* x-mas */
-html:has(body:is([data-server_time*="-12-"], [data-server_time*="-01-"])) {
+html:has(body:is([data-server_time*="-12-"],
+                 [data-server_time*="-01-01"],
+                [data-server_time*="-01-02"],
+                [data-server_time*="-01-03"],
+                [data-server_time*="-01-04"],
+                [data-server_time*="-01-05"])) {
   --is-colored: var(--themes, var(--xmas, #ba0000));
   --dropdown: var(--is-colored);
   & .l-top_menu-v2 .logo-container .glyph {
