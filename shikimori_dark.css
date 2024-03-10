@@ -14,10 +14,6 @@ body {
   --txt-secondary-dark: #afafaf;
   --txt-accent: var(--clr-main-light);
 
-  /* --clr-main-primary: #4e9f3d;
-  --clr-main-dark: #3b7a2f;
-  --clr-main-light: #64b950;
-  */
   --clr-main-primary: var(--is-colored, var(--bckg-dark));
   --clr-main-dark: color-mix(in srgb, var(--clr-main-primary), black 30%);
   --clr-main-light: color-mix(in srgb, var(--clr-main-primary), white 15%);
@@ -177,8 +173,8 @@ header.head .notice,
 .b-contest_match .current-match .match-members .vs,  /* tournaments VS */
 .tooltip-details .b-nothing_here.centered, /* коментарий был удален... */
 .b-achievement .c-about .percent, /* /user/achievements текст */
-.b-achievement .about .percent
-{
+.b-achievement .about .percent,
+.p-profiles-show .about .item-edit /* profile edit about pencil */ {
   color: var(--txt-secondary);
 }
 
@@ -213,6 +209,11 @@ header.head h2,
 .midheadline,
 .subheadline {
   color: var(--link-primary);
+}
+/* textarea example (bb-code) */
+.b-bb_codes-examples .example .textarea {
+  background: var(--bckg-light);
+  color: var(--txt-primary);
 }
 /* #tooltip (hover title) */
 .tooltip-inner,
@@ -484,6 +485,11 @@ input[type="checkbox"] {
 .p-dashboards-show .v2 .my-list .label span {
   color: var(--txt-primary);
 }
+/* old style main page dashboard*/
+.p-dashboards-show .cc-second .cc-inner .c-my_list{
+  background:var(--bckg-primary);
+  border-color:var(--txt-secondary);
+}
 
 .b-user_rate-history .status-counter,
 .b-user_rate-history .score-time time,
@@ -702,7 +708,7 @@ rect {
   )
   .image-decor:after {
   background-color: transparent;
-  background-color: #212121;
+  background-color: var(--bckg-primary);
   border: 2px solid currentColor;
   border-color: 0;
   top: 0;
@@ -812,7 +818,7 @@ rect {
 }
 /* #spoiler block  */
 .b-spoiler_inline:not(.is-opened) {
-  background-color: var(--txt-secondary-dark);
+  background-color: var(--bckg-dark);
 }
 
 /* #comments shade off  */
@@ -1124,7 +1130,7 @@ header.head h2 a.back:before {
 
 /* news  */
 .edit-page.styles .cc-2::before {
-  content: "Shikimori-theme: создайте в :root --my-clr как основной цвет. Например: --my-clr: #00ff00\a  Добавляйте в :root строчки, чтобы:\a--news: none - отключить это окно:\a--dropdown: var(--my-clr) - верхнее меню изменить на основной цвет\a--link-primary: var(--my-clr) - сделать основной текст основным цветом (или каким хотите)\a--themes: var(--my-clr) - отключить все темы (xmas, halloween и т.д.)\a--icon: var(--def-icon); - установить дефолт лого \a--xmas: var(--my-clr) - отключить тему рождества\a--halloween: var(--my-clr) - отключить тему хэллоуин";
+  content: "Shikimori-theme: создайте в :root --my-clr как основной цвет. Например: --my-clr: #00ff00\a  Добавляйте в :root строчки, чтобы:\a--news: none - отключить это окно:\a--dropdown: var(--my-clr) - верхнее меню изменить на основной цвет\a--link-primary: var(--my-clr) - сделать основной текст основным цветом (или каким хотите)\a--icon: var(--def-icon); - установить дефолт лого \a--themes: var(--my-clr) - отключить все темы (xmas, halloween и т.д.)\a--xmas: var(--my-clr) - отключить тему рождества\a--halloween: var(--my-clr) - отключить тему хэллоуин";
   white-space: pre-wrap;
   display: var(--news, block);
   font-size: 12px;
@@ -1134,6 +1140,7 @@ header.head h2 a.back:before {
   background: var(--bckg-primary);
   z-index: 2;
   padding: 8px;
+  margin-bottom: 10px;
 }
 
 /* themes */
@@ -1146,13 +1153,18 @@ html:has(body:is([data-server_time*="11-01T"], [data-server_time*="10-31T"])) {
     background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/pumpkin.png));
   }
 }
+
 /* x-mas */
-html:has(body:is([data-server_time*="-12-"],
-                 [data-server_time*="-01-01"],
-                [data-server_time*="-01-02"],
-                [data-server_time*="-01-03"],
-                [data-server_time*="-01-04"],
-                [data-server_time*="-01-05"])) {
+html:has(
+    body:is(
+        [data-server_time*="-12-"],
+        [data-server_time*="-01-01"],
+        [data-server_time*="-01-02"],
+        [data-server_time*="-01-03"],
+        [data-server_time*="-01-04"],
+        [data-server_time*="-01-05"]
+      )
+  ) {
   --is-colored: var(--themes, var(--xmas, #ba0000));
   --dropdown: var(--is-colored);
   & .l-top_menu-v2 .logo-container .glyph {
