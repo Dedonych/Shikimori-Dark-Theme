@@ -486,9 +486,9 @@ input[type="checkbox"] {
   color: var(--txt-primary);
 }
 /* old style main page dashboard*/
-.p-dashboards-show .cc-second .cc-inner .c-my_list{
-  background:var(--bckg-primary);
-  border-color:var(--txt-secondary);
+.p-dashboards-show .cc-second .cc-inner .c-my_list {
+  background: var(--bckg-primary);
+  border-color: var(--txt-secondary);
 }
 
 .b-user_rate-history .status-counter,
@@ -683,6 +683,10 @@ rect {
 .b-achievement .c-about .progress .bar,
 .b-achievement .about .progress .bar {
   background: var(--clr-main-light);
+}
+/* Прогрес бар на главной*/
+.b-user_rate-history .progress .completed {
+  background: var(--clr-main-primary);
 }
 /* #catalog #title status */
 .b-catalog_entry:is(
@@ -978,20 +982,16 @@ code.b-code_inline {
   max-width: 1200px;
 }
 
+/* dropdown menu background*/
 .l-top_menu-v2 .menu-dropdown > span[tabindex] {
-  background: #fff2;
-  /* background: color-mix(in srgb, var(--dropdown) 80%, grey); */
+  background: color-mix(in srgb, var(--dropdown) 80%, white);
 }
 .l-top_menu-v2 .menu-icon:is(:active, :focus),
-.l-top_menu-v2 .menu-dropdown.active > span[tabindex] {
-  /* background: #fff4; */
-  background: color-mix(in srgb, var(--dropdown) 70%, grey);
-}
+.l-top_menu-v2 .menu-dropdown.active > span[tabindex],
 .l-top_menu-v2 .menu-icon:hover,
 .l-top_menu-v2 .menu-dropdown.active > span[tabindex]:hover,
 .l-top_menu-v2 .menu-dropdown > span a:is(:hover, :active, :focus) {
-  /* background: #fff6; */
-  background: color-mix(in srgb, var(--dropdown) 60%, grey);
+  background: color-mix(in srgb, var(--dropdown) 70%, white);
 }
 
 .l-top_menu-v2 .submenu > a {
