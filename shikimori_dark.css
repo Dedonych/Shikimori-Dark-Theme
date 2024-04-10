@@ -174,7 +174,11 @@ header.head .notice,
 .tooltip-details .b-nothing_here.centered, /* коментарий был удален... */
 .b-achievement .c-about .percent, /* /user/achievements текст */
 .b-achievement .about .percent,
-.p-profiles-show .about .item-edit /* profile edit about pencil */ {
+.p-profiles-show .about .item-edit, /* profile edit about pencil */ 
+.l-top_menu-v2 .submenu>a.icon-mail:hover span.unread span, /* сообщение в менюшки. цвет 0|2|0 */
+.b-news_wall-topic .status-line .is-pinned:before, /* форум закреп */
+.b-status-line .section.main .is-pinned:before
+{
   color: var(--txt-secondary);
 }
 
@@ -1039,6 +1043,10 @@ header.head h2 a.back:before {
   background: var(--bckg-light);
   color: var(--txt-secondary);
 }
+/* editor is-loading */
+.editor-container.is-loading[data-v-082d85bb]:before{
+  background-color: #666a;
+}
 
 /* profile css editor  */
 .b-edit_styles .edit_style .style_css .CodeMirror,
@@ -1128,6 +1136,38 @@ header.head h2 a.back:before {
   color: #cecece;
 }
 
+/* /comparer/(anime|manga|ranobe)/[user]/vs/[user2] */
+/* general colors */
+.p-userlist_comparer :is(.comparer table, .legend) .selectable,
+.p-userlist_comparer header.head .notice:first-of-type > span {
+  --b-c: var(--bckg-light);
+  background-color: var(--b-c) !important;
+}
+.p-userlist_comparer .comparer table .selectable:hover {
+  background-color: color-mix(in srgb, var(--b-c), black 10%) !important;
+}
+/* list 'a' names */
+.p-userlist_comparer .comparer table .name a{
+ color:#ccc;
+}
+/* adding colors to diff */
+.p-userlist_comparer :is(.comparer table, .legend) .almost-same,
+.p-userlist_comparer header.head .notice > span:nth-of-type(1) {
+  --b-c: #006400da;
+}
+.p-userlist_comparer :is(.comparer table, .legend) .abslt-difr,
+.p-userlist_comparer header.head .notice > span:nth-of-type(2) {
+  --b-c: #b22222da;
+}
+.p-userlist_comparer :is(.comparer table, .legend) .exact-same,
+.p-userlist_comparer header.head .notice > span:nth-of-type(3) {
+  --b-c: #2e8b57da;
+}
+.p-userlist_comparer :is(.comparer table, .legend) .slightly-difr,
+.p-userlist_comparer header.head .notice > span:nth-of-type(4) {
+  --b-c: #f08080da;
+}
+
 /* news  */
 .edit-page.styles .cc-2::before {
   content: "Shikimori-theme: создайте в :root --my-clr как основной цвет. Например: --my-clr: #00ff00\a  Добавляйте в :root строчки, чтобы:\a--news: none - отключить это окно:\a--dropdown: var(--my-clr) - верхнее меню изменить на основной цвет\a--link-primary: var(--my-clr) - сделать основной текст основным цветом (или каким хотите)\a--icon: var(--def-icon); - установить дефолт лого \a--themes: var(--my-clr) - отключить все темы (xmas, halloween и т.д.)\a--xmas: var(--my-clr) - отключить тему рождества\a--halloween: var(--my-clr) - отключить тему хэллоуин";
@@ -1147,7 +1187,7 @@ header.head h2 a.back:before {
 
 /* halloween */
 html:has(body:is([data-server_time*="11-01T"], [data-server_time*="10-31T"])) {
-  --is-colored: var(--themes, var(--halloween, #ba0000));
+  --is-colored: var(--themes, var(--halloween, orange));
   --dropdown: var(--is-colored);
   & .l-top_menu-v2 .logo-container .glyph {
     background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/pumpkin.png));
