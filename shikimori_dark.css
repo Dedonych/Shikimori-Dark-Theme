@@ -578,7 +578,7 @@ input[type="checkbox"] {
 .powderblue,
 .skyblue,
 .b-errors .subheadline {
-  background: var(--bckg-dark);
+  background: var(--headline-background-color);
   border-color: currentColor;
 }
 /* #graph */
@@ -715,7 +715,6 @@ rect {
     .completed
   )
   .image-decor:after {
-  background-color: transparent;
   background-color: var(--bckg-primary);
   border: 2px solid currentColor;
   border-color: 0;

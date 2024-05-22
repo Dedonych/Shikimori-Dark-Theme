@@ -1,4 +1,4 @@
-В разработке!
+_В разработке!_
 
 # Темная тема для сайта shikimori.me
 
@@ -33,13 +33,20 @@
 - `--xmas:var(--my-clr)` - отключить тему рождества <br>
 - `--halloween:var(--my-clr)` - отключить тему хэллоуин
 
+## ColorPicker JS
+
+Для удобного поиска цветов, можете использовать данный скрипт ["colorpicker.js"](colorpicker.js), в котором есть несколько функций:
+ - Изменение цвета `--my-clr`
+ - Изменение цвета `--dropdown`
+ - Поменять местами цвета
+ - Скопировать в буфер готовые строчки, для удобного вставление на сайт
+ - Сбросить кастомные цвета, к тем , что у вас стояли
+
 ## Как выглядит
-
 ![image](./posters/main.png)
-
 ![image](./posters/profile.png)
-
 ![image](./posters/title.png)
-
-С применением `--dropdown`
+## С применением `--dropdown`
 ![image](./posters/colored.png)
+##   С применением colorpicker.js
+![image](./posters/colorpicker.png)
