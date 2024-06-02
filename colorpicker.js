@@ -84,7 +84,9 @@
       style.innerHTML = "";
       myClrColor = getComputedColor("--my-clr");
       dropdownColor = getComputedColor("--dropdown");
-      changeStyle();
+      myClrPick.value = myClrColor;
+      dropdownPick.value = dropdownColor;
+      sessionStorage.removeItem("colorPicker");
     });
 
     document.body.append(style, myClrPick, dropdownPick, swapButton, copyButton, randomButton, resetButton);
