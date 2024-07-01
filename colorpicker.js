@@ -1,4 +1,4 @@
-{
+
   class ColorPicker {
     COLORS = {
       /** @type {[string,boolean]} */
@@ -404,4 +404,3 @@
   addEventListener("load",()=>(new ColorPicker(DEBUGMODE)))
   addEventListener("turbolinks:load",()=>(new ColorPicker(DEBUGMODE)))
   new ColorPicker(DEBUGMODE);
-}
