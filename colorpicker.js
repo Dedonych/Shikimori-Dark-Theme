@@ -34,7 +34,7 @@
       this.container.id = "colorPickerJS";
   
       const header = document.createElement("div");
-      header.innerHTML = `<p>Color-picker</p>`;
+      header.innerHTML = `<a href="https://github.com/Dedonych/Shikimori-Dark-Theme">Color-picker</a>`;
       const closeBtn = document.createElement("input");
       closeBtn.type = "checkbox";
       closeBtn.id = "closeBtn";
@@ -98,7 +98,7 @@
         align-items: center;
         color: #72bfeb;
         font-size: 20px;
-        p:hover {
+        a:hover {
           text-decoration: underline;
         }
       }
