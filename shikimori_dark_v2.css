@@ -1,0 +1,1217 @@
+:root {
+  color-scheme: dark;
+  /* менять цвета colors */
+  --dropdown: #468585;
+  --my-clr: #58d571;
+
+  /* темные оттенки */
+  --clr-prm: color-mix(in srgb, var(--my-clr), #000 20%);
+  --clr-sec: color-mix(in srgb, var(--dropdown), #000 20%);
+
+  /* цвет текстов */
+  --txt-clr: var(--my-clr);
+  --txt-prm: #fff;
+  --txt-sec: #ccc;
+
+  /* фоновые цвета */
+  --bckg-b: #000a;
+  --bckg-b-f: #000f;
+  --bckg-b-b: #000b;
+
+  --bckg-t: #0000;
+
+  --bckg-f: #fffa;
+  --bckg-f-d: #fffb;
+  --bckg-f-l: #fff6;
+
+  --selection-bckg: #ffffff1a;
+  --selection-search: #00ff0839;
+}
+/* Переписать дефолт цвета */
+html[data-color-mode="light"] {
+  --headline-border-color: var(--clr-prm);
+  --headline-color: var(--txt-clr);
+  --link-color: color-mix(in srgb, var(--txt-clr), #fff 20%);
+  --link-hover-color: var(--txt-clr);
+  --link-active-color: var(--clr-prm);
+  --link-border-color: var(--txt-clr);
+  --link-border-hover-color: var(--txt-prm);
+  --link-border-active-color: var(--txt-prm);
+  --icon-color: #aaa;
+}
+
+/* scroll */
+::-webkit-scrollbar {
+  width: 8px;
+  background: #0002;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--dropdown);
+}
+
+/* Turbolink bar */
+@media all {
+  .turbolinks-progress-bar {
+    background: var(--clr-prm) !important;
+    -webkit-box-shadow: 0 0 8px var(--my-clr) !important;
+    box-shadow: 0 0 10px var(--my-clr) !important;
+  }
+}
+
+/* градиент на фоне */
+body {
+  --b-l: color-mix(in srgb, var(--my-clr), #000 75%);
+  --b-r: color-mix(in srgb, var(--dropdown), #000 75%);
+  background: linear-gradient(90deg, var(--b-l), var(--b-r)) !important;
+}
+.l-page {
+  background-color: transparent;
+}
+
+/* header */
+
+.l-top_menu-v2 {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: sticky;
+  top: 0;
+  border-radius: 0 0 4px 4px;
+  background-color: var(--dropdown);
+  display: flex;
+
+  gap: 4px;
+  padding: 0 8px;
+  @media screen and (max-width: 720px) {
+    padding: 0;
+  }
+  & > * {
+    margin: 0 !important;
+  }
+  .menu-icon.search {
+    margin-left: auto !important;
+  }
+  .menu-logo {
+    gap: 4px;
+    & > * {
+      margin: 0 !important;
+    }
+  }
+  .global-search {
+    @media screen and (min-width: 1024px) {
+      display: flex;
+      flex-direction: column;
+    }
+    .field > * {
+      color: #ccc !important;
+    }
+    input {
+      background-color: #0006;
+      border: 0;
+      border-radius: 6px;
+    }
+    .search-results {
+      flex: 1;
+      background: #222;
+      & :is( /* левый блок от название*/
+          .nothing_found.active,
+          .nothing_found:focus,
+          .b-db_entry-variant-list_item.active,
+          .b-db_entry-variant-list_item:focus,
+          .search-mode.active,
+          .search-mode:focus
+        ):before {
+        background: var(--clr-sec);
+      }
+      .active {
+        border-top-color: var(--clr-sec) !important;
+        background: transparent !important ;
+      }
+      .search-mode:hover {
+        background: transparent !important ;
+      }
+      &:after,
+      &:before {
+        display: none;
+      }
+      .active + * {
+        border-top-color: var(--clr-sec) !important;
+      }
+
+      .search-mode:hover:before {
+        background: color-mix(in srgb, var(--clr-sec), #000 20%);
+      }
+      .nothing_found,
+      .search-mode {
+        background: transparent;
+        color: var(--txt-sec);
+        border-color: var(--clr-sec);
+      }
+    }
+  }
+  .menu-icon:hover {
+    background-color: var(--clr-sec);
+  }
+  .menu-dropdown > span {
+    background-color: var(--clr-sec);
+    &:hover,
+    .active > &,
+    & > a:hover {
+      background-color: var(--clr-sec);
+    }
+  }
+  .submenu {
+    background-color: var(--clr-sec);
+    border: 0;
+    border-radius: 0 0 8px 8px;
+    /* для мобилки сделать скролл */
+    @media screen and (max-width: 720px) {
+      max-height: 70dvh;
+      overflow-y: scroll;
+    }
+    /* переход прикольний */
+    @media screen and (min-width: 768px) {
+      top: 48px !important;
+      border-radius: 16px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+      .active > & {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    .legend {
+      margin: 0 !important;
+      background-color: color-mix(in srgb, var(--clr-sec), #000 30%);
+      text-align: center;
+      padding: 2px 0;
+    }
+    a:hover,
+    a.active {
+      background-color: color-mix(in srgb, var(--clr-sec), #000 20%);
+      color: #fff;
+    }
+  }
+}
+/* shade when search is active */
+.b-shade {
+  backdrop-filter: blur(2px);
+}
+/* colored headlines and .linkheadline */
+/* remove background from headlines */
+.headline,
+.subheadline,
+.midheadline,
+.linkheadline {
+  background: transparent;
+  color: var(--txt-clr);
+  border-color: currentColor;
+  border-left: 0;
+  border-bottom: 2px solid currentColor;
+}
+/* change triangle content */
+.headline > a:before,
+.midheadline > a:before,
+.subheadline > a:before {
+  content: "\01f517";
+}
+
+/* цветные headline */
+.red,
+.p-dashboards-show .v2 .fc-user-sections .tag-link.anime-tag {
+  color: lightcoral;
+}
+
+.blue,
+.p-dashboards-show .v2 .fc-user-sections .tag-link.manga-tag {
+  color: dodgerblue;
+}
+
+.green,
+.p-dashboards-show .v2 .fc-user-sections .tag-link.ranobe-tag {
+  color: springgreen;
+}
+/* main page: Anime, manga, ranobe */
+
+.p-dashboards-show
+  .v2
+  .fc-user-sections
+  .tag-link:is(.anime-tag, .ranobe-tag, .manga-tag) {
+  border: 0;
+  background-color: #0005;
+  &:hover {
+    background-color: #0008;
+  }
+}
+.orange {
+  color: orange;
+}
+.skyblue {
+  color: skyblue;
+}
+.magenta {
+  color: magenta;
+}
+.purple {
+  color: darkorchid;
+}
+.gray {
+  color: lightgrey;
+}
+.powderblue {
+  color: powderblue;
+}
+.yellow {
+  color: gold;
+}
+.pink {
+  color: hotpink;
+}
+.brown {
+  color: chocolate;
+}
+
+/* текст главный  */
+.b-rate .text-score /* звездочки оценка (номер)  */ {
+  color: var(--txt-prm);
+}
+/* accent color to elements */
+.p-contests .match-day .match-link.voted-none > .c-column a, /* турнир: "В этом раунде: "  */
+.p-contests .match-day .match-link.voted-left > .c-column:last-child a, /* и это */
+.p-contests .match-day .match-link.voted-right > .c-column:first-child a, /* и это */
+.b-mention s, .b-mention span, /* коментарий: упоминание(снизу справа) */
+.p-topics header h1 a.reload, /* Форум: название */
+.p-user_rates-index .l-content .order-control, /* Список: название,оценка,Эпизоды, Тип */
+b {
+  color: var(--txt-clr);
+}
+/*  немного темнее */
+.b-news_wall-topic .title,
+h2,
+h3,
+h4 {
+  color: color-mix(in srgb, var(--txt-clr), #000 20%);
+}
+
+/* текст в серенький */
+.b-tag, /* тип, студия, жанры,темы, и тд. Мелкий текст в тултипе,в тайтлах */
+.b-entry-info .line .value, /* тайтл: типа как .b-tag*/
+.b-quote, /* цитата */
+.b-catalog_entry-tooltip .inner .line .key, /* тултип тайтла: тоже как .b-tag*/
+header.head .notice, /* муж \ на сайте с 2022г. */
+:is(.b-user_rate, .b-catalog_entry-tooltip) .inner :is(.rating .text, .rating),
+.b-catalog_entry .cover .misc span, /* список тайтлов: с картинками внизу текст*/
+.p-profiles-show .about .item-edit, /* profile edit about pencil */ 
+.p-profiles .profile-head .c-info .c-additionals b, /* Слово активность*/
+.p-profiles-show .profile-content .activity .title,  /* Еще слово активность*/
+.p-profiles-show .lifetime .times :is(.time,.time.checked), /* время за аниме и мангой */
+.p-profiles-show .achievements .header .title, /* ачивки название: Общие, Жанровые*/
+.b-news_line-topic .status-line, /* значок комментов  (главная стрраница: контент) */
+.p-user_rates-index .list-groups .summary.lines,
+.bar.vertical .line .x_label, /* Активность на сайте: внизу дата */ 
+.bar.horizontal .line .x_label, /* ------------------------------------------------------------------------------------------  */
+.b-rate .score-notice, /* текст под оценкой */
+.b-animes-menu .total-rates, /*тайтл: в списках у ххх человек*/
+.b-critique_votes:before, /* рецензии: звездочка */
+.b-review-topic.is-review_review_author_details > .inner :is( .review-details .b-status-line, .review-info .user-rate-label), /* рецензии: "В списке у автора", дата рецензии */
+.b-comment > .inner .name-date .time, /* коменты: дата комента */
+.b-db_entry-variant-list_item > .info .line .key, /*Тайтл: Авторы:  "Роль"  */
+.b-catalog_entry-tooltip .inner .additional-images .link .title, /* ----------------------------------------------------------  */
+.b-user.detailed .history .line .event, /* Пользователи: Регистрация на сайте*/
+.b-user.moderation .history .line .event, /* ---------------------------------------------------------------------------------  */
+.item-add, /*Мой список (лист):  "+" возле главы\эпизода  */
+.b-status-line :is(.section.main .comments,.section.created_at time):before,   /* Иконки в топиках(перо звезда) */
+.b-status-line .section.main .collection-size, /*-------------------------------------------------------------------------------*/
+.b-news_wall-topic .status-line .comments, /* НОвости коменти*/
+.buttons .item-quote.is-active, /* Цитировать */
+:is(.p-userlist_comparer-show,.p-recommendations-index,.p-mangas_collection-index,.p-animes_collection-index) .pagination,   /* Список тайтлов  */
+.b-table th, /* Совместимость имя */
+.b-header_filters .filter-line :is(a.current,.title), /* персонализированые */
+.b-contest_match .current-match .match-members .vs,  /* tournaments VS */
+.tooltip-details .b-nothing_here.centered, /* коментарий был удален... */
+.b-achievement .c-about .percent, /* /user/achievements текст */
+.l-top_menu-v2 .submenu>a.icon-mail:hover span.unread span, /* сообщение в менюшки. цвет 0|2|0 */
+.b-news_wall-topic .status-line .is-pinned:before /* форум закреп */,
+.b-contest_match .current-match .match-members .vs>*, /* турнир: VS по середине */
+.b-critique-topic .critique-stars .title, /* Рецензии: Оценки текст */
+.p-user_rates-index .list-lines tr :is( /*Список: лист линия*/
+  .index,  /* номер */
+  .name a, /* Название */
+  .episodes_total /* онгоинг - полностью серий */
+),
+.b-block_list li, /* Список: справа чекбоксы текст */
+.p-contests .match-day .match-link .c-column:is(.loser,.created) a /* турнир: внизу текст тайтлов */ {
+  color: var(--txt-sec);
+}
+/* buttons */
+
+.b-link_button,
+.b-button,
+.b-form input[type="submit"] {
+  background-color: #444b;
+  border: 0;
+  border-radius: 4px;
+  &:hover {
+    background-color: #333b;
+  }
+  &:active {
+    background-color: #222b;
+  }
+}
+/* inputs */
+
+/* #input style #button */
+.subheadline-input[type="submit"],
+.subheadline-input[type="text"],
+.subheadline-input[type="password"],
+.subheadline-input[type="email"],
+.b-form input,
+.b-button,
+.b-shiki_editor .body .editor textarea,
+.b-input input,
+.b-link_button.blue,
+/* загрузить ещё  */
+.b-comments .comments-loader,
+.b-comments .comments-hider,
+.b-comments .comments-expander,
+.b-link_button.dark {
+  background: #333;
+  color: var(--txt-sec);
+  border-color: grey;
+  outline: 0 !important;
+
+  &:hover {
+    border-color: grey;
+    background: #222;
+    color: var(--txt-sec);
+  }
+}
+.b-input input[disabled] {
+  background: #222;
+  cursor: not-allowed;
+}
+
+/* стиль для чекбоксов*/
+
+input[type="checkbox"] {
+  accent-color: var(--my-clr);
+}
+
+/* list style */
+li::before {
+  content: none !important;
+}
+.b-list li,
+li {
+  list-style: disc;
+  &::marker {
+    color: var(--clr-prm);
+  }
+}
+/* quote */
+.b-quote-v2,
+.b-quote {
+  background-color: var(--bckg-b);
+  border-color: var(--clr-prm);
+}
+
+/* вылазит подсказка (ачивка, время) */
+.tipsy-inner {
+  background-color: #111;
+  box-shadow: none;
+  border-radius: 4px;
+}
+
+/* вылазит смска */
+.tooltip-inner {
+  background-color: #222f;
+  color: var(--txt-sec);
+  border: 0;
+  border-radius: 4px;
+
+  .tooltip-arrow,
+  .close {
+    filter: invert(0.865);
+    border: 0;
+  }
+  [class*="dropshadow"] {
+    display: none;
+  }
+  a.name .normal {
+    color: var(--txt-sec) !important;
+  }
+}
+/* Поправить тултип: сделать проще и нормально */
+.b-catalog_entry-tooltip .inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Ачивка Уведомление  */
+.b-achievements_notifier .achievement:is(.gained, .lost) {
+  background: var(--bckg-b);
+  border-radius: 4px;
+}
+
+/* главная  status: маленькие цветные плашки  */
+.b-anime_status_tag.critique {
+  background-color: #641e3c;
+}
+.b-anime_status_tag.contest {
+  background-color: #6f30a0;
+}
+.b-anime_status_tag.news {
+  background-color: #724120;
+}
+.b-anime_status_tag.collection {
+  background-color: #0e5013;
+}
+.b-anime_status_tag.censored {
+  background-color: #d3428f;
+}
+.b-anime_status_tag:is(.studio, .other) {
+  background-color: #333;
+  color: var(--txt-prm);
+}
+.b-anime_status_tag.studio:hover {
+  background-color: #484848 !important;
+}
+
+.b-anime_status_tag {
+  background-color: grey;
+  border: 0 !important;
+  padding: 2px 6px !important;
+  border-radius: 4px;
+}
+
+/* ajax -  загрузки */
+/* убрать задний фон (был белый) */
+.b-ajax::before,
+.b-ajax::after,
+.ajax-loading,
+.ajax-loading.vk-like {
+  background: none;
+}
+
+.b-ajax::after,
+.ajax-loading::before {
+  display: grid;
+  place-content: center;
+  height: 2rem;
+  width: 2rem;
+}
+.b-ajax::after,
+.ajax-loading::before {
+  content: "";
+  inset: 0;
+  position: absolute;
+  margin: auto;
+  border: 5px solid var(--txt-prm);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Добавить в список */
+
+.b-add_to_list .trigger,
+.b-add_to_list .option {
+  background-color: #222 !important;
+  border: 0;
+  border-bottom: 2px solid gray !important;
+  border-radius: 4px;
+}
+
+/* смотрю в синий */
+.b-add_to_list.watching .trigger,
+.b-add_to_list.watching .option,
+.b-add_to_list.rewatching .trigger,
+.b-add_to_list.rewatching .option {
+  color: #9bc7e4;
+}
+
+/* Отзывы: кнопочки */
+.navigation-container {
+  background-color: #2226;
+  .navigation-node-all {
+    color: var(--txt-prm) !important;
+  }
+
+  & > * {
+    background-color: transparent !important;
+    border-color: currentColor !important;
+  }
+}
+.b-reviews_navigation .navigation-node-all {
+  color: var(--txt-secondary);
+}
+.b-reviews_navigation .navigation-node-positive {
+  color: #68d168;
+}
+.b-reviews_navigation .navigation-node-negative {
+  color: crimson;
+}
+.b-reviews_navigation .navigation-node-neutral,
+.b-review-topic.is-review_review_author_details > .inner .review-info .neutral {
+  color: skyblue;
+}
+/* коменты: фон в оценке рецензии  */
+
+.b-review-topic.is-review_review_author_details
+  > .inner
+  .review-info
+  .opinion:is(.negative, .neutral, .positive) {
+  background-color: #0000;
+}
+/* Мелачёвка */
+/* Коменты: развернуть градиент */
+.b-height_shortener .shade {
+  background: linear-gradient(180deg, transparent, #333);
+  width: 100%;
+  position: relative;
+}
+
+/* Этот отзыв полезен?  */
+.b-footer_vote {
+  background-color: #0004;
+  border: 0;
+  border-radius: 8px;
+  color: var(--txt-sec);
+}
+
+/* главная мой список */
+.p-dashboards-show .v2 .my-list {
+  background-color: #0006;
+  border-radius: 8px;
+  border: 0;
+
+  .label span,
+  .status-counter .status {
+    color: var(--txt-sec);
+  }
+  .progress {
+    background-color: #333;
+  }
+}
+
+/* О сайте: графики */
+/* темный фон  */
+rect {
+  fill: #111;
+}
+
+text {
+  fill: #ccc !important;
+}
+/* Уникальные посетители */
+.highcharts-tooltip path {
+  fill: #222;
+}
+/* #arrow to up  */
+.b-to-top.active .arrow {
+  color: var(--txt-sec);
+}
+.b-to-top .slide:before {
+  background-color: #0006;
+}
+/* Список: до загрузка линия */
+.collapsed {
+  background-color: #0006;
+  color: var(--txt-sec) !important;
+  border: 0;
+  border-radius: 8px;
+  &:hover,
+  &:active {
+    background-color: #555;
+    border: 0;
+  }
+}
+
+/* аватарки круглые */
+
+.avatar img[alt],
+.icon-avatar img,
+.profile a img[alt],
+.image-name .image,
+header a img[alt] {
+  border-radius: 50% !important;
+}
+
+/* Рецензии:  темы дня  */
+.b-hot_topics-v2 {
+  background-color: #0004;
+  border: 0;
+  .subject {
+    color: var(--txt-sec);
+  }
+  .b-link:last-child {
+    display: none;
+  }
+}
+
+/* Рецензии:  релоад */
+.p-topics header h1 a.reload.active:after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  border: 4px solid var(--clr-prm);
+  border-radius: 50%;
+  border-top-color: #0000;
+}
+
+/* Оценки: звезды  */
+.b-rate .stars.background {
+  color: #444;
+}
+.b-rate .stars.score {
+  color: Goldenrod;
+}
+
+/*  Убрать фон блока цитаты, потому что конфликтует с оценками */
+.p-critiques :is(.b-quote-v2, .b-quote) {
+  background-color: transparent;
+}
+
+/* фидбек */
+.b-modal > .inner {
+  background-color: #111;
+}
+.b-feedback > .marker-positioner > .marker-text,
+.b-feedback > .hover-activator {
+  background: color-mix(in srgb, var(--clr-prm), #000 50%);
+  &:hover {
+    background: color-mix(in srgb, var(--clr-prm), #000 60%);
+  }
+}
+
+/* Мобилка: внизу хотбар */
+@media screen and (max-width: 768px) {
+  body {
+    margin-bottom: 48px;
+    --icon-width: calc(100dvi / 5 + 1px);
+  }
+  :is(
+      .icon-profile,
+      .icon-anime_list,
+      .icon-manga_list,
+      .icon-mail,
+      .icon-settings
+    ):after {
+    font-family: shikimori;
+    position: fixed;
+    bottom: 0;
+    width: var(--icon-width);
+    left: calc(var(--icon-width) * var(--icon-left));
+    background-color: var(--dropdown);
+    display: grid;
+    place-content: center;
+    font-size: 1.5rem;
+    z-index: 2;
+  }
+  .icon-anime_list:after {
+    --icon-left: 0;
+    content: "\eba5";
+  }
+  .icon-manga_list:after {
+    --icon-left: 1;
+    content: "\eba6";
+  }
+  .icon-profile:after {
+    --icon-left: 2;
+    content: "\e849";
+    font-size: 2.5em;
+  }
+  .icon-mail:after {
+    --icon-left: 3;
+    content: "\e81f";
+  }
+  .icon-settings:after {
+    --icon-left: 4;
+    content: "\e822";
+  }
+  :is(
+      .icon-profile,
+      .icon-anime_list,
+      .icon-manga_list,
+      .icon-mail,
+      .icon-settings
+    ):is(:focus):after {
+    background: color-mix(in srgb, var(--dropdown) 70%, white);
+  }
+
+  /* смс анрид */
+  .l-top_menu-v2 .menu-dropdown > span[data-unread_count]:after {
+    position: fixed;
+    z-index: 2;
+    right: auto;
+    top: auto;
+    bottom: 24px;
+    /*  позиция .icon-mail \/  */
+    left: calc(var(--icon-width) * 3 + calc(var(--icon-width) / 2));
+  }
+}
+/* mobile user/edit/ menu items on top (Настройки справа) */
+@media screen and (max-width: 767px) {
+  .b-options-floated:is(.mobile-phone, .mobile-desktop) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    a {
+      background: #5556;
+      border-radius: 8px;
+      padding: 4px;
+      flex: 1;
+      text-align: center;
+      &:before,
+      &:after {
+        content: none;
+      }
+      &:focus {
+        background: #555a;
+      }
+    }
+  }
+}
+/* список: меню слова (запланир, смотрю, и тд) */
+.selected {
+  text-decoration: underline;
+}
+/* немного minimalistic боковая кнопка мобилка */
+.l-page .menu-toggler {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  top: calc(var(--top-menu-height) * 1.25);
+}
+.l-page .menu-toggler .toggler {
+  padding: 0;
+  inset: 0;
+  height: 40px;
+  line-height: 40px;
+  background-color: #222;
+  &:after {
+    color: #fff;
+  }
+}
+.l-page .menu-toggler .toggler::before {
+  content: none;
+}
+
+/* значок вопросика (Список, справа) */
+.b-question:before {
+  background-color: #555;
+}
+
+/* Список: нажать на тайтл, и попап */
+.p-user_rates-index .list-lines tr.edit-form form {
+  background-color: #0008;
+}
+/* Список: N повторный просмотр */
+.p-user_rates-index .list-lines tr td .rewatches{
+  color:skyblue;
+}
+
+/* Сравнение списка: /comparer/ -------------------- */
+/* list 'a' names */
+.p-userlist_comparer .comparer table .name a {
+  color: #ccc;
+}
+/* /comparer/(anime|manga|ranobe)/[user]/vs/[user2] */
+/* general colors */
+.p-userlist_comparer :is(.comparer table, .legend) .selectable,
+.p-userlist_comparer header.head .notice:first-of-type > span {
+  --b-c: #0000;
+  background-color: var(--b-c) !important;
+}
+.p-userlist_comparer .comparer table .selectable:hover {
+  background-color: color-mix(in srgb, var(--b-c), #000 10%) !important;
+}
+
+/* adding colors to diff */
+.p-userlist_comparer :is(.comparer table, .legend) .almost-same,
+.p-userlist_comparer header.head .notice > span:nth-of-type(1) {
+  --b-c: #1e7242da;
+}
+.p-userlist_comparer :is(.comparer table, .legend) .slightly-difr,
+.p-userlist_comparer header.head .notice > span:nth-of-type(2) {
+  --b-c: #be5d5dda;
+}
+.p-userlist_comparer :is(.comparer table, .legend) .exact-same,
+.p-userlist_comparer header.head .notice > span:nth-of-type(3) {
+  --b-c: #007500da;
+}
+
+.p-userlist_comparer :is(.comparer table, .legend) .abslt-difr,
+.p-userlist_comparer header.head .notice > span:nth-of-type(4) {
+  --b-c: #910909da;
+}
+/* конец ---------------------------------- */
+
+/* тип, студия, жанры,темы, и тд. Мелкий текст в тултипе,в тайтлах */
+.b-tag[href] {
+  border-color: var(--clr-prm);
+  padding: 3px;
+  border-radius: 4px;
+  margin: 0;
+  .line .value:has(> &) {
+    display: inline-flex !important;
+    gap: 4px;
+    margin: 2px 0;
+  }
+  &.active,
+  &:hover {
+    margin: 0;
+    padding: 3px;
+    background-color: color-mix(in srgb, var(--clr-prm), #000 40%);
+  }
+}
+/* Стиль статуса: тайтл сверху справа иконки */
+/* #catalog #title status */
+.b-catalog_entry .image-decor:before {
+  content: none !important;
+}
+.b-catalog_entry:is(
+    .on_hold,
+    .planned,
+    .dropped,
+    .watching,
+    .rewatching,
+    .completed
+  )
+  .image-decor:after {
+  background-color: #000;
+  border: 2px solid currentColor;
+  border-color: 0;
+  top: 0;
+  right: 0;
+  border-bottom-left-radius: 10px;
+}
+.b-catalog_entry.on_hold .image-decor:after {
+  color: grey;
+}
+.b-catalog_entry.planned .image-decor:after {
+  color: lightgrey;
+}
+.b-catalog_entry.dropped .image-decor:after {
+  color: lightcoral;
+}
+.b-catalog_entry.watching .image-decor:after {
+  color: skyblue;
+}
+.b-catalog_entry.rewatching .image-decor:after {
+  color: #71c5f9;
+}
+.b-catalog_entry.completed .image-decor:after {
+  color: #3ccc89;
+}
+
+/* новые уведомление: справа сверху квадратик */
+
+.b-comments-notifier {
+  background-color: color-mix(in srgb, var(--dropdown), #000 40%);
+  &:hover,
+  &:active {
+    background-color: color-mix(in srgb, var(--dropdown), #000 30%);
+  }
+}
+/* коменты и тд: значок "новое" */
+.b-new_marker:before {
+  color: var(--txt-sec) !important;
+  background: var(--dropdown) !important;
+  border: 0 !important;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+/* страница турнира */
+/* #hover #tournaments  */
+.p-contests .match-day .match-link.active {
+  background-color: #0000;
+}
+.p-contests .match-day .match-link {
+  &:hover,
+  &:active {
+    background-color: #000a !important;
+  }
+}
+/* чекбоксы */
+.p-contests .match-day .match-link.voted-abstain .started:before,
+.p-contests .match-day .match-link .started:before {
+  color: #555;
+}
+
+/* турнир: выбор тайтла - подсветка  */
+.yellow-fade {
+  border-radius: 2px;
+  background: gold;
+  outline-color: gold;
+}
+
+/* тайтлы картинки */
+.b-catalog_entry .cover .image-decor img, /* многие: герои, мини картинки*/
+.b-db_entry-variant-list_item .image img, /* связанное, авторы */
+.b-catalog_entry-tooltip .entry-tooltip_container img, /*тултип */
+.b-db_entry>.c-image img /* Тайтл: главная картинка*/ {
+  border-radius: 0.5em;
+}
+
+/* фикс связанное: большой пробел */
+.b-db_entry-variant-list_item > .info > * {
+  margin: 0 !important;
+}
+
+/* цвета для списков */
+.b-stats_bar {
+  &.anime {
+    --first: green;
+  }
+  &.manga {
+    --first: purple;
+  }
+  .title,
+  .stat_names .stat_name a {
+    color: color-mix(in srgb, var(--first), #fff 60%);
+  }
+}
+
+.b-stats_bar:is(.anime, .manga) .bar {
+  .first {
+    background-color: var(--first);
+  }
+  .second {
+    background-color: color-mix(in srgb, var(--first), #000 20%);
+  }
+  .third {
+    background-color: color-mix(in srgb, var(--first), #000 40%);
+  }
+}
+
+/* Активность на сайте: полоски */
+.bar.simple .bar.s0,
+.b-stats_bar.lifetime .bar .first {
+  background: color-mix(in srgb, var(--clr-prm), #000 20%);
+  &:hover {
+    background: color-mix(in srgb, var(--clr-prm), #000 10%);
+  }
+}
+.bar.simple .bar.s1 {
+  background: color-mix(in srgb, var(--clr-prm), #000 10%);
+  &:hover {
+    background: color-mix(in srgb, var(--clr-prm), #000 5%);
+  }
+}
+.bar.simple .bar.s2,
+.b-stats_bar.lifetime .bar .second {
+  background: color-mix(in srgb, var(--clr-prm), #fff 10%);
+  &:hover {
+    background: color-mix(in srgb, var(--clr-prm), #fff 15%);
+  }
+}
+.bar.simple .bar.s3,
+.b-stats_bar.lifetime .bar .third {
+  background: color-mix(in srgb, var(--clr-prm), #fff 20%);
+  &:hover {
+    background: color-mix(in srgb, var(--clr-prm), #fff 30%);
+  }
+}
+
+/* Список прикол */
+/* Сделать список в одну линию */
+tr.user_rate {
+  border-bottom: 1px solid grey;
+  & .name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+}
+
+/* Подсветка списков */
+/*  онгоинги\анонсы */
+tr.user_rate :is(.anons, .ongoing) {
+  display: none;
+}
+tr.user_rate:has(.anons) {
+  background: #ff851b33;
+  &:hover {
+    background: #65330870 !important;
+  }
+}
+tr.user_rate:has(.ongoing) {
+  background: #2ecc4033;
+  &:hover {
+    background: #115d1973 !important;
+  }
+}
+/* ховер на обичке в списке */
+.p-user_rates-index .list-lines .selectable:hover {
+  background-color: #0006;
+}
+
+/* Список: справа чекбоксы текст */
+
+.b-block_list li {
+  height: 24px;
+  border-radius: 4px;
+}
+
+.b-block_list li:hover,
+.b-block_list li.selected {
+  background-color: #0004;
+  color: var(--txt-sec);
+}
+
+.b-shiki_editor-v2 .vue-node {
+  p {
+    color: var(--txt-sec);
+  }
+  .menubar {
+    background-color: #333b;
+
+    .icon {
+      color: var(--txt-sec);
+      &:hover {
+        color: var(--clr-prm);
+      }
+    }
+  }
+  .icon.is-active {
+    background-color: #555;
+  }
+  .ProseMirror {
+    background: #0008;
+    border: 0;
+  }
+}
+
+.b-spoiler_block > span,
+.b-spoiler_inline,
+.b-spoiler_inline:not(.is-opened) {
+  background-color: #3a3a3a;
+}
+
+.b-spoiler_block > div {
+  background-color: #000a;
+  border-color: #3a3a3a;
+}
+code.b-code_inline {
+  background-color: #000;
+  color: rgb(248, 96, 96);
+  border-color: grey;
+}
+
+.b-input textarea {
+  background-color: #000b;
+  color: var(--txt-sec);
+  border-color: grey;
+}
+
+/* оффтоп кнопка */
+
+.b-offtopic_marker.active:before,
+.b-offtopic_marker:before {
+  background-color: #5c2940 !important;
+  border: 0 !important;
+  color: #ccc !important;
+  border-radius: 4px;
+}
+.b-offtopic_marker.active:not(.off):before {
+  background-color: #d62773 !important;
+  color: #000 !important;
+}
+
+/* #select text  */
+::selection {
+  z-index: 2;
+  color: var(--txt-primary);
+  background-color: var(--selection-bckg);
+}
+
+/* editor is-loading */
+.editor-container.is-loading[data-v-082d85bb]:before {
+  background-color: #666a;
+}
+
+/* profile css editor  */
+.b-edit_styles .edit_style .style_css .CodeMirror,
+.b-edit_styles .new_style .style_css .CodeMirror,
+.cm-s-solarized.cm-s-light {
+  background-color: var(--bckg-b);
+  text-shadow: none;
+  border: 0;
+}
+.CodeMirror-gutter,
+.cm-s-solarized.cm-s-light .CodeMirror-linenumber {
+  color: var(--txt-sec);
+
+  background-color: var(--bckg-b);
+}
+.cm-s-solarized.cm-s-light div.CodeMirror-selected {
+  background: var(--selection-bckg);
+}
+.cm-searching {
+  background-color: var(--selection-search);
+}
+
+/* мобайл екшн: главная стрелка справа */
+.p-dashboards-show .v2 .mobile-slider-prev,
+.p-dashboards-show .v2 .mobile-slider-next,
+.p-dashboards-show .v2 .mobile-slider-next.bright {
+  &:before,
+  &:active:before {
+    background: #000b;
+  }
+  &:after {
+    color: #fff;
+    text-shadow: none;
+  }
+}
+
+/*главная: аниме\манга\ранобе фикс немного */
+.p-dashboards-show .v2 .fc-user-sections .f-sections .fc-tags {
+  position: relative;
+  display: flex;
+}
+
+/* mobile коменты и тд: менюшка справа */
+.main-controls > * {
+  color: var(--txt-sec) !important;
+}
+
+/* Проценты достижений */
+.b-badge:before,
+.b-achievement.is-badge:after {
+  opacity: 1;
+}
+
+/* Округление ачивок */
+.b-achievement,
+.b-achievement .border,
+.b-achievement img,
+.b-badge img {
+  border-radius: 8px;
+}
+/* белый фон к ачивкам и студиям*/
+.b-achievement .c-image:before,
+a:has(.studio-logo):after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #fff4;
+  z-index: -1;
+}
