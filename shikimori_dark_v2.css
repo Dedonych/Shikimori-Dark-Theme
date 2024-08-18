@@ -643,8 +643,7 @@ text {
 .avatar img[alt],
 .icon-avatar img,
 .profile a img[alt],
-.image-name .image,
-header a img[alt] {
+.image-name .image {
   border-radius: 50% !important;
 }
 
