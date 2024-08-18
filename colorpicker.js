@@ -1,4 +1,3 @@
-
   class ColorPicker {
     COLORS = {
       /** @type {[string,boolean]} */
