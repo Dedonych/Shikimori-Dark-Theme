@@ -784,6 +784,26 @@ header a img[alt] {
     }
   }
 }
+
+/* profile in mobile */
+@media screen and (max-width:480px) {
+  .p-profiles .profile-head .c-brief {
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    .avatar {
+      margin-bottom: 0;
+    }
+    header {
+      text-align: center;
+      width: 100dvw;
+    }
+  }
+  .p-profiles .profile-head .c-mobile-actions {
+    display: flex;
+    justify-content: center;
+  }
+}
 /* список: меню слова (запланир, смотрю, и тд) */
 .selected {
   text-decoration: underline;
