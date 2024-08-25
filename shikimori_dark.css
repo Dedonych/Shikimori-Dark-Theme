@@ -14,7 +14,7 @@ body {
   --txt-secondary-dark: #afafaf;
   --txt-accent: var(--clr-main-light);
 
-  --clr-main-primary: var(--is-colored, var(--bckg-dark));
+  --clr-main-primary: var(--my-clr);
   --clr-main-dark: color-mix(in srgb, var(--clr-main-primary), black 30%);
   --clr-main-light: color-mix(in srgb, var(--clr-main-primary), white 15%);
 
@@ -34,19 +34,18 @@ body {
   --bar-s3: color-mix(in srgb, var(--clr-main-light) 80%, white);
   --bar-s3-hvr: color-mix(in srgb, var(--clr-main-light) 70%, white);
 
-  --selection-bckg: #ffffff1a;
+  --selection-bckg: #fff1;
   --selection-search: #00ff0839;
 
   --def-icon: url("//shikimori.one/assets/layouts/l-top_menu-v2/glyph.svg");
 
   --my-clr: #5292d2;
-  --is-colored: var(--my-clr);
 
   --xmas: initial;
   --halloween: initial;
   --icon: initial;
   --themes: initial;
-  --dropdown: var(--bckg-dark);
+  --dropdown: initial;
 }
 
 html[data-color-mode="light"] {
@@ -57,11 +56,11 @@ html[data-color-mode="light"] {
   --headline-border-color: var(--clr-main-primary);
 }
 
-/* #select text  */
-::selection {
-  z-index: 2;
-  color: var(--txt-primary);
-  background-color: var(--selection-bckg);
+
+/* #select text and fix selection css editor when select (ctrl+a) */
+::selection{
+  background: var(--selection-bckg) !important;
+  color: currentColor !important;
 }
 
 /* #login  */
@@ -170,7 +169,7 @@ header.head .notice,
 :is(.p-userlist_comparer-show,.p-recommendations-index,.p-mangas_collection-index,.p-animes_collection-index) .pagination,   /* Список тайтлов  */
 .b-table th, /* Совместимость имя */
 .b-header_filters .filter-line :is(a.current,.title), /* персонализированые */
-.b-contest_match .current-match .match-members .vs,  /* tournaments VS */
+.b-contest_match .current-match .match-members .vs *,  /* tournaments VS */
 .tooltip-details .b-nothing_here.centered, /* коментарий был удален... */
 .b-achievement .c-about .percent, /* /user/achievements текст */
 .b-achievement .about .percent,
@@ -236,14 +235,14 @@ header.head h2,
   content: "";
   display: block;
   visibility: visible;
-  border: 24px solid transparent;
+  border: 24px solid #0000;
   border-right-color: var(--bckg-primary);
   position: absolute;
   left: -26px;
 }
 .tooltip-left .tooltip-arrow::before {
   left: 0;
-  border-right-color: transparent;
+  border-right-color: #0000;
   border-left-color: var(--bckg-primary);
 }
 /* remove close #button */
@@ -765,34 +764,27 @@ rect {
   color: var(--txt-secondary);
 }
 
-/* #comments navigation  */
+/* #comments navigation  (Все отзывы,...)*/
 .b-reviews_navigation .navigation-node {
-  background-color: var(--bckg-primary);
+  background-color: var(--bckg-primary) !important;
   color: var(--txt-primary);
   border-color: currentColor;
+  &[class*="all"]{
+    color:var(--txt-primary) !important;
+  }
 }
-
-.b-reviews_navigation .navigation-node-all {
-  color: var(--txt-secondary);
+/* color to navigation and review rate */
+:is(.b-reviews_navigation .navigation-node,
+.b-review-topic.is-review_review_author_details > .inner :is(.label,.opinion)
+){
+ &[class*="neutral"]{ color:skyblue }
+ &[class*="positive"]{ color:LimeGreen }
+ &[class*="negative"]{ color:crimson }
 }
-.b-reviews_navigation .navigation-node-positive {
-  color: greenyellow;
-}
-.b-reviews_navigation .navigation-node-negative {
-  color: crimson;
-}
-.b-reviews_navigation .navigation-node-neutral,
-.b-review-topic.is-review_review_author_details > .inner .review-info .neutral {
-  color: skyblue;
-}
-
-.b-reviews_navigation .navigation-node.is-empty:not(.is-active) .label,
-.b-reviews_navigation .navigation-node.is-empty:not(.is-active) .count {
+/* empty reviews */
+.b-reviews_navigation .navigation-node.is-empty:not(.is-active) :is(.label,.count){
   color: currentColor;
   opacity: 0.4;
-}
-.b-reviews_navigation .navigation-node:not(.is-active):not(.is-empty):hover {
-  background-color: var(--bckg-primary);
 }
 
 /* #comments rate review  */
@@ -800,7 +792,7 @@ rect {
   > .inner
   .review-info
   .opinion:is(.negative, .neutral, .positive) {
-  background-color: transparent;
+  background-color: #0000;
 }
 /* #forum comments style  */
 .b-comment {
@@ -960,7 +952,7 @@ code.b-code_inline {
   margin: auto;
 
   border: 5px solid var(--txt-primary);
-  border-bottom-color: transparent;
+  border-bottom-color: #0000;
   border-radius: 50%;
   display: inline-block;
   box-sizing: border-box;
@@ -978,23 +970,39 @@ code.b-code_inline {
 /* #top #main menu  */
 .l-top_menu-v2,
 .x1000 .l-top_menu-v2 {
-  background: var(--dropdown);
+  background: var(--dropdown,var(--bckg-dark));
   position: sticky;
   inset: 0;
   margin: auto;
   max-width: 1200px;
 }
+/* новые уведомление: справа сверху квадратик */
 
+.b-comments-notifier {
+  background-color: color-mix(in srgb, var(--dropdown,var(--my-clr)), #000 40%);
+  &:hover,
+  &:active {
+    background-color: color-mix(in srgb, var(--dropdown,var(--my-clr)), #000 30%);
+  }
+}
+/* коменты и тд: значок "новое" */
+.b-new_marker:before{
+  color: var(--txt-sec) !important;
+  background: var(--dropdown,var(--my-clr)) !important;
+  border: 0 !important;
+  padding: 2px;
+  border-radius: 4px;
+}
 /* dropdown menu background*/
 .l-top_menu-v2 .menu-dropdown > span[tabindex] {
-  background: color-mix(in srgb, var(--dropdown) 80%, white);
+  background: color-mix(in srgb, var(--dropdown,var(--bckg-dark)) 80%, white);
 }
 .l-top_menu-v2 .menu-icon:is(:active, :focus),
 .l-top_menu-v2 .menu-dropdown.active > span[tabindex],
 .l-top_menu-v2 .menu-icon:hover,
 .l-top_menu-v2 .menu-dropdown.active > span[tabindex]:hover,
 .l-top_menu-v2 .menu-dropdown > span a:is(:hover, :active, :focus) {
-  background: color-mix(in srgb, var(--dropdown) 70%, white);
+  background: color-mix(in srgb, var(--dropdown,var(--bckg-dark)) 70%, white);
 }
 
 .l-top_menu-v2 .submenu > a {
@@ -1043,7 +1051,7 @@ header.head h2 a.back:before {
   color: var(--txt-secondary);
 }
 /* editor is-loading */
-.editor-container.is-loading[data-v-082d85bb]:before{
+.editor-container.is-loading[data-v-082d85bb]:before {
   background-color: #666a;
 }
 
@@ -1098,10 +1106,14 @@ header.head h2 a.back:before {
 .p-dashboards-show .v2 .fc-user-sections .f-user {
   max-width: 320px;
   width: auto;
+  /* для мобилки на всю длинну */
+  @media screen and (max-width: 1023px) {
+      max-width: none;
+  }
 }
 .p-user_rates-index .list-groups .summary.posters,
 .p-user_rates-index .list-groups .summary.lines.list {
-  background: transparent;
+  background: #0000;
   border: 0;
 }
 .p-user_rates-index .list-lines.b-table,
@@ -1146,8 +1158,8 @@ header.head h2 a.back:before {
   background-color: color-mix(in srgb, var(--b-c), black 10%) !important;
 }
 /* list 'a' names */
-.p-userlist_comparer .comparer table .name a{
- color:#ccc;
+.p-userlist_comparer .comparer table .name a {
+  color: #ccc;
 }
 /* adding colors to diff */
 .p-userlist_comparer :is(.comparer table, .legend) .almost-same,
@@ -1182,12 +1194,51 @@ header.head h2 a.back:before {
   margin-bottom: 10px;
 }
 
+
+@media screen and (max-width: 1023px) {
+  /* мобилка: стрелки на главной */
+  .p-dashboards-show .v2 :is( .mobile-slider-prev, .mobile-slider-next){
+    width: 48px;
+    top:0;
+    height:100%;
+    &::before{
+      content:none;
+    }
+    &::after{
+      width: 24px;
+      height: 24px;
+      background-color: color-mix(in srgb, var(--bckg-light),#0000 40%);
+      border-radius: 50%;
+      color:#fff;
+      margin:0;
+      text-align: center;
+      line-height: 24px;
+      position: absolute;
+      top:50%;
+      font-size: 12px;
+      translate:0 -50%;
+      border:2px solid #fff;
+    }
+    &:focus:after,&:active:after{
+      color:#ccc;
+    }
+    /* для онгоингов */
+    .fc-ongoings &:after{
+      translate:0 -100%;
+    }
+  }
+  /* Главная: Мой список */
+  .p-dashboards-show .v2 .fc-user-sections .f-user{
+    max-width: none;
+  }
+  }
+  
 /* themes */
 
 /* halloween */
 html:has(body:is([data-server_time*="11-01T"], [data-server_time*="10-31T"])) {
-  --is-colored: var(--themes, var(--halloween, orange));
-  --dropdown: var(--is-colored);
+   --my-clr: var(--themes, var(--halloween, orange));
+  --dropdown: var( --my-clr);
   & .l-top_menu-v2 .logo-container .glyph {
     background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/pumpkin.png));
   }
@@ -1204,8 +1255,8 @@ html:has(
         [data-server_time*="-01-05"]
       )
   ) {
-  --is-colored: var(--themes, var(--xmas, #ba0000));
-  --dropdown: var(--is-colored);
+   --my-clr: var(--themes, var(--xmas, #ba0000));
+  --dropdown: var( --my-clr);
   & .l-top_menu-v2 .logo-container .glyph {
     background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/gift.png));
   }
