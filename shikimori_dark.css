@@ -22,22 +22,13 @@ body {
   --link-hover: color-mix(in srgb, var(--link-primary) 60%, white);
   --link-active: color-mix(in srgb, var(--link-primary) 70%, white);
 
-  --bar-s0: color-mix(in srgb, var(--clr-main-primary) 80%, black);
-  --bar-s0-hvr: color-mix(in srgb, var(--clr-main-primary) 70%, black);
-
-  --bar-s1: color-mix(in srgb, var(--clr-main-dark) 90%, black);
-  --bar-s1-hvr: color-mix(in srgb, var(--clr-main-dark) 80%, black);
-
-  --bar-s2: color-mix(in srgb, var(--clr-main-light) 100%, white);
-  --bar-s2-hvr: color-mix(in srgb, var(--clr-main-light) 90%, white);
-
-  --bar-s3: color-mix(in srgb, var(--clr-main-light) 80%, white);
-  --bar-s3-hvr: color-mix(in srgb, var(--clr-main-light) 70%, white);
-
   --selection-bckg: #fff1;
   --selection-search: #00ff0839;
 
   --def-icon: url("//shikimori.one/assets/layouts/l-top_menu-v2/glyph.svg");
+
+  /* Активность на сайте бары */
+  --bar-main:var(--my-clr);
 
   --my-clr: #5292d2;
 
@@ -287,46 +278,46 @@ header.head h2,
   background-color: var(--bckg-dark);
 }
 /* style #bars for profile  */
-.b-stats_bar.manga .bar .first {
-  background: #78215d;
-}
-.b-stats_bar.manga .bar .second {
-  background: #923976;
-}
-.b-stats_bar.manga .bar .third {
-  background: #cc69ad;
-}
-.bar.simple .bar.s0,
-.b-stats_bar:is(.anime, .lifetime) .bar .first {
-  background: var(--bar-s0);
-}
-.bar.simple .bar.s1 {
-  background: var(--bar-s1);
-}
-.bar.simple .bar.s2,
-.b-stats_bar:is(.anime, .lifetime) .bar .second {
-  background: var(--bar-s2);
-}
-.bar.simple .bar.s3,
-.b-stats_bar:is(.anime, .lifetime) .bar .third {
-  background: var(--bar-s3);
+/* фикс список аниме на профиль цвета */
+.b-stats_bar {
+  /* текст изменить */
+  --link-color: color-mix(in srgb, var(--first), #fff 60%);
+  --link-hover-color: color-mix(in srgb, var(--first), #fff 70%);
+  &.anime {
+    --first: green;
+  }
+  &.manga {
+    --first: purple;
+  }
+  &.lifetime{
+    --first:var(--bar-main);
+  }
+  .stat_names .stat_name a {
+    color: var(--link-color);
+  }
 }
 
-.bar.simple .bar.s0:hover,
-.b-stats_bar:is(.anime, .lifetime) .bar .first:hover {
-  background: var(--bar-s0-hvr);
+.b-stats_bar:is(.anime, .manga,.lifetime) .bar {
+  .first { background-color: var(--first); }
+  .second { background-color: color-mix(in srgb, var(--first), #000 20%); }
+  .third { background-color: color-mix(in srgb, var(--first), #000 40%); }
+  :is(.first, .second, .third):hover { background-color: color-mix(in srgb, var(--first), #000 20%); }
 }
-.bar.simple .bar.s1:hover {
-  background: var(--bar-s1-hvr);
+/* Активность на сайте */
+.bar.simple .bar{
+  
+  &.s0{ --bar-clr: color-mix(in srgb, var(--bar-main), #000 20%); }
+  &.s1{ --bar-clr: color-mix(in srgb, var(--bar-main), #000 10%); }
+  &.s2{ --bar-clr: color-mix(in srgb, var(--bar-main), #fff 5%); }
+  &.s3{ --bar-clr: color-mix(in srgb, var(--bar-main), #fff 20%); }
+  &:is(.s0,.s1,.s2,.s3){
+    background:var(--bar-clr);
+    &:hover{
+      background: color-mix(in srgb,var(--bar-clr),#000 10%);
+    }
+  }
 }
-.bar.simple .bar.s2:hover,
-.b-stats_bar:is(.anime, .lifetime) .bar .second:hover {
-  background: var(--bar-s2-hvr);
-}
-.bar.simple .bar.s3:hover,
-.b-stats_bar:is(.anime, .lifetime) .bar .third:hover {
-  background: var(--bar-s3-hvr);
-}
+
 /* #input style #button */
 .subheadline-input[type="submit"],
 .subheadline-input[type="text"],
