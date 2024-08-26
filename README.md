@@ -50,14 +50,6 @@ _В разработке!_
   --dropdown: cornflowerBlue;
 }
 ```
-
-<style>
-  summary{
-    font-size:16px;
-    font-weight:600;
-    }
-</style>
-
 <details>
 	<summary>Полоса прокрутки</summary>
 
