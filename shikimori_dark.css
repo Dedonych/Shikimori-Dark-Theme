@@ -575,15 +575,15 @@ input[type="checkbox"] {
 .p-pages-about .traffic-chart,
 .p-pages-about .comments-chart,
 .p-pages-about .users-chart {
-  rect{
+  rect {
     fill: var(--bckg-dark);
   }
   text {
     fill: var(--txt-secondary) !important;
   }
   /* попап при ховере */
-  .highcharts-label-box{
-    fill:var(--bckg-light)
+  .highcharts-label-box {
+    fill: var(--bckg-light);
   }
 }
 
@@ -1031,14 +1031,18 @@ header.head h2 a.back:before {
 }
 
 /* profile css editor  */
+/* remove border */
 .b-edit_styles .edit_style .style_css .CodeMirror,
-.b-edit_styles .new_style .style_css .CodeMirror,
-.cm-s-solarized.cm-s-light {
+.b-edit_styles .new_style .style_css .CodeMirror {
+  border: none;
+}
+/* main */
+.cm-s-solarized.cm-s-light.CodeMirror {
   background-color: var(--bckg-primary);
   text-shadow: none;
   border-color: var(--bckg-light);
-  border-right: none;
 }
+
 .CodeMirror-gutter,
 .cm-s-solarized.cm-s-light .CodeMirror-linenumber {
   color: var(--txt-primary);
