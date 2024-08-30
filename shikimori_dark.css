@@ -771,9 +771,7 @@ input[type="checkbox"] {
 
 /* #comments replies  */
 .b-replies {
-  position: absolute;
-  right: 0;
-  bottom: 0px;
+  position: relative;
 }
 /* #title comments style  */
 .b-topic {
@@ -1105,6 +1103,11 @@ header.head h2 a.back:before {
 .b-show_more,
 .b-show_more-more .hide-more {
   color: #cecece;
+}
+/* inline with colors: <div class="inline orange"> */
+.inline {
+  background-color: color-mix(in srgb, currentColor,#000 80%);
+  border-color: currentColor;
 }
 
 /* /comparer/(anime|manga|ranobe)/[user]/vs/[user2] */
