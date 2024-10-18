@@ -461,7 +461,11 @@ input:focus {
     color: var(--txt-secondary);
   }
 }
-
+/* Списки: разделения эпизодов: просмотрено "/" Общее*/
+.b-separator {
+  background: #0000;
+  color: var(--txt-secondary-dark);
+}
 /* Списки: справа чекбоксы */
 .b-block_list li {
   height: 24px;
@@ -1106,7 +1110,7 @@ header.head h2 a.back:before {
 }
 /* inline with colors: <div class="inline orange"> */
 .inline {
-  background-color: color-mix(in srgb, currentColor,#000 80%);
+  background-color: color-mix(in srgb, currentColor, #000 80%);
   border-color: currentColor;
 }
 
@@ -1195,6 +1199,12 @@ header.head h2 a.back:before {
   }
 }
 
+/*  в коментах текст на мобилке */
+.b-comment.aside-expanded>.inner>aside.buttons .main-controls [class*='item'],
+/*  Кнопки в редакторе на мобилке */
+.menu_group button.mobile_placeholder:before {
+  color: var(--txt-secondary-dark);
+}
 /* news  */
 .edit-page.styles .cc-2::before {
   content: "Shikimori-theme: создайте в :root --my-clr как основной цвет. Например: --my-clr: #00ff00\a  Добавляйте в :root строчки, чтобы:\a--news: none - отключить это окно:\a--dropdown: var(--my-clr) - верхнее меню изменить на основной цвет\a--link-primary: var(--my-clr) - сделать основной текст основным цветом (или каким хотите)\a--icon: var(--def-icon); - установить дефолт лого \a--themes: var(--my-clr) - отключить все темы (xmas, halloween и т.д.)\a--xmas: var(--my-clr) - отключить тему рождества\a--halloween: var(--my-clr) - отключить тему хэллоуин";
