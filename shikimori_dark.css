@@ -462,7 +462,7 @@ input:focus {
   }
 }
 /* Списки: разделения эпизодов: просмотрено "/" Общее*/
-.b-separator {
+.b-separator.inline {
   background: #0000;
   color: var(--txt-secondary-dark);
 }
