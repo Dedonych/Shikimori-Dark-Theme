@@ -31,12 +31,17 @@ body {
   --bar-main: var(--my-clr);
 
   --my-clr: #5292d2;
-
-  --xmas: initial;
-  --halloween: initial;
-  --icon: initial;
-  --themes: initial;
   --dropdown: initial;
+
+  --themes:var(--my-clr);
+
+  --xmas-clr: initial;
+  --xmas-dropdown: initial;
+  --halloween-dropdown: initial;
+  --halloween-dropdown: initial;
+  --icon: initial;
+  --themes-clr: initial;
+  --themes-dropdown: initial;
 }
 
 html[data-color-mode="light"] {
@@ -1207,7 +1212,7 @@ header.head h2 a.back:before {
 }
 /* news  */
 .edit-page.styles .cc-2::before {
-  content: "Shikimori-theme: создайте в :root --my-clr как основной цвет. Например: --my-clr: #00ff00\a  Добавляйте в :root строчки, чтобы:\a--news: none - отключить это окно:\a--dropdown: var(--my-clr) - верхнее меню изменить на основной цвет\a--link-primary: var(--my-clr) - сделать основной текст основным цветом (или каким хотите)\a--icon: var(--def-icon); - установить дефолт лого \a--themes: var(--my-clr) - отключить все темы (xmas, halloween и т.д.)\a--xmas: var(--my-clr) - отключить тему рождества\a--halloween: var(--my-clr) - отключить тему хэллоуин";
+  content: "Shikimori-theme: создайте в :root --my-clr как основной цвет. Например: --my-clr: #00ff00\aДобавляйте в :root строчки, чтобы:\a--news: none - отключить это окно:\a--dropdown: var(--my-clr) - верхнее меню изменить на основной цвет\a--link-primary: var(--my-clr) - сделать основной текст основным цветом (или каким хотите)\a--icon: var(--def-icon); - установить дефолт лого \a--themes-clr: var(--my-clr) - отключить основные цвета темы \a--themes-dropdown: var(--dropdown) - отключить цвета темы верхеней менюшки\aДля отключение какой-то темы меняйте параметры: (xmas,halloween) + -clr и -dropdown\aПример: --xmas-clr: var(my-clr), --halloween-dropdown: var(--dropdown)";
   white-space: pre-wrap;
   display: var(--news, block);
   font-size: 12px;
@@ -1224,8 +1229,8 @@ header.head h2 a.back:before {
 
 /* halloween */
 html:has(body:is([data-server_time*="11-01T"], [data-server_time*="10-31T"])) {
-  --my-clr: var(--themes, var(--halloween, darkorange));
-  --dropdown: var(--my-clr);
+  --my-clr: var(--themes-clr, var(--halloween-clr, #ff8c00));
+  --dropdown:  var(--themes-dropdown, var(--halloween-dropdown, #cc7000));
   & .l-top_menu-v2 .logo-container .glyph {
     background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/pumpkin.png));
   }
@@ -1243,9 +1248,10 @@ html:has(
         [data-server_time*="-01-05"]
       )
   ) {
-  --my-clr: var(--themes, var(--xmas, #ba0000));
-  --dropdown: var(--my-clr);
+  --my-clr: var(--themes-clr, var(--xmas-clr, #ba0000));
+  --dropdown: var(--themes-dropdown, var(--xmas-dropdown, #8f0000));
   & .l-top_menu-v2 .logo-container .glyph {
     background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/gift.png));
   }
 }
+
