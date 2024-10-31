@@ -45,8 +45,8 @@ _В разработке!_
   --xmas-dropdown: var(--_dropdown);
 }
 ```
-- `--themes-clr: var(--my-clr)` - отключить все темы для основных цветов <br>
-- `--themes-dropdown: var(--dropdown)` - отключить все темы для верхней менюшки <br>
+- `--themes-clr: var(--_my-clr)` - отключить все темы для основных цветов <br>
+- `--themes-dropdown: var(--_dropdown)` - отключить все темы для верхней менюшки <br>
 Для отключение какой-то темы, пишите по типу: `--название_темы-(clr/dropdown).` 
 
 Пример: `--halloween-clr, --xmas-dropdown`
