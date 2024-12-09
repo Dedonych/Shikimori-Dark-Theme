@@ -1247,8 +1247,8 @@ html:has(
         [data-server_time*="-01-05"]
       )
   ) {
-  --my-clr: var(--themes-clr, var(--xmas-clr, #ba0000));
-  --dropdown: var(--themes-dropdown, var(--xmas-dropdown, #8f0000));
+  --my-clr: var(--themes-clr, var(--xmas-clr, #fb7777));
+  --dropdown: var(--themes-dropdown, var(--xmas-dropdown, #d54040));
   & .l-top_menu-v2 .logo-container .glyph {
     background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/gift.png));
   }
