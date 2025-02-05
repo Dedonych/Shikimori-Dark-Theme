@@ -180,7 +180,10 @@ header.head .notice,
 .b-entry-info .line .key, /* achievements/common */
 .b-options-floated.count, /* турнир: кандидаты справа */
 .b-animes-menu .menu-topics-block .entry .time, /* Тайтл: Новости время */
-.p-user_rates-index .list-lines tr :is(.name a,.index) /*Списки аниме\манги: название тайтла и номер */ {
+.p-user_rates-index .list-lines tr :is(.name a,.index), /*Списки аниме\манги: название тайтла и номер */
+.b-status-line .section.changed_at time:before, /* иконка создание рецензии */
+.b-user_rate-history .action-time .action /* Главная страница: мини история: удалено со списка  */ 
+{
   color: var(--txt-secondary);
 }
 
@@ -635,6 +638,9 @@ input[type="checkbox"] {
     background-color: var(--bckg-primary);
     color: var(--txt-primary);
   }
+  &:is(.episode,.studio,.review)[href]:hover{
+    background-color: var(--my-clr);
+}
 }
 
 /* #status minified (#tournaments) */
@@ -1227,7 +1233,7 @@ header.head h2 a.back:before {
 }
 /* news  */
 .edit-page.styles .cc-2::before {
-  content: "Shikimori-theme: создайте в :root --my-clr как основной цвет. Например: --my-clr: #00ff00\aДобавляйте в :root строчки, чтобы:\a--news: none - отключить это окно:\a--dropdown: var(--my-clr) - верхнее меню изменить на основной цвет\a--link-primary: var(--my-clr) - сделать основной текст основным цветом (или каким хотите)\a--icon: var(--def-icon); - установить дефолт лого \a(ВАЖНО!!! Для изменение тем, сделайте копию цвета: --_(my-clr | dropdown):red.\aА потом назначте --(my-clr | dropdown):var(--(_my-clr | dropdown)))\a--themes-clr: var(--_my-clr) - отключить основные цвета темы \a--themes-dropdown: var(--_dropdown) - отключить цвета темы верхеней менюшки\aДля отключение какой-то темы меняйте параметры: (xmas,halloween) + -clr и -dropdown\aПример: --xmas-clr: var(--_my-clr), --halloween-dropdown: var(--_dropdown)";
+  content: "Shikimori-theme: создайте в :root --my-clr как основной цвет. Например: --my-clr: #00ff00\aДобавляйте в :root строчки, чтобы:\a--news: none - отключить это окно:\a--dropdown: var(--my-clr) - верхнее меню изменить на основной цвет\a--link-primary: var(--my-clr) - сделать основной текст основным цветом (или каким хотите)\a--icon: var(--def-icon); - установить дефолт лого \a\a(ВАЖНО!!! Для изменение тем, сделайте копию цвета: --_(my-clr | dropdown):red.\aА потом назначте --(my-clr | dropdown):var(--(_my-clr | dropdown)))\a--themes-clr: var(--_my-clr) - отключить основные цвета темы \a--themes-dropdown: var(--_dropdown) - отключить цвета темы верхеней менюшки\aДля отключение какой-то темы меняйте параметры: (xmas,halloween) + -clr и -dropdown\aПример: --xmas-clr: var(--_my-clr), --halloween-dropdown: var(--_dropdown)";
   white-space: pre-wrap;
   display: var(--news, block);
   font-size: 12px;
