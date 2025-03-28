@@ -182,7 +182,8 @@ header.head .notice,
 .b-animes-menu .menu-topics-block .entry .time, /* Тайтл: Новости время */
 .p-user_rates-index .list-lines tr :is(.name a,.index), /*Списки аниме\манги: название тайтла и номер */
 .b-status-line .section.changed_at time:before, /* иконка создание рецензии */
-.b-user_rate-history .action-time .action /* Главная страница: мини история: удалено со списка  */ 
+.b-user_rate-history .action-time .action, /* Главная страница: мини история: удалено со списка  */ 
+.p-contests .results .cc-result .c-rounds .label /* Турнир, кандидаты - "Соперники"  */
 {
   color: var(--txt-secondary);
 }
