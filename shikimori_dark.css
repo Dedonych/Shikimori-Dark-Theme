@@ -250,6 +250,15 @@ header.head h2,
 
 /* end bb-code */
 
+/*  теги подсветка в тайтлах тултип*/
+.b-tag[href] {
+  border-color: var(--clr-main-dark);
+  &.active,
+  &:hover {
+    background: var(--clr-main-dark);
+  }
+}
+
 /* #tooltip (hover title) */
 .tooltip-inner,
 :is(.p-animes-franchise, .p-mangas-franchise, .p-ranobe-franchise)
