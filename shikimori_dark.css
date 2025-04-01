@@ -183,8 +183,7 @@ header.head .notice,
 .p-user_rates-index .list-lines tr :is(.name a,.index), /*Списки аниме\манги: название тайтла и номер */
 .b-status-line .section.changed_at time:before, /* иконка создание рецензии */
 .b-user_rate-history .action-time .action, /* Главная страница: мини история: удалено со списка  */ 
-.p-contests .results .cc-result .c-rounds .label /* Турнир, кандидаты - "Соперники"  */
-{
+.p-contests .results .cc-result .c-rounds .label /* Турнир, кандидаты - "Соперники"  */ {
   color: var(--txt-secondary);
 }
 
@@ -1286,25 +1285,25 @@ html:has(
   }
 }
 /* april fools */
-
 @keyframes fools {
   from,
   50% {
     opacity: 1;
   }
   51% {
+    background-image:none;
     content: ")) --fools:none";
   }
   to {
+    background-image:none;
     content: ")) --fools:none";
     opacity: 0;
   }
 }
 .p-profiles-show[data-server_time*="04-01"]:after {
-  content: var(--fools, url(https://i.imgur.com/SbvMsv1.png));
+  content: var(--fools, "");
   text-align: center;
   align-content: center;
-  background-color: #fff;
   position: fixed;
   inset: 0;
   z-index: 30;
@@ -1314,4 +1313,6 @@ html:has(
   color: #000;
   opacity: 0;
   pointer-events: none;
+  background: url(//i.imgur.com/SbvMsv1.png) no-repeat center center / contain,
+    #fff;
 }
