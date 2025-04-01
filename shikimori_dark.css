@@ -182,8 +182,7 @@ header.head .notice,
 .b-animes-menu .menu-topics-block .entry .time, /* Тайтл: Новости время */
 .p-user_rates-index .list-lines tr :is(.name a,.index), /*Списки аниме\манги: название тайтла и номер */
 .b-status-line .section.changed_at time:before, /* иконка создание рецензии */
-.b-user_rate-history .action-time .action /* Главная страница: мини история: удалено со списка  */ 
-{
+.b-user_rate-history .action-time .action /* Главная страница: мини история: удалено со списка  */ {
   color: var(--txt-secondary);
 }
 
@@ -638,9 +637,9 @@ input[type="checkbox"] {
     background-color: var(--bckg-primary);
     color: var(--txt-primary);
   }
-  &:is(.episode,.studio,.review)[href]:hover{
+  &:is(.episode, .studio, .review)[href]:hover {
     background-color: var(--my-clr);
-}
+  }
 }
 
 /* #status minified (#tournaments) */
@@ -808,7 +807,7 @@ input[type="checkbox"] {
 }
 .b-height_shortener .shade {
   -webkit-filter: invert(0.7);
-          filter: invert(0.7);
+  filter: invert(0.7);
 }
 
 /* #comments buttons  */
@@ -940,7 +939,7 @@ code.b-code_inline {
   display: inline-block;
   box-sizing: border-box;
   -webkit-animation: rotation 1s linear infinite;
-          animation: rotation 1s linear infinite;
+  animation: rotation 1s linear infinite;
 }
 @-webkit-keyframes rotation {
   0% {
@@ -1103,8 +1102,8 @@ header.head h2 a.back:before {
 .l-page .menu-toggler .toggler::before {
   transform: none;
   -webkit-writing-mode: vertical-lr;
-      -ms-writing-mode: tb-lr;
-          writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: vertical-lr;
   margin: 0;
 }
 /* Мой список на главной */
@@ -1250,9 +1249,8 @@ header.head h2 a.back:before {
 
 /* halloween */
 html:has(body:is([data-server_time*="10-31T"])) {
-  
   --my-clr: var(--themes-clr, var(--halloween-clr, #ff8c00));
-  --dropdown:  var(--themes-dropdown, var(--halloween-dropdown, #cc7000));
+  --dropdown: var(--themes-dropdown, var(--halloween-dropdown, #cc7000));
   & .l-top_menu-v2 .logo-container .glyph {
     background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/pumpkin.png));
   }
@@ -1275,4 +1273,34 @@ html:has(
   & .l-top_menu-v2 .logo-container .glyph {
     background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/gift.png));
   }
+}
+/* april fools */
+
+@keyframes fools {
+  from,
+  50% {
+    opacity: 1;
+  }
+  51% {
+    content: ")) --fools:none";
+  }
+  to {
+    content: ")) --fools:none";
+    opacity: 0;
+  }
+}
+.p-profiles-show[data-server_time*="04-01"]:after {
+  content: var(--fools, url(https://i.imgur.com/SbvMsv1.png));
+  text-align: center;
+  align-content: center;
+  background-color: #fff;
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  animation: fools 10s;
+  font-weight: bold;
+  font-size: 24px;
+  color: #000;
+  opacity: 0;
+  pointer-events: none;
 }
