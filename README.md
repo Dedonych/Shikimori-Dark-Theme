@@ -1,6 +1,6 @@
 _В разработке!_
 
-# Темная тема для сайта shikimori.me
+# Темная тема для сайта [shikimori.one](https://shikimori.one)
 
 ## Для начала
 
