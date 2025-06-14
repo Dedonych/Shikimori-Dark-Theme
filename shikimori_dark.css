@@ -183,7 +183,9 @@ header.head .notice,
 .p-user_rates-index .list-lines tr :is(.name a,.index), /*Списки аниме\манги: название тайтла и номер */
 .b-status-line .section.changed_at time:before, /* иконка создание рецензии */
 .b-user_rate-history .action-time .action, /* Главная страница: мини история: удалено со списка  */ 
-.p-contests .results .cc-result .c-rounds .label /* Турнир, кандидаты - "Соперники"  */ {
+.p-contests .results .cc-result .c-rounds .label, /* Турнир, кандидаты - "Соперники"  */
+.b-achievement .c-about .hint, .b-achievement .about .hint, /* Ачивки: Текст - n уровня */
+.p-achievements-global table.statistics td:first-child /* Ачивки: Статистика: размер списка */{
   color: var(--txt-secondary);
 }
 
@@ -192,11 +194,11 @@ header.head .notice,
   color: var(--txt-primary);
 }
 
-.p-user_rates-index .list-lines tr td .episodes_total,
-.p-user_rates-index .list-lines tr td .rate-text,
+.p-user_rates-index .list-lines tr td .episodes_total, /* Макс количество эпизодов\глав в списке. (24) */
+.p-user_rates-index .list-lines tr td .rate-text, /* Коментарий к тайтлу в списке */
 .b-subposter-action,
-.l-top_menu-v2 .global-search .clear,
-.l-top_menu-v2 .global-search,
+.l-top_menu-v2 .global-search .clear, /* Поиск - хрестик в конце */
+.l-top_menu-v2 .global-search, /* Поиск - лупа */
 .p-contests .match-day .match-link .c-column.loser a,
 .p-contests .match-day .match-link .c-column.created a {
   color: var(--txt-secondary-dark);
