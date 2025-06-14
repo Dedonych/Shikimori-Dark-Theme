@@ -427,9 +427,6 @@ input:focus {
   background: var(--bckg-dark);
   border-color: grey;
 }
-.b-input input[disabled] {
-  background-color: var(--bckg-light);
-}
 .l-top_menu-v2 .global-search input {
   background-color: rgba(0, 0, 0, 0.3);
   border-color: rgba(0, 0, 0, 0.3);
