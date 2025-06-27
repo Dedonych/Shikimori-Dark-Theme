@@ -1258,7 +1258,7 @@ header.head h2 a.back:before {
 /* themes */
 
 /* halloween */
-html:has(body:is([data-server_time*="10-31T"])) {
+html:has(body[data-server_time*="10-31T"]) {
   --my-clr: var(--themes-clr, var(--halloween-clr, #ff8c00));
   --dropdown: var(--themes-dropdown, var(--halloween-dropdown, #cc7000));
   & .l-top_menu-v2 .logo-container .glyph {
