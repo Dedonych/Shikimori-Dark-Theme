@@ -157,11 +157,18 @@ header.head .notice,
 .l-top_menu-v2.is-search-focus .global-search .search-marker,
 :is(.b-user.detailed,.b-user.b-user.moderation) .history .line .event,
 .item-add,
-.p-contests .rating .member .position, /* турнир: внизу список */
-.p-contests .match-day .match-link.voted-none > .c-column a,
-.p-contests .match-day .match-link.voted-left > .c-column:last-child a,
-.p-contests .match-day .match-link.voted-right > .c-column:first-child a,
-.p-contests .match-day .matches-num /* турнир: проценты*/,
+/* Турниры */
+.p-contests .rating .member .position, /* внизу список */
+.p-contests .results .cc-result .c-rounds .label, /* кандидаты - "Соперники"  */
+.b-contest_match .current-match .match-members .vs *,  /* tournaments VS */
+.p-contests 
+  .match-day
+  :is(
+    .match-link.voted-none > .c-column a,
+    .match-link.voted-left > .c-column:last-child a,
+    .match-link.voted-right > .c-column:first-child a,
+    .matches-num /* проценты */
+  ),
 .b-status-line :is(.section.main .comments,.section.created_at time):before,   /* Иконки в топиках(перо звезда) */
 .b-status-line .section.main .collection-size,
 .b-critique_votes:before,
@@ -171,7 +178,6 @@ header.head .notice,
 :is(.p-userlist_comparer-show,.p-recommendations-index,.p-mangas_collection-index,.p-animes_collection-index) .pagination,   /* Список тайтлов  */
 .b-table th, /* Совместимость имя */
 .b-header_filters .filter-line :is(a.current,.title), /* персонализированые */
-.b-contest_match .current-match .match-members .vs *,  /* tournaments VS */
 .tooltip-details .b-nothing_here.centered, /* коментарий был удален... */
 .b-achievement :is(.about,.c-about)  .percent, /* /user/achievements текст */
 .p-profiles-show .about .item-edit, /* profile edit about pencil */ 
@@ -183,9 +189,15 @@ header.head .notice,
 .p-user_rates-index .list-lines tr :is(.name a,.index), /*Списки аниме\манги: название тайтла и номер */
 .b-status-line .section.changed_at time:before, /* иконка создание рецензии */
 .b-user_rate-history .action-time .action, /* Главная страница: мини история: удалено со списка  */ 
-.p-contests .results .cc-result .c-rounds .label, /* Турнир, кандидаты - "Соперники"  */
 .b-achievement .c-about .hint, .b-achievement .about .hint, /* Ачивки: Текст - n уровня */
-.p-achievements-global table.statistics td:first-child /* Ачивки: Статистика: размер списка */{
+.p-achievements-global table.statistics td:first-child, /* Ачивки: Статистика: размер списка */
+.b-dialog>.inner .name-date .time, /* время комента в почте*/
+.b-message>.inner .name-date .time,  /* и в диалоге */
+/* Клубы:  */
+.b-club .info :is(
+.number, /* количество участников */
+.value /* "участников" */ 
+) {
   color: var(--txt-secondary);
 }
 
