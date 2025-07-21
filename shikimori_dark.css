@@ -622,12 +622,11 @@ input[type="checkbox"] {
   }
 }
 
-/* #offtop  */
-.b-offtopic_marker.active:before,
-.b-offtopic_marker.off:before,
-.b-offtopic_marker.active:hover:before {
-  background-color: #5c2940 !important;
-  border: 0 !important;
+/* #offtop button  */
+body[data-locale]
+  .b-offtopic_marker:is(.marker, .off, .active, .active:hover):before {
+  background-color: #5c2940;
+  border: 0;
 }
 
 /* #main status tag */
