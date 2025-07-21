@@ -197,12 +197,21 @@ header.head .notice,
 .b-club .info :is(
 .number, /* количество участников */
 .value /* "участников" */ 
-) {
+),
+/* Модерация: Правка № */
+.b-log_entry .change-details :is(
+  .reason span, /* Причина правки */
+  .field-changes .label, /* текст */
+   .date /* дата */
+) , 
+.b-breadcrumbs .no-url /* /reviews/#id Текст сверху: "Отзыв #" */ {
   color: var(--txt-secondary);
 }
 
 .b-critique-topic .critique-stars .title,
-.p-contests .match-day > .date :is(.from, .to) {
+.p-contests .match-day > .date :is(.from, .to),
+/* /forum/news/#id -  user "о" [animanga]. То самое "о" */
+.b-topic > .inner header .about > span {
   color: var(--txt-primary);
 }
 
@@ -449,6 +458,13 @@ input:focus {
   color: var(--txt-primary);
   background: var(--bckg-light);
 }
+/* #input:disabled Инпут недоступен */
+input[disabled],
+.b-input input[disabled] {
+  background: var(--bckg-lighter);
+  cursor: not-allowed;
+}
+
 .pika-button,
 .is-today .pika-button {
   background-color: var(--bckg-lighter);
@@ -832,17 +848,13 @@ body[data-locale]
 }
 
 /* #comments buttons  */
-.main-controls
-  :is(
-    .item-moderation,
-    .item-quote,
-    .item-reply,
-    .item-edit,
-    .item-delete,
-    .item-cancel,
-    .item-ignore
-  ) {
+.main-controls a[class|="item"] {
   color: var(--txt-secondary-dark);
+}
+
+/* #comments drag & drop */
+.shiki-file_uploader-drop_placeholder {
+  background: #0000;
 }
 
 /* #comments editor  */
@@ -1007,12 +1019,26 @@ code.b-code_inline {
   }
 }
 /* коменты и тд: значок "новое" */
-.b-new_marker:before {
-  color: var(--txt-sec) !important;
-  background: var(--dropdown, var(--my-clr)) !important;
-  border: 0 !important;
-  padding: 2px;
-  border-radius: 4px;
+body[data-locale] .b-new_marker {
+  &:before {
+    color: var(--txt-secondary);
+    background: var(--dropdown, var(--clr-main-dark));
+    border: 0;
+    padding: 2px;
+  }
+  &.off:before {
+    background: var(--dropdown, var(--clr-main-dark));
+  }
+  &.active:hover:before {
+    background: var(--dropdown, var(--clr-main-dark));
+    color: var(--txt-primary);
+  }
+ /* В мобилке не убираются, если прочитаны */
+  @media screen and (max-width: 1024px) {
+    &.active.off:before {
+      display: none;
+    }
+  }
 }
 /* dropdown menu background*/
 .l-top_menu-v2 .menu-dropdown > span[tabindex] {
@@ -1251,6 +1277,19 @@ header.head h2 a.back:before {
 .menu_group button.mobile_placeholder:before {
   color: var(--txt-secondary-dark);
 }
+
+/* Модерация: изменение */
+/* "Было" */
+.b-log_entry .change-details .field-changes .diff del {
+  background: #bd2a30 !important;
+  color: #fff;
+}
+/* "Стало" */
+.b-log_entry .change-details .field-changes .diff ins {
+  background: #467516 !important;
+  color: #fff;
+}
+
 /* news  */
 .edit-page.styles .cc-2::before {
   content: "Shikimori-theme: создайте в :root --my-clr как основной цвет. Например: --my-clr: #00ff00\aДобавляйте в :root строчки, чтобы:\a--news: none - отключить это окно:\a--dropdown: var(--my-clr) - верхнее меню изменить на основной цвет\a--link-primary: var(--my-clr) - сделать основной текст основным цветом (или каким хотите)\a--icon: var(--def-icon); - установить дефолт лого \a\a(ВАЖНО!!! Для изменение тем, сделайте копию цвета: --_(my-clr | dropdown):red.\aА потом назначте --(my-clr | dropdown):var(--(_my-clr | dropdown)))\a--themes-clr: var(--_my-clr) - отключить основные цвета темы \a--themes-dropdown: var(--_dropdown) - отключить цвета темы верхеней менюшки\aДля отключение какой-то темы меняйте параметры: (xmas,halloween) + -clr и -dropdown\aПример: --xmas-clr: var(--_my-clr), --halloween-dropdown: var(--_dropdown)";
