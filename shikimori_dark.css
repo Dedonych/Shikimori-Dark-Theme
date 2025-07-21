@@ -499,7 +499,8 @@ input[disabled],
   background-color: var(--bckg-primary);
 }
 /* Списки: свернуто кнопка */
-.collapsed {
+.collapsed,
+.collapsed+.spoiler .hide-expanded {
   background-color: var(--bckg-primary);
   color: var(--txt-secondary);
   border: 0;
