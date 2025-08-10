@@ -500,7 +500,7 @@ input[disabled],
 }
 /* Списки: свернуто кнопка */
 .collapsed,
-.collapsed+.spoiler .hide-expanded {
+.collapsed + .spoiler .hide-expanded {
   background-color: var(--bckg-primary);
   color: var(--txt-secondary);
   border: 0;
@@ -1034,7 +1034,7 @@ body[data-locale] .b-new_marker {
     background: var(--dropdown, var(--clr-main-dark));
     color: var(--txt-primary);
   }
- /* В мобилке не убираются, если прочитаны */
+  /* В мобилке не убираются, если прочитаны */
   @media screen and (max-width: 1024px) {
     &.active.off:before {
       display: none;
@@ -1324,9 +1324,7 @@ html:has(
         [data-server_time*="-12-3"],
         [data-server_time*="-01-01"],
         [data-server_time*="-01-02"],
-        [data-server_time*="-01-03"],
-        [data-server_time*="-01-04"],
-        [data-server_time*="-01-05"]
+        [data-server_time*="-01-03"]
       )
   ) {
   --my-clr: var(--themes-clr, var(--xmas-clr, #fb7777));
@@ -1335,35 +1333,8 @@ html:has(
     background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/gift.png));
   }
 }
+
 /* april fools */
-@keyframes fools {
-  from,
-  50% {
-    opacity: 1;
-  }
-  51% {
-    background-image: none;
-    content: ")) --fools:none";
-  }
-  to {
-    background-image: none;
-    content: ")) --fools:none";
-    opacity: 0;
-  }
-}
-.p-profiles-show[data-server_time*="04-01"]:after {
-  content: var(--fools, "");
-  text-align: center;
-  align-content: center;
-  position: fixed;
-  inset: 0;
-  z-index: 30;
-  animation: fools 10s;
-  font-weight: bold;
-  font-size: 24px;
-  color: #000;
-  opacity: 0;
-  pointer-events: none;
-  background: url(//i.imgur.com/SbvMsv1.png) no-repeat center center / contain,
-    #fff;
+:has(body:is([data-server_time*="-04-01"])) * {
+  cursor: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/cursor.png) 32 32, auto !important;
 }
