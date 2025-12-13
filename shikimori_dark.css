@@ -1362,7 +1362,7 @@ html:has(
 }
 
 .edit-page.styles .cc-2 > .c-column:first-child::before {
-  content: "Подержка полного(raw) Shikimori-Dark-Theme закончится 20 декабря. В любом случае полный файл будет на github.\AВ дальнейшем буду использовать minifier - ничего не поменяется, кроме сжатого файла.\A Для этого нужно изменить @import ссылку:\A .../master/dist/shikimori_dark.min.css.\A После этого данное сообщение (и красная 1) пропадут. Извините за неудобства.";
+  content: "Подержка полного(raw) Shikimori-Dark-Theme закончится 20 декабря. В любом случае полный файл будет на github.\AВ дальнейшем буду использовать minifier - ничего не поменяется, кроме сжатого файла.\A Для этого нужно изменить import ссылку:\A .../master/dist/shikimori_dark.min.css.\A После этого данное сообщение (и красная 1) пропадут. Извините за неудобства.";
   color: #fff;
   white-space: pre-wrap;
   float: left;
