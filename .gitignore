@@ -1,3 +1,2 @@
 /test
-*.test.css
-user.css
+minify.cjs
