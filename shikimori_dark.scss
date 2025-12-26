@@ -1305,34 +1305,31 @@ header.head h2 a.back:before {
 }
 
 /* halloween */
-@container style(--themes:initial) and style(--halloween:initial) {
-  body[data-server_time*="10-31T"] {
-    --my-clr: var(--themes-clr, var(--halloween-clr, #ff8c00));
-    --dropdown: var(--themes-dropdown, var(--halloween-dropdown, #cc7000));
-    --icon: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/pumpkin.png);
-  }
+
+:has(body[data-server_time*="10-31T"]) {
+  --my-clr: var(--themes-clr, var(--halloween-clr, #ff8c00));
+  --dropdown: var(--themes-dropdown, var(--halloween-dropdown, #cc7000));
+  --icon: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/pumpkin.png);
 }
 
 /* x-mas */
-@container style(--themes:initial) and style(--xmas:initial) {
-  body:is(
-      [data-server_time*="-12-2"],
-      [data-server_time*="-12-3"],
-      [data-server_time*="-01-01"],
-      [data-server_time*="-01-02"],
-      [data-server_time*="-01-03"]
-    ) {
-    --my-clr: var(--themes-clr, var(--xmas-clr, #fb7777));
-    --dropdown: var(--themes-dropdown, var(--xmas-dropdown, #d54040));
-    --icon: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/gift.png);
-  }
+
+:has(body:is(
+    [data-server_time*="-12-2"],
+    [data-server_time*="-12-3"],
+    [data-server_time*="-01-01"],
+    [data-server_time*="-01-02"],
+    [data-server_time*="-01-03"]
+  )) {
+  --my-clr: var(--themes-clr, var(--xmas-clr, #fb7777));
+  --dropdown: var(--themes-dropdown, var(--xmas-dropdown, #d54040));
+  --icon: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/gift.png);
 }
 
 /* april fools */
-@container style(--themes:initial) and style(--fools:initial) {
-  body:is([data-server_time*="-04-01"]) * {
-    cursor: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/cursor.png)
-        32 32,
-      auto !important;
-  }
+
+:has(body:is([data-server_time*="-04-01"])) * {
+  cursor: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/cursor.png)
+      32 32,
+    auto !important;
 }
