@@ -25,7 +25,7 @@ body {
   --selection-bckg: #fff1;
   --selection-search: #00ff0839;
 
-  --def-icon: url("//shikimori.one/assets/layouts/l-top_menu-v2/glyph.svg");
+  --icon: url("//shikimori.one/assets/layouts/l-top_menu-v2/glyph.svg");
 
   /* Активность на сайте бары */
   --bar-main: var(--my-clr);
@@ -33,13 +33,13 @@ body {
   --my-clr: #5292d2;
   --dropdown: initial;
 
-  --xmas-clr: initial;
-  --xmas-dropdown: initial;
-  --halloween-clr: initial;
-  --halloween-dropdown: initial;
-  --icon: initial;
-  --themes-clr: initial;
-  --themes-dropdown: initial;
+  /*
+  Themes can be disabled by set "none"
+  --themes: none;
+  --xmas: none;
+  --halloween: none;
+  --fools: none;
+  */
 }
 
 html[data-color-mode="light"] {
@@ -221,7 +221,10 @@ header.head .notice,
 .l-top_menu-v2 .global-search .clear, /* Поиск - хрестик в конце */
 .l-top_menu-v2 .global-search, /* Поиск - лупа */
 .p-contests .match-day .match-link .c-column.loser a,
-.p-contests .match-day .match-link .c-column.created a {
+.p-contests .match-day .match-link .c-column.created a,
+.b-comment.aside-expanded > .inner>aside.buttons .main-controls [class*='item'], /*  в коментах текст на мобилке */
+.menu_group button.mobile_placeholder:before, /*  Кнопки в редакторе на мобилке */
+.main-controls a[class|="item"] /* #comments buttons  */ {
   color: var(--txt-secondary-dark);
 }
 
@@ -282,6 +285,63 @@ header.head h2,
   }
 }
 
+/* #tooltip (hover title) */
+.tooltip-inner,
+:is(.p-animes-franchise, .p-mangas-franchise, .p-ranobe-franchise)
+  .sticky-tooltip {
+  background-color: var(--bckg-light);
+  color: var(--txt-primary);
+  border-color: var(--bckg-light);
+  box-shadow: 0 0 2px var(--txt-primary);
+}
+/* remove default #arrow on left side and set custom  */
+.tooltip-arrow {
+  visibility: hidden;
+
+  &::before {
+    content: "";
+    display: block;
+    visibility: visible;
+    border: 24px solid #0000;
+    border-right-color: var(--bckg-primary);
+    position: absolute;
+    left: -26px;
+  }
+  .tooltip-left &::before {
+    left: 0;
+    border-right-color: #0000;
+    border-left-color: var(--bckg-primary);
+  }
+}
+/* remove close #button */
+:is(.sticky-tooltip, .tooltip-inner) .close {
+  display: none;
+}
+
+/* #form action list and list title */
+:is(.b-user_rate, .b-catalog_entry-tooltip)
+  .b-add_to_list
+  :is(.trigger, .option),
+.b-add_to_list :is(.trigger, .option) {
+  color: var(--txt-secondary) !important;
+  background: var(--bckg-primary) !important;
+  border-color: var(--bckg-dark) !important;
+}
+:is(.b-user_rate, .b-catalog_entry-tooltip)
+  .b-add_to_list
+  :is(.trigger, .edit) {
+  color: var(--clr-main-primary);
+}
+
+/* #hover faq */
+.tipsy-inner {
+  box-shadow: none;
+  background-color: var(--bckg-dark);
+}
+.tipsy.tipsy-normal.tipsy-s {
+  opacity: 1 !important;
+}
+
 /* #hover #tournaments  */
 .p-contests .match-day .match-link.active {
   background-color: var(--bckg-light);
@@ -290,6 +350,118 @@ header.head h2,
   background-color: var(--bckg-dark);
 }
 /* style #bars for profile  */
+/* список аниме на профиль цвета */
+.b-stats_bar {
+  /* текст изменить */
+  --link-color: color-mix(in srgb, var(--first), #fff 60%);
+  --link-hover-color: color-mix(in srgb, var(--first), #fff 70%);
+  &.anime {
+    --first: green;
+  }
+  &.manga {
+    --first: purple;
+  }
+  &.lifetime {
+    --first: var(--bar-main);
+  }
+  .stat_names .stat_name a {
+    color: var(--link-color);
+  }
+}
+
+.b-stats_bar:is(.anime, .manga, .lifetime) .bar {
+  .first {
+    background-color: var(--first);
+  }
+  .second {
+    background-color: color-mix(in srgb, var(--first), #000 20%);
+  }
+  .third {
+    background-color: color-mix(in srgb, var(--first), #000 40%);
+  }
+  :is(.first, .second, .third):hover {
+    background-color: color-mix(in srgb, var(--first), #000 20%);
+  }
+}
+/* Профиль: Активность на сайте */
+.bar.simple .bar {
+  &.s0 {
+    --bar-clr: color-mix(in srgb, var(--bar-main), #000 20%);
+  }
+  &.s1 {
+    --bar-clr: color-mix(in srgb, var(--bar-main), #000 10%);
+  }
+  &.s2 {
+    --bar-clr: color-mix(in srgb, var(--bar-main), #fff 5%);
+  }
+  &.s3 {
+    --bar-clr: color-mix(in srgb, var(--bar-main), #fff 20%);
+  }
+  &:is(.s0, .s1, .s2, .s3) {
+    background: var(--bar-clr);
+    &:hover {
+      background: color-mix(in srgb, var(--bar-clr), #000 10%);
+    }
+  }
+}
+
+/* #input style #button */
+.subheadline-input[type="submit"],
+.subheadline-input[type="text"],
+.subheadline-input[type="password"],
+.subheadline-input[type="email"],
+.b-form input,
+.b-button,
+.b-input input,
+.b-form input[type="submit"],
+.l-top_menu-v2 .global-search input,
+.b-link_button.dark,
+.b-form textarea,
+.b-input textarea,
+.b-shiki_editor .links .link-value,
+.b-shiki_editor .images .link-value,
+.b-shiki_editor .quotes .link-value,
+.b-shiki_editor .upload .link-value,
+.b-link_button,
+.b-poll .poll-actions .vote,
+.b-poll .poll-actions .abstain {
+  background: var(--bckg-lighter);
+  color: var(--txt-primary);
+  border: 0;
+  border-radius: 4px;
+}
+input:focus {
+  border-color: grey !important;
+}
+.b-form input[type="submit"]:hover,
+.b-button:hover,
+.b-link_button.dark:hover,
+.b-link_button:hover,
+.b-poll .poll-actions .vote:hover,
+.b-poll .poll-actions .abstain:hover {
+  border-color: grey;
+  background-color: var(--bckg-primary);
+}
+.b-form.green-form {
+  background: var(--bckg-dark);
+  border-color: grey;
+}
+.l-top_menu-v2 .global-search input {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+/* #input data  */
+.pika-single,
+.pika-label {
+  color: var(--txt-primary);
+  background: var(--bckg-light);
+}
+/* #input:disabled Инпут недоступен */
+input[disabled],
+.b-input input[disabled] {
+  background: var(--bckg-lighter);
+  cursor: not-allowed;
+}
 
 .pika-button,
 .is-today .pika-button {
@@ -674,11 +846,6 @@ body[data-locale]
   filter: invert(0.7);
 }
 
-/* #comments buttons  */
-.main-controls a[class|="item"] {
-  color: var(--txt-secondary-dark);
-}
-
 /* #comments drag & drop */
 .shiki-file_uploader-drop_placeholder {
   background: #0000;
@@ -867,6 +1034,7 @@ body[data-locale] .b-new_marker {
     }
   }
 }
+
 /* dropdown menu background*/
 .l-top_menu-v2 .menu-dropdown > span[tabindex] {
   background: color-mix(in srgb, var(--dropdown, var(--bckg-dark)) 80%, white);
@@ -1098,28 +1266,25 @@ header.head h2 a.back:before {
   }
 }
 
-/*  в коментах текст на мобилке */
-.b-comment.aside-expanded>.inner>aside.buttons .main-controls [class*='item'],
-/*  Кнопки в редакторе на мобилке */
-.menu_group button.mobile_placeholder:before {
-  color: var(--txt-secondary-dark);
-}
-
 /* Модерация: изменение */
 /* "Было" */
-.b-log_entry .change-details .field-changes .diff del {
-  background: #bd2a30 !important;
-  color: #fff;
-}
-/* "Стало" */
-.b-log_entry .change-details .field-changes .diff ins {
-  background: #467516 !important;
-  color: #fff;
+.b-log_entry .change-details .field-changes .diff {
+  ins,
+  del {
+    color: #fff;
+  }
+  del {
+    background: #bd2a30 !important;
+  }
+  /* "Стало" */
+  ins {
+    background: #467516 !important;
+  }
 }
 
 /* news  */
 .edit-page.styles .cc-2::before {
-  content: "Shikimori-theme: создайте в :root --my-clr как основной цвет. Например: --my-clr: #00ff00\aДобавляйте в :root строчки, чтобы:\a--news: none - отключить это окно:\a--dropdown: var(--my-clr) - верхнее меню изменить на основной цвет\a--link-primary: var(--my-clr) - сделать основной текст основным цветом (или каким хотите)\a--icon: var(--def-icon); - установить дефолт лого \a\a(ВАЖНО!!! Для изменение тем, сделайте копию цвета: --_(my-clr | dropdown):red.\aА потом назначте --(my-clr | dropdown):var(--(_my-clr | dropdown)))\a--themes-clr: var(--_my-clr) - отключить основные цвета темы \a--themes-dropdown: var(--_dropdown) - отключить цвета темы верхеней менюшки\aДля отключение какой-то темы меняйте параметры: (xmas,halloween) + -clr и -dropdown\aПример: --xmas-clr: var(--_my-clr), --halloween-dropdown: var(--_dropdown)";
+  content: "Shikimori-theme: создайте в :root --my-clr как основной цвет. Например: --my-clr: #00ff00\aДобавляйте в :root строчки, чтобы:\a--news: none - отключить это окно:\a--dropdown: var(--my-clr) - верхнее меню изменить на основной цвет\a--link-primary: var(--my-clr) - сделать основной текст основным цветом (или каким хотите)\a--icon: var(--def-icon); - установить дефолт лого \a\aПраздничные темы можно отключить: --themes: none  // Отключить все темы\aТакже доступно отключить определённые темы:\a --xmas | --halloween | --fools";
   white-space: pre-wrap;
   display: var(--news, block);
   font-size: 12px;
@@ -1134,33 +1299,40 @@ header.head h2 a.back:before {
 
 /* themes */
 
+/* glyph change */
+.l-top_menu-v2 .logo-container .glyph {
+  background-image: var(--icon);
+}
+
 /* halloween */
-html:has(body[data-server_time*="10-31T"]) {
-  --my-clr: var(--themes-clr, var(--halloween-clr, #ff8c00));
-  --dropdown: var(--themes-dropdown, var(--halloween-dropdown, #cc7000));
-  & .l-top_menu-v2 .logo-container .glyph {
-    background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/pumpkin.png));
+@container style(--themes:initial) and style(--halloween:initial) {
+  body[data-server_time*="10-31T"] {
+    --my-clr: var(--themes-clr, var(--halloween-clr, #ff8c00));
+    --dropdown: var(--themes-dropdown, var(--halloween-dropdown, #cc7000));
+    --icon: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/pumpkin.png);
   }
 }
 
 /* x-mas */
-html:has(
-    body:is(
-        [data-server_time*="-12-2"],
-        [data-server_time*="-12-3"],
-        [data-server_time*="-01-01"],
-        [data-server_time*="-01-02"],
-        [data-server_time*="-01-03"]
-      )
-  ) {
-  --my-clr: var(--themes-clr, var(--xmas-clr, #fb7777));
-  --dropdown: var(--themes-dropdown, var(--xmas-dropdown, #d54040));
-  & .l-top_menu-v2 .logo-container .glyph {
-    background-image: var(--icon,url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/gift.png));
+@container style(--themes:initial) and style(--xmas:initial) {
+  body:is(
+      [data-server_time*="-12-2"],
+      [data-server_time*="-12-3"],
+      [data-server_time*="-01-01"],
+      [data-server_time*="-01-02"],
+      [data-server_time*="-01-03"]
+    ) {
+    --my-clr: var(--themes-clr, var(--xmas-clr, #fb7777));
+    --dropdown: var(--themes-dropdown, var(--xmas-dropdown, #d54040));
+    --icon: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/gift.png);
   }
 }
 
 /* april fools */
-:has(body:is([data-server_time*="-04-01"])) * {
-  cursor: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/cursor.png) 32 32, auto !important;
+@container style(--themes:initial) and style(--fools:initial) {
+  body:is([data-server_time*="-04-01"]) * {
+    cursor: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/cursor.png)
+        32 32,
+      auto !important;
+  }
 }
