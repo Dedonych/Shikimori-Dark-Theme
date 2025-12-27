@@ -24,7 +24,7 @@ _В разработке!_
 
 - `--dropdown:var(--my-clr)` - верхнее меню изменить на основной цвет<br>
 
-<span style="color:gold">_Все цвета, которые зависят от `--my-clr` были перенесены в элемент `body`_</span>
+___Все цвета, которые зависят от `--my-clr` были перенесены в элемент [body](https://github.com/Dedonych/Shikimori-Dark-Theme/blob/master/shikimori_dark.scss#L29-L55)___
 
 ## Праздничные темы
 
