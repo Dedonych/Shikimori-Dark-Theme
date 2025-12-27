@@ -1,9 +1,6 @@
-html,
-body {
-  color-scheme: dark;
-  background: var(--bckg-primary);
-}
 :root {
+  color-scheme: dark;
+
   --bckg-primary: #212121;
   --bckg-dark: #1a1a1a;
   --bckg-light: #333333;
@@ -17,9 +14,6 @@ body {
   --selection-search: #00ff0839;
 
   --icon: url("//shikimori.one/assets/layouts/l-top_menu-v2/glyph.svg");
-
-  /* Активность на сайте бары */
-  --bar-main: var(--my-clr);
 
   --my-clr: #5292d2;
   --dropdown: initial;
@@ -42,6 +36,10 @@ body {
   --link-primary: var(--clr-main-light);
   --link-hover: color-mix(in srgb, var(--link-primary) 60%, white);
   --link-active: color-mix(in srgb, var(--link-primary) 70%, white);
+
+  /* Активность на сайте бары */
+  --bar-main: var(--my-clr);
+
   /* move all from html[data-color-mode=light] */
   --icon-color: var(--txt-secondary);
   --link-color: var(--link-primary);
@@ -51,6 +49,9 @@ body {
   --headline-hover-color: var(--my-clr);
   --headline-background-color: var(--bckg-primary);
   --headline-border-color: var(--clr-main-primary);
+
+  background: var(--bckg-primary);
+  color: var(--txt-primary);
 }
 
 /* #main */
@@ -255,12 +256,10 @@ header.head h2,
 /* tabs colored */
 [data-dynamic="tabs"] [class*="button"] {
   --tabs-button: var(--my-clr);
-  background-color: var(--bckg-light);
   &:not(.active) {
-    background-color: var(--bckg-light);
+    background-color: var(--bckg-dark);
   }
-  &:hover,
-  &:not(.active):active {
+  &:not(.active):hover {
     background-color: color-mix(in srgb, var(--tabs-button), #000 40%);
   }
   &.active {
@@ -410,21 +409,17 @@ header.head h2,
 .subheadline-input[type="text"],
 .subheadline-input[type="password"],
 .subheadline-input[type="email"],
-.b-form input,
 .b-button,
 .b-input input,
 .b-form input[type="submit"],
 .l-top_menu-v2 .global-search input,
 .b-link_button.dark,
+.b-form input,
 .b-form textarea,
 .b-input textarea,
-.b-shiki_editor .links .link-value,
-.b-shiki_editor .images .link-value,
-.b-shiki_editor .quotes .link-value,
-.b-shiki_editor .upload .link-value,
+.b-shiki_editor :is(.links, .images, .quotes, .upload) .link-value,
 .b-link_button,
-.b-poll .poll-actions .vote,
-.b-poll .poll-actions .abstain {
+.b-poll .poll-actions :is(.vote,.abstain){
   background: var(--bckg-lighter);
   color: var(--txt-primary);
   border: 0;
