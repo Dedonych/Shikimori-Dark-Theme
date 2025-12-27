@@ -12,15 +12,6 @@ body {
   --txt-primary: #fff;
   --txt-secondary: #ccc;
   --txt-secondary-dark: #afafaf;
-  --txt-accent: var(--clr-main-light);
-
-  --clr-main-primary: var(--my-clr);
-  --clr-main-dark: color-mix(in srgb, var(--clr-main-primary), black 30%);
-  --clr-main-light: color-mix(in srgb, var(--clr-main-primary), white 15%);
-
-  --link-primary: var(--clr-main-light);
-  --link-hover: color-mix(in srgb, var(--link-primary) 60%, white);
-  --link-active: color-mix(in srgb, var(--link-primary) 70%, white);
 
   --selection-bckg: #fff1;
   --selection-search: #00ff0839;
@@ -41,8 +32,17 @@ body {
   --fools: none;
   */
 }
+body {
+  --txt-accent: var(--clr-main-light);
 
-html[data-color-mode="light"] {
+  --clr-main-primary: var(--my-clr);
+  --clr-main-dark: color-mix(in srgb, var(--clr-main-primary), black 30%);
+  --clr-main-light: color-mix(in srgb, var(--clr-main-primary), white 15%);
+
+  --link-primary: var(--clr-main-light);
+  --link-hover: color-mix(in srgb, var(--link-primary) 60%, white);
+  --link-active: color-mix(in srgb, var(--link-primary) 70%, white);
+  /* move all from html[data-color-mode=light] */
   --icon-color: var(--txt-secondary);
   --link-color: var(--link-primary);
   --link-hover-color: var(--link-hover);
@@ -860,8 +860,7 @@ body[data-locale]
     [data-div],
     [data-link],
     [data-span],
-    [data-video],
-
+    [data-video]
   ):hover:before {
   background-color: var(--bckg-lighter);
   color: var(--txt-accent);
@@ -1306,30 +1305,34 @@ header.head h2 a.back:before {
 
 /* halloween */
 
-:has(body[data-server_time*="10-31T"]) {
-  --my-clr: var(--themes-clr, var(--halloween-clr, #ff8c00));
-  --dropdown: var(--themes-dropdown, var(--halloween-dropdown, #cc7000));
-  --icon: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/pumpkin.png);
+@container style(--themes:initial) and style(--halloween:initial) {
+  body[data-server_time*="10-31T"] {
+    --my-clr: var(--themes-clr, var(--halloween-clr, #ff8c00));
+    --dropdown: var(--themes-dropdown, var(--halloween-dropdown, #cc7000));
+    --icon: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/pumpkin.png);
+  }
 }
 
 /* x-mas */
-
-:has(body:is(
-    [data-server_time*="-12-2"],
-    [data-server_time*="-12-3"],
-    [data-server_time*="-01-01"],
-    [data-server_time*="-01-02"],
-    [data-server_time*="-01-03"]
-  )) {
-  --my-clr: var(--themes-clr, var(--xmas-clr, #fb7777));
-  --dropdown: var(--themes-dropdown, var(--xmas-dropdown, #d54040));
-  --icon: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/gift.png);
+@container style(--themes:initial) and style(--xmas:initial) {
+  body:is(
+      [data-server_time*="-12-2"],
+      [data-server_time*="-12-3"],
+      [data-server_time*="-01-01"],
+      [data-server_time*="-01-02"],
+      [data-server_time*="-01-03"]
+    ) {
+    --my-clr: var(--themes-clr, var(--xmas-clr, #fb7777));
+    --dropdown: var(--themes-dropdown, var(--xmas-dropdown, #d54040));
+    --icon: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/gift.png);
+  }
 }
 
 /* april fools */
-
-:has(body:is([data-server_time*="-04-01"])) * {
-  cursor: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/cursor.png)
-      32 32,
-    auto !important;
+@container style(--themes:initial) and style(--fools:initial) {
+  body:is([data-server_time*="-04-01"]) * {
+    cursor: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/cursor.png)
+        32 32,
+      auto !important;
+  }
 }
