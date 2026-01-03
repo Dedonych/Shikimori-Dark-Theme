@@ -419,7 +419,7 @@ header.head h2,
 .b-input textarea,
 .b-shiki_editor :is(.links, .images, .quotes, .upload) .link-value,
 .b-link_button,
-.b-poll .poll-actions :is(.vote,.abstain){
+.b-poll .poll-actions :is(.vote, .abstain) {
   background: var(--bckg-lighter);
   color: var(--txt-primary);
   border: 0;
@@ -1292,7 +1292,25 @@ header.head h2 a.back:before {
 }
 
 /* themes */
-
+/*
+  Есть паро минусов на счет @container и переменных:
+  Так как в контейнере все идет в body, scrollbar и turbolinks-progress-bar не могут быть покрашенными в цвет праздничных тем.
+  Это ограничение @container'а: нельзя юзать его на самом себе, хотя :root >> html в css:
+  :root{
+  --themes:initial;
+  }
+  @container style(--themes:initial) {
+    html{
+    --themes:none;
+    }
+  }
+  @container style(--themes:none) {
+    html{
+    --themes:initial;
+    }
+  }
+    Будет loop. 
+*/
 /* glyph change */
 .l-top_menu-v2 .logo-container .glyph {
   background-image: var(--icon);
@@ -1300,16 +1318,16 @@ header.head h2 a.back:before {
 
 /* halloween */
 
-@container style(--themes:initial) and style(--halloween:initial) {
+@container style((--themes:initial) and (--halloween:initial)) {
   body[data-server_time*="10-31T"] {
-    --my-clr: var(--themes-clr, var(--halloween-clr, #ff8c00));
-    --dropdown: var(--themes-dropdown, var(--halloween-dropdown, #cc7000));
+    --my-clr: #ff8c00;
+    --dropdown: #cc7000;
     --icon: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/pumpkin.png);
   }
 }
 
 /* x-mas */
-@container style(--themes:initial) and style(--xmas:initial) {
+@container style((--themes:initial) and (--xmas:initial)) {
   body:is(
       [data-server_time*="-12-2"],
       [data-server_time*="-12-3"],
@@ -1317,15 +1335,15 @@ header.head h2 a.back:before {
       [data-server_time*="-01-02"],
       [data-server_time*="-01-03"]
     ) {
-    --my-clr: var(--themes-clr, var(--xmas-clr, #fb7777));
-    --dropdown: var(--themes-dropdown, var(--xmas-dropdown, #d54040));
+    --my-clr: #fb7777;
+    --dropdown: #d54040;
     --icon: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/gift.png);
   }
 }
 
 /* april fools */
-@container style(--themes:initial) and style(--fools:initial) {
-  body:is([data-server_time*="-04-01"]) * {
+@container style((--themes:initial) and (--fools:initial)) {
+  body[data-server_time*="-04-01"] * {
     cursor: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/cursor.png)
         32 32,
       auto !important;
