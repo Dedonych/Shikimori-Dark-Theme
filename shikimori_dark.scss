@@ -1285,25 +1285,6 @@ header.head h2 a.back:before {
 }
 
 /* themes */
-/*
-  Есть паро минусов на счет @container и переменных:
-  Так как в контейнере все идет в body, scrollbar и turbolinks-progress-bar не могут быть покрашенными в цвет праздничных тем.
-  Это ограничение @container'а: нельзя юзать его на самом себе, хотя :root >> html в css:
-  :root{
-  --themes:initial;
-  }
-  @container style(--themes:initial) {
-    html{
-    --themes:none;
-    }
-  }
-  @container style(--themes:none) {
-    html{
-    --themes:initial;
-    }
-  }
-    Будет loop. 
-*/
 /* glyph change */
 .l-top_menu-v2 .logo-container .glyph {
   background-image: var(--icon);
