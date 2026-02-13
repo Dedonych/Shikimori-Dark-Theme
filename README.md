@@ -1,36 +1,38 @@
-_В разработке!_
-
 # Темная тема для сайта [shikimori.one](https://shikimori.one)
 
-## Для начала
+_В разработке!_
 
-Добавьте стиль и создайте в `:root` (по желанию):
+## Для начала, импортируйте стиль
+
+_Настройки -> Внешний вид сайта -> CSS_
 
 ```css
-/* Импорт стиля */
+@import url("https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/dist/shikimori_dark.min.css");
+```
 
-@import url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/dist/shikimori_dark.min.css);
+**_Всё. Используйте!_**
 
+### Некоторые настройки (_переменных_) в стиле
+
+_Все переменные можно найти в_ [**SCSS файле**](https://github.com/Dedonych/Shikimori-Dark-Theme/blob/master/shikimori_dark.scss#L1-L48)
+
+```css
 :root {
-  --my-clr:/* Ваш основной цвет (стандартный - #5292d2 - светло синий)*/ ;
+  /* Отключить подсказку в настройках.
+  Она появится, как только импортируете тему (Прям над CSS)*/
+  --news: none;
+  /* Изменить цвет акцента. По умолчанию: #5292d2 (светло-синий) */
+  --my-clr: #67f451;
+  /* Добавить цвет к верхней менюшки. По умолчанию: #1a1a1a (почти что черный) */
+  --dropdown: #d31fdc;
+  /* Изменить лого-иконку (в менюшки слева сверху). */
+  --icon: url("Ссылка на картинку/гифку/svg. Любой формат но только картинка");
 }
 ```
 
-Цвета плохо работают с черным и белым
+## Праздничные темы.
 
-### Добавляйте в `:root` строчки, чтобы:<br>
-
-- `--news:none` - отключить подсказку в настройках <br>
-
-- `--dropdown:var(--my-clr)` - верхнее меню изменить на основной цвет<br>
-
-___Все цвета, которые зависят от `--my-clr` были перенесены в элемент [body](https://github.com/Dedonych/Shikimori-Dark-Theme/blob/master/shikimori_dark.scss#L29-L55)___
-
-## Праздничные темы
-
-_Была упрощенна версия для тем. Теперь не нужно использовать копии цветов._
-
-Для отключение тем добавьте в `:root` строчки
+_В некоторые праздники есть цветная тема. Возможно, будет дополнятся._
 
 ```css
 :root {
@@ -46,48 +48,33 @@ _Была упрощенна версия для тем. Теперь не ну�
 }
 ```
 
-### Некоторые фичи
+### Некоторые кастомные измение (фичи)
 
 Для всех фич, исользуются цвета
 
 ```css
 :root {
-  --my-clr: green;
-  --dropdown: cornflowerBlue;
+  --my-clr: green; /* Зеленый */
+  --dropdown: cornflowerBlue; /* Светло-синий  */
 }
 ```
 
 <details>
 	<summary>Полоса прокрутки</summary>
 
-```scss
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-thumb {
-  background: var(--dropdown);
+```css
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--dropdown) #0000;
 }
 ```
 
 </details>
 
 <details>
-	<summary>Градиент на фоне и хедлайны красивые</summary>
+	<summary>Заголовки</summary>
 
-```scss
-/* убрать фон */
-.l-page {
-  background-color: #0000;
-}
-
-/* gradient background: !important для всех разрешений */
-body {
-  --_b-l: color-mix(in srgb, var(--my-clr), #000 75%);
-  --_b-r: color-mix(in srgb, var(--dropdown), #000 75%);
-  background: linear-gradient(90deg, var(--_b-l), var(--_b-r)) !important;
-}
-
-/* хедлайны */
+```css
 .subheadline,
 .midheadline,
 .headline {
@@ -102,7 +89,7 @@ body {
 }
 ```
 
-![image](./posters/features/grad_head.png)
+![image](./posters/features/headlines.png)
 
 </details>
 
@@ -110,9 +97,9 @@ body {
 	<summary>Списки в одну строку и подсветка онгоингов \ анонсов</summary>
 
 ```scss
-/* Списки: одна строка */
+/* Мои списки: одна строка */
 tr.user_rate {
-  border-bottom: 1px solid #555;
+  border-bottom: 1px solid var(--bckg-lighter);
 }
 tr.user_rate .name {
   display: flex;
@@ -131,14 +118,14 @@ tr.user_rate .name {
   .rate-text {
     width: 100%;
     div {
-      border-top: 1px dashed #555;
+      border-top: 1px dashed var(--bckg-lighter);
       padding-top: 2px;
       color: var(--txt-secondary-dark);
     }
   }
 }
 
-/* Подсветка онгоингов \ анонсов */
+/* Подсветка онгоингов/анонсов */
 tr.user_rate :is(.anons, .ongoing) {
   display: none;
 }
@@ -165,21 +152,10 @@ tr.user_rate:has(.ongoing) {
 </details>
 
 <details>
-	<summary>Цветной турболинк ( полоска сверху когда идет загрузка )</summary>
-	
-```scss
-@media all {
-  .turbolinks-progress-bar {
-    background: var(--clr-main-light) !important;
-    -webkit-box-shadow: 0 0 8px var(--my-clr) !important;
-    box-shadow: 0 0 10px var(--my-clr) !important;
-  }
-}
-```
-</details>
-<details>
 	<summary>Цветные списки в хедере</summary>
-	
+
+Работает, когда изменили цвет `--dropdown`
+
 ```scss
 .l-top_menu-v2 .submenu {
   border: 0;
@@ -187,11 +163,15 @@ tr.user_rate:has(.ongoing) {
   --c20: color-mix(in srgb, var(--dropdown), #000 20%);
   --c30: color-mix(in srgb, var(--dropdown), #000 30%);
   --c40: color-mix(in srgb, var(--dropdown), #000 40%);
-  & > .legend { background-color: var(--c30); }
+  & > .legend {
+    background-color: var(--c30);
+  }
   & > a {
     background-color: var(--c20);
     &:hover,
-    &:active { background-color: var(--c40); }
+    &:active {
+      background-color: var(--c40);
+    }
   }
 }
 ```
@@ -207,15 +187,17 @@ tr.user_rate:has(.ongoing) {
 @media screen and (max-width: 767px) {
   body {
     margin-bottom: 48px;
-    --icon-width: calc(calc(100vw / 5));
+    --icon-count: 5;
+    --icon-width: calc(100vw / var(--icon-count));
+    --mail-left: 3;
   }
   :is(
-      .icon-profile,
-      .icon-anime_list,
-      .icon-manga_list,
-      .icon-mail,
-      .icon-settings
-    ) {
+    .icon-profile,
+    .icon-anime_list,
+    .icon-manga_list,
+    .icon-mail,
+    .icon-settings
+  ) {
     &::after {
       font-family: shikimori;
       position: fixed;
@@ -246,7 +228,7 @@ tr.user_rate:has(.ongoing) {
     font-size: 2.5em;
   }
   .icon-mail:after {
-    --icon-left: 3;
+    --icon-left: var(--mail-left);
     content: "\e81f";
   }
   .icon-settings:after {
@@ -260,7 +242,9 @@ tr.user_rate:has(.ongoing) {
     top: auto;
     bottom: 24px;
     /*  позиция смс \/  */
-    left: calc(var(--icon-width) * 3 + calc(var(--icon-width) / 2));
+    left: calc(
+      var(--icon-width) * var(--mail-left) + calc(var(--icon-width) / 2)
+    );
   }
 }
 ```
