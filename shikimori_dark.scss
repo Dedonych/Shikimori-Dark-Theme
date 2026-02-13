@@ -1277,7 +1277,7 @@ header.head h2 a.back:before {
   font-size: 12px;
   float: left;
   position: relative;
-  color: #cecece;
+  color: var(--txt-secondary);
   background: var(--bckg-primary);
   z-index: 2;
   padding: 8px;
