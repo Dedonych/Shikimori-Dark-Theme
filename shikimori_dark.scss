@@ -16,15 +16,8 @@
   --icon: url("//shikimori.one/assets/layouts/l-top_menu-v2/glyph.svg");
 
   --my-clr: #5292d2;
-  --dropdown: initial;
+  --dropdown: var(--bckg-dark);
 
-  /*
-  Themes can be disabled by set "none"
-  --themes: none;
-  --xmas: none;
-  --halloween: none;
-  --fools: none;
-  */
 }
 body {
   --txt-accent: var(--clr-main-light);
