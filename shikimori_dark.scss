@@ -1005,15 +1005,15 @@ code.b-code_inline {
 body[data-locale] .b-new_marker {
   &:before {
     color: var(--txt-secondary);
-    background: var(--dropdown, var(--clr-main-dark));
+    background: var(--dropdown);
     border: 0;
     padding: 2px;
   }
   &.off:before {
-    background: var(--dropdown, var(--clr-main-dark));
+    background: var(--dropdown);
   }
   &.active:hover:before {
-    background: var(--dropdown, var(--clr-main-dark));
+    background: var(--dropdown);
     color: var(--txt-primary);
   }
   /* В мобилке не убираются, если прочитаны */
