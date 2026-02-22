@@ -7,7 +7,7 @@ _В разработке!_
 _Настройки -> Внешний вид сайта -> CSS_
 
 ```css
-@import url("https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/dist/shikimori_dark.min.css");
+@import url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/dist/shikimori_dark.min.css);
 ```
 
 **_Всё. Используйте!_**
