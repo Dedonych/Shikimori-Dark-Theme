@@ -1056,10 +1056,7 @@ body[data-locale] .b-new_marker {
 header.head {
   border-bottom: 2px solid var(--bckg-primary);
 }
-header.head h1 a.back:before,
-header.head h2 a.back:before {
-  color: var(--txt-secondary);
-}
+
 /* #footer */
 .b-footer_vote {
   background: var(--bckg-dark);
@@ -1184,7 +1181,7 @@ header.head h2 a.back:before {
   }
   /* list 'a' names */
   .comparer table .name a {
-    color: #ccc;
+    color: var(--txt-secondary);
   }
   /* adding colors to diff */
   & :is(.comparer table, .legend) {
