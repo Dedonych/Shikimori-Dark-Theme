@@ -199,7 +199,8 @@ header.head .notice,
    .date /* дата */
 ) , 
 .b-breadcrumbs .no-url, /* /reviews/#id Текст сверху: "Отзыв #" */ 
-.p-animes-show .c-info-right .watch-online .kind /* Тайтл: Онлайн просмотр - названиие внизу (Шикимори, Remanga, ...). p-animes-show есть и на манге/ранобе */
+.p-animes-show .c-info-right .watch-online .kind, /* Тайтл: Онлайн просмотр - названиие внизу (Шикимори, Remanga, ...). p-animes-show есть и на манге/ранобе */
+header.head :is(h1,h2) a.back:before /* Стрелка "назад" (Профиль, настройки - слева сверху) */
 {
   color: var(--txt-secondary);
 }
