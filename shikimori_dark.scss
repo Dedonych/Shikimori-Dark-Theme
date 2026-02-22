@@ -198,7 +198,9 @@ header.head .notice,
   .field-changes .label, /* текст */
    .date /* дата */
 ) , 
-.b-breadcrumbs .no-url /* /reviews/#id Текст сверху: "Отзыв #" */ {
+.b-breadcrumbs .no-url, /* /reviews/#id Текст сверху: "Отзыв #" */ 
+.p-animes-show .c-info-right .watch-online .kind /* Тайтл: Онлайн просмотр - названиие внизу (Шикимори, Remanga, ...). p-animes-show есть и на манге/ранобе */
+{
   color: var(--txt-secondary);
 }
 
