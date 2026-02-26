@@ -89,13 +89,13 @@ body {
   }
   /* #search left border */
   :is(
-      .nothing_found.active,
-      .nothing_found:focus,
-      .b-db_entry-variant-list_item.active,
-      .b-db_entry-variant-list_item:focus,
-      .search-mode.active,
-      .search-mode:focus
-    ):before {
+    .nothing_found.active,
+    .nothing_found:focus,
+    .b-db_entry-variant-list_item.active,
+    .b-db_entry-variant-list_item:focus,
+    .search-mode.active,
+    .search-mode:focus
+  ):before {
     background: var(--clr-main-primary);
   }
   /* border colored when active */
@@ -203,8 +203,7 @@ header.head .notice,
 ) , 
 .b-breadcrumbs .no-url, /* /reviews/#id Текст сверху: "Отзыв #" */ 
 .p-animes-show .c-info-right .watch-online .kind, /* Тайтл: Онлайн просмотр - названиие внизу (Шикимори, Remanga, ...). p-animes-show есть и на манге/ранобе */
-header.head :is(h1,h2) a.back:before /* Стрелка "назад" (Профиль, настройки - слева сверху) */
-{
+header.head :is(h1,h2) a.back:before /* Стрелка "назад" (Профиль, настройки - слева сверху) */ {
   color: var(--txt-secondary);
 }
 
@@ -775,11 +774,9 @@ body[data-locale]
 }
 /* color to navigation and review rate */
 :is(
-    .b-reviews_navigation .navigation-node,
-    .b-review-topic.is-review_review_author_details
-      > .inner
-      :is(.label, .opinion)
-  ) {
+  .b-reviews_navigation .navigation-node,
+  .b-review-topic.is-review_review_author_details > .inner :is(.label, .opinion)
+) {
   &[class*="neutral"] {
     color: skyblue;
   }
@@ -1304,12 +1301,12 @@ header.head {
 /* x-mas */
 @container style((--themes:initial) and (--xmas:initial)) {
   body:is(
-      [data-server_time*="-12-2"],
-      [data-server_time*="-12-3"],
-      [data-server_time*="-01-01"],
-      [data-server_time*="-01-02"],
-      [data-server_time*="-01-03"]
-    ) {
+    [data-server_time*="-12-2"],
+    [data-server_time*="-12-3"],
+    [data-server_time*="-01-01"],
+    [data-server_time*="-01-02"],
+    [data-server_time*="-01-03"]
+  ) {
     --my-clr: #fb7777;
     --dropdown: #d54040;
     --icon: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/gift.png);
@@ -1319,7 +1316,8 @@ header.head {
 /* april fools */
 @container style((--themes:initial) and (--fools:initial)) {
   body[data-server_time*="-04-01"] * {
-    cursor: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/cursor.png)
+    cursor:
+      url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/cursor.png)
         32 32,
       auto !important;
   }
