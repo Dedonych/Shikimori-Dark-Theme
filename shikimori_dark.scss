@@ -543,11 +543,9 @@ input[type="checkbox"] {
   color: var(--clr-main-dark);
 }
 /* #avatar style  */
-.avatar img[alt],
-.icon-avatar img,
-.profile a img[alt],
-.image-name .image {
-  border-radius: 50% !important;
+img[src*="/users/"],
+img[src*="/clubs/"] {
+  border-radius: var(--avatar-radius);
 }
 
 /* #main my-list dashboard  */
