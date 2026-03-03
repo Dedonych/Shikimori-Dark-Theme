@@ -635,6 +635,16 @@ body[data-locale]
   border: 0;
 }
 
+/* #coub tag */
+.b-coub .tags .tag {
+  background-color: var(--bckg-dark);
+  color: var(--txt-secondary);
+
+  &.matched {
+    color: var(--bckg-dark);
+    background-color: var(--clr-main-light);
+  }
+}
 /* #main status tag */
 .b-anime_status_tag {
   background-color: var(--bckg-primary);
