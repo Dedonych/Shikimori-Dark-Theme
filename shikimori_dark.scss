@@ -1285,7 +1285,7 @@ header.head {
 
 /* news  */
 .edit-page.styles .cc-2::before {
-  content: "Shikimori-theme: создайте в :root --my-clr как основной цвет. Например: --my-clr: #00ff00\aДобавляйте в :root строчки, чтобы:\a--news: none - отключить это окно:\a--dropdown: var(--my-clr) - верхнее меню изменить на основной цвет\a--link-primary: var(--my-clr) - сделать основной текст основным цветом (или каким хотите)\a--icon: var(--def-icon); - установить дефолт лого \a--avatar-border: 0; - радиус аватарок юзеров/клубов\aПраздничные темы можно отключить: --themes: none  // Отключить все темы\aТакже доступно отключить определённые темы:\a --xmas | --halloween | --fools";
+  content: "Shikimori-theme: создайте в :root --my-clr как основной цвет. Например: --my-clr: #00ff00\aДобавляйте в :root строчки, чтобы:\a--news: none - отключить это окно:\a--dropdown: var(--my-clr) - верхнее меню изменить на основной цвет\a--link-primary: var(--my-clr) - сделать основной текст основным цветом (или каким хотите)\a--icon: var(--def-icon); - установить дефолт лого \a--avatar-border: 0; - радиус аватарок юзеров/клубов\a\aПраздничные темы можно отключить: --themes: none  // Отключить все темы\aТакже доступно отключить определённые темы:\a --xmas | --halloween | --fools";
   white-space: pre-wrap;
   display: var(--news, block);
   font-size: 12px;
