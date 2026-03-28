@@ -229,7 +229,7 @@ header.head :is(h1,h2) a.back:before, /* Стрелка "назад" (Профи
 .b-comment.aside-expanded > .inner>aside.buttons .main-controls [class*='item'], /*  в коментах текст на мобилке */
 .menu_group button.mobile_placeholder:before, /*  Кнопки в редакторе на мобилке */
 .main-controls a[class|="item"], /* #comments buttons  */ 
-.p-db_entries-edit .b-list .field /* редактирование тайтла - слова */{
+.p-db_entries-edit .b-list .field /* редактирование тайтла - слова */ {
   color: var(--txt-secondary-dark);
 }
 
@@ -1336,5 +1336,8 @@ header.head {
       url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/cursor.png)
         32 32,
       auto !important;
+  }
+  .l-top_menu-v2 .logo-container {
+    rotate: x 180deg;
   }
 }
