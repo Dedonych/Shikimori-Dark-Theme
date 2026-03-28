@@ -1337,7 +1337,7 @@ header.head {
         32 32,
       auto !important;
   }
-  .l-top_menu-v2 .logo-container {
+   body[data-server_time*="-04-01"] .l-top_menu-v2 .logo-container {
     rotate: x 180deg;
   }
 }
