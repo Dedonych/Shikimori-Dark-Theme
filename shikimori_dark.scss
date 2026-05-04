@@ -208,6 +208,7 @@ header.head .notice,
 .p-animes-show .c-info-right .watch-online .kind, /* Тайтл: Онлайн просмотр - названиие внизу (Шикимори, Remanga, ...). p-animes-show есть и на манге/ранобе */
 header.head :is(h1,h2) a.back:before, /* Стрелка "назад" (Профиль, настройки - слева сверху) */ 
 .b-coub .content .footer .info .description /* coub - Создано ... time */ 
+:is(.b-quote-v2,.b-quote) .quoteable:before /* значок цытаты в коментариях */
 /* скобка */ {
   color: var(--txt-secondary);
 }
@@ -219,16 +220,18 @@ header.head :is(h1,h2) a.back:before, /* Стрелка "назад" (Профи
   color: var(--txt-primary);
 }
 
-.p-user_rates-index .list-lines tr td .episodes_total, /* Макс количество эпизодов\глав в списке. (24) */
-.p-user_rates-index .list-lines tr td .rate-text, /* Коментарий к тайтлу в списке */
+.p-user_rates-index .list-lines tr td :is(
+  .rate-text, /* Коментарий к тайтлу в списке */
+  .episodes_total /* Макс количество эпизодов\глав в списке. (24) */
+),
 .b-subposter-action,
 .l-top_menu-v2 .global-search .clear, /* Поиск - хрестик в конце */
 .l-top_menu-v2 .global-search, /* Поиск - лупа */
-.p-contests .match-day .match-link .c-column.loser a,
-.p-contests .match-day .match-link .c-column.created a,
+.p-contests .match-day .match-link .c-column:is(.loser,.created) a,
 .b-comment.aside-expanded > .inner>aside.buttons .main-controls [class*='item'], /*  в коментах текст на мобилке */
 .menu_group button.mobile_placeholder:before, /*  Кнопки в редакторе на мобилке */
 .main-controls a[class|="item"], /* #comments buttons  */ 
+.b-dialog.aside-expanded>.inner>aside.buttons .main-controls [class|="item"] /* в ЛС #comments */,
 .p-db_entries-edit .b-list .field /* редактирование тайтла - слова */ {
   color: var(--txt-secondary-dark);
 }
@@ -544,6 +547,16 @@ input[disabled],
 /* #checkbox */
 input[type="checkbox"] {
   accent-color: var(--clr-main-dark);
+}
+input[type="checkbox"]:disabled {
+  position: relative;
+  &:before {
+    content: "";
+    border-radius: 2px;
+    background: firebrick;
+    position: absolute;
+    inset: 0;
+  }
 }
 
 /* mini #checkbox */
@@ -904,9 +917,9 @@ code.b-code_inline {
 .popup-content {
   background-color: var(--bckg-light) !important;
 }
+
 .b-quote-v2,
-.b-spoiler_block > div,
-.b-quote .quoteable:before {
+.b-spoiler_block > div {
   background-color: var(--bckg-dark);
   color: var(--txt-primary);
 }
@@ -1337,7 +1350,7 @@ header.head {
         32 32,
       auto !important;
   }
-   body[data-server_time*="-04-01"] .l-top_menu-v2 .logo-container {
+  body[data-server_time*="-04-01"] .l-top_menu-v2 .logo-container {
     rotate: x 180deg;
   }
 }
