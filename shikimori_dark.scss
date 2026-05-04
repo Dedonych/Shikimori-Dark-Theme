@@ -1310,6 +1310,10 @@ header.head {
   padding: 8px;
   margin-bottom: 10px;
 }
+/* А че нет то? */
+.copyright:after {
+  content: " Dark theme by Dedonych 4.5.26";
+}
 
 /* --------------------------------------- Themes --------------------------------------- */
 /* glyph change */
