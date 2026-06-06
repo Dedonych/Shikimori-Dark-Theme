@@ -216,7 +216,8 @@ header.head :is(h1,h2) a.back:before, /* Стрелка "назад" (Профи
 .b-critique-topic .critique-stars .title,
 .p-contests .match-day > .date :is(.from, .to),
 /* /forum/news/#id -  user "о" [animanga]. То самое "о" */
-.b-topic > .inner header .about > span {
+.b-topic > .inner header .about > span,
+.l-top_menu-v2 .submenu > a /* Текст в выпадающем меню сверху */ {
   color: var(--txt-primary);
 }
 
@@ -1312,7 +1313,7 @@ header.head {
 }
 /* А че нет то? */
 .copyright:after {
-  content: " Dark theme by Dedonych 4.5.26";
+  content: " Dark theme by Dedonych 6.6.26";
 }
 
 /* --------------------------------------- Themes --------------------------------------- */
@@ -1321,12 +1322,25 @@ header.head {
   background-image: var(--icon);
 }
 
+/* Уведомление об текущей темы */
+.edit-page.styles .cc-2 > .c-column:first-child::before {
+  content: var(--theme-content);
+  background-color: var(--theme-color);
+  color: contrast-color(var(--theme-color));
+  padding: 8px;
+  border-radius: 8px;
+}
+
 /* halloween */
 
 @container style((--themes:initial) and (--halloween:initial)) {
   body[data-server_time*="10-31T"] {
     --my-clr: #ff8c00;
     --dropdown: #cc7000;
+
+    --theme-content: 'Halloween 🎃🎃! Напишите в :root "--halloween: none", чтобы отключить';
+    --theme-color: var(--dropdown);
+
     --icon: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/pumpkin.png);
   }
 }
@@ -1342,17 +1356,31 @@ header.head {
   ) {
     --my-clr: #fb7777;
     --dropdown: #d54040;
+
+    --theme-content: 'С новым годом 🎅🎅! Напишите в :root "--halloween: none", чтобы отключить';
+    --theme-color: var(--dropdown);
+
     --icon: url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/gift.png);
   }
 }
 
 /* april fools */
 @container style((--themes:initial) and (--fools:initial)) {
-  body[data-server_time*="-04-01"] * {
-    cursor:
-      url(https://raw.githubusercontent.com/Dedonych/Shikimori-Dark-Theme/master/icons/cursor.png)
-        32 32,
-      auto !important;
+  body[data-server_time*="-04-01"] {
+    --theme-content: 'С первым апреля😂😂! Напишите в :root "--fools: none", чтобы отключить';
+    --theme-color: #50db0f;
+
+    color-scheme: light;
+    --bckg-primary: #fff;
+    --bckg-dark: #ccc;
+    --bckg-light: #eee;
+    --bckg-lighter: #ddd;
+
+    --txt-primary: #000;
+    --txt-secondary: #333;
+    --txt-secondary-dark: #222;
+
+    --dropdown: var(--bckg-dark);
   }
   body[data-server_time*="-04-01"] .l-top_menu-v2 .logo-container {
     rotate: x 180deg;
