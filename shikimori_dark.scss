@@ -751,7 +751,7 @@ body[data-locale]
     border-radius: 0 0 0 8px;
   }
   .on_hold &:after {
-    color: grey;
+    color: darkorange;
   }
   .planned &:after {
     color: lightgrey;
@@ -763,10 +763,10 @@ body[data-locale]
     color: skyblue;
   }
   .rewatching &:after {
-    color: #71c5f9;
+    color: skyblue;
   }
   .completed &:after {
-    color: rgb(60, 204, 137);
+    color: mediumseagreen;
   }
 }
 
@@ -908,7 +908,7 @@ code.b-code_inline,
   background-color: rgb(82, 82, 82);
 }
 code.b-code_inline {
-  color: #ba3453;
+  color: crimson;
 }
 .b-shiki_editor .controls {
   margin: 0;
