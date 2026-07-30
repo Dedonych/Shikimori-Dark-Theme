@@ -208,7 +208,9 @@ header.head .notice,
 .p-animes-show .c-info-right .watch-online .kind, /* Тайтл: Онлайн просмотр - названиие внизу (Шикимори, Remanga, ...). p-animes-show есть и на манге/ранобе */
 header.head :is(h1,h2) a.back:before, /* Стрелка "назад" (Профиль, настройки - слева сверху) */ 
 .b-coub .content .footer .info .description /* coub - Создано ... time */ 
-:is(.b-quote-v2,.b-quote) .quoteable:before /* значок цытаты в коментариях */
+:is(.b-quote-v2,.b-quote) .quoteable:before, /* значок цытаты в коментариях */
+.c-ms-title, /* Поиск тайтлов: название фильтров */
+.reco .reco-legend .reco-legend-item .reco-legend-text small /* Тирлист: мини-текст в подсказках */
 /* скобка */ {
   color: var(--txt-secondary);
 }
@@ -217,7 +219,10 @@ header.head :is(h1,h2) a.back:before, /* Стрелка "назад" (Профи
 .p-contests .match-day > .date :is(.from, .to),
 /* /forum/news/#id -  user "о" [animanga]. То самое "о" */
 .b-topic > .inner header .about > span,
-.l-top_menu-v2 .submenu > a /* Текст в выпадающем меню сверху */ {
+.l-top_menu-v2 .submenu > a, /* Текст в выпадающем меню сверху */ 
+.c-ms-placeholder, /* Поиск тайтлов: текст фильтра */
+.reco .reco-genres .reco-genres-head .reco-genres-hint /* Рекомендации: текст подсказки */
+/* скобка */ {
   color: var(--txt-primary);
 }
 
@@ -728,19 +733,16 @@ body[data-locale]
 }
 
 /* #catalog #title status */
-.b-catalog_entry:is(
-    .on_hold,
-    .planned,
-    .dropped,
-    .watching,
-    .rewatching,
-    .completed
-  )
-  .image-decor {
+:is(.b-catalog_entry, .tl-item):is(
+  .on_hold,
+  .planned,
+  .dropped,
+  .watching,
+  .rewatching,
+  .completed
+) {
   &:before {
-    display: none;
-    top: 0;
-    right: 0;
+    content: none;
   }
   &:after {
     background-color: var(--bckg-primary);
@@ -750,22 +752,29 @@ body[data-locale]
     right: 0;
     border-radius: 0 0 0 8px;
   }
-  .on_hold &:after {
+  /* с пробелом и без для поддержки в тирлистах... */
+  .on_hold &:after,
+  .on_hold&:after {
     color: darkorange;
   }
-  .planned &:after {
+  .planned &:after,
+  .planned&:after {
     color: lightgrey;
   }
-  .dropped &:after {
+  .dropped &:after,
+  .dropped&:after {
     color: lightcoral;
   }
-  .watching &:after {
+  .watching &:after,
+  .watching&:after {
     color: skyblue;
   }
-  .rewatching &:after {
+  .rewatching &:after,
+  .rewatching&:after {
     color: skyblue;
   }
-  .completed &:after {
+  .completed &:after,
+  .completed&:after {
     color: mediumseagreen;
   }
 }
@@ -1295,6 +1304,49 @@ header.head {
   ins {
     background: #467516 !important;
   }
+}
+/* #Поиск тайтлов: новые фильтры */
+select.c-filter-select,
+.c-ms-control {
+  background: var(--bckg-primary);
+  option {
+    background: var(--bckg-primary);
+  }
+}
+
+/* как в select выпадающее окно с select`ами */
+.c-ms-dropdown {
+  background-color: var(--bckg-primary);
+}
+/* оценка */
+.c-score-input {
+  background-color: var(--bckg-primary);
+}
+
+/* #Рекомендации */
+
+/* кнопки жанров */
+.reco .reco-genres .reco-chip {
+  background-color: var(--bckg-primary);
+  color: var(--txt-primary);
+}
+
+/* карточки: пустая "пока все" */
+.reco .reco-empty,
+.reco .reco-loading /* загрузка */ {
+  background: var(--bckg-primary);
+}
+
+/* доп. кнопки */
+.reco .reco-actions .reco-act, /* кнопки под карточкой */
+.reco .reco-legend .reco-legend-item /* подсказки ниже */ {
+  color: var(--txt-primary);
+  background-color: var(--bckg-primary);
+}
+
+/* #тирлист: круги со статусом просмотра */
+.tl-item.planned::before {
+  background-color: var(--bckg-primary);
 }
 
 /* news  */
