@@ -741,10 +741,12 @@ body[data-locale]
   .rewatching,
   .completed
 ) {
-  &:before {
+  &:before,
+  .image-decor::before {
     content: none;
   }
-  &:after {
+  &:after,
+  .image-decor:after {
     background-color: var(--bckg-primary);
     border: 2px solid currentColor;
     border-color: 0;
@@ -757,23 +759,23 @@ body[data-locale]
   .on_hold&:after {
     color: darkorange;
   }
-  .planned &:after,
+  &.planned .image-decor:after,
   .planned&:after {
     color: lightgrey;
   }
-  .dropped &:after,
+  &.dropped .image-decor:after,
   .dropped&:after {
     color: lightcoral;
   }
-  .watching &:after,
+  &.watching .image-decor:after,
   .watching&:after {
     color: skyblue;
   }
-  .rewatching &:after,
+  &.rewatching .image-decor:after,
   .rewatching&:after {
     color: skyblue;
   }
-  .completed &:after,
+  &.completed .image-decor:after,
   .completed&:after {
     color: mediumseagreen;
   }
