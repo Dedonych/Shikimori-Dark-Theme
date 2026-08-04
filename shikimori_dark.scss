@@ -755,7 +755,7 @@ body[data-locale]
     border-radius: 0 0 0 8px;
   }
   /* с пробелом и без для поддержки в тирлистах... */
-  .on_hold &:after,
+  &.on_hold .image-decor:after,
   .on_hold&:after {
     color: darkorange;
   }
