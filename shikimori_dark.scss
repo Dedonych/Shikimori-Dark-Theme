@@ -1316,7 +1316,6 @@ select.c-filter-select,
     background: var(--bckg-primary);
   }
 }
-
 /* как в select выпадающее окно с select`ами */
 .c-ms-dropdown {
   background-color: var(--bckg-primary);
@@ -1324,6 +1323,11 @@ select.c-filter-select,
 /* оценка */
 .c-score-input {
   background-color: var(--bckg-primary);
+}
+/* изменить текст под цвет фона */
+.c-ms-chip,
+.c-score-preset.is-on {
+  color: contrast-color(var(--link-color));
 }
 
 /* #Рекомендации */
@@ -1436,8 +1440,10 @@ select.c-filter-select,
     --txt-secondary-dark: #222;
 
     --dropdown: var(--bckg-dark);
-  }
-  body[data-server_time*="-04-01"] .l-top_menu-v2 .logo-container {
-    rotate: x 180deg;
+
+    --selection-bckg: #0001;
+    .l-top_menu-v2 .logo-container {
+      rotate: x 180deg;
+    }
   }
 }
